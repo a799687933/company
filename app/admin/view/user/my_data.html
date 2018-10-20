@@ -1,0 +1,283 @@
+
+<link rel="stylesheet" type="text/css" href="__STATIC__/css/mui.min.css"/>
+        <link rel="stylesheet" type="text/css" href="__STATIC__/css/own.css"/>
+        <link rel="stylesheet" type="text/css" href="__STATIC__/css/iconfont.css"/>
+<style type="text/css">
+.fr{
+    float: right;
+}
+.feedback .image-list {
+    width: 100%;
+    height: 85px;
+    background-size: cover;
+    padding: 10px 10px;
+    overflow: hidden;
+}
+.feedback .row {
+    width: 100%;
+    background-color: #fff;
+}
+.feedback .image-item.space {
+    border: none;
+}
+.feedback .image-item {
+    width: 65px;
+    height: 65px;
+    background-image: url(__STATIC__/images/iconfont-tianjia.png);
+    background-size: 100% 100%;
+    display: inline-block;
+    position: relative;
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border: solid 1px #e8e8e8;
+}
+.feedback .image-item input[type="file"] {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 0;
+}
+.feedback input, .feedback textarea {
+    border: none !important;
+}
+.feedback .image-item.space .image-close {
+    display: none;
+}
+.feedback .image-item .image-close {
+    position: absolute;
+    display: inline-block;
+    right: -6px;
+    top: -6px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 12px;
+    background-color: #FF5053;
+    color: #f3f3f3;
+    border: solid 1px #FF5053;
+    font-size: 9px;
+    font-weight: 200;
+    z-index: 1;
+}
+
+@media (max-width: 979px) and (min-width: 768px){
+    .row{  width: 98%; margin: 0 auto; }
+}
+@media (max-width: 979px){
+  .navbar-fixed-top{ margin-bottom:0; }
+}
+
+h3{ font-size: 20px; }
+
+.row{  width: 98%; margin: 20 auto; padding: 50px 0;  }
+header{ position: fixed; }
+
+.own-main-background-color {
+    background-color: #FBFBFB;
+    /* box-shadow: 0 0 0 0 #1F1F1F; */
+    /* border-bottom: 1px solid #EEEEEE; */
+}
+.mui-bar-nav {
+    top: 0px;
+    -webkit-box-shadow: 0 1px 6px #ccc;
+    box-shadow: 0 1px 6px #ccc;
+}
+.mui-bar {
+    border-top: 0px solid #eee;
+    position: fixed;
+    z-index: 10;
+    right: 0;
+    left: 0;
+    height: 44px;
+   /*  padding-right: 10px;
+   padding-left: 10px; */
+    border-bottom: 0;
+    background-color: #fff;
+    -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, .85);
+    box-shadow: 0 0 1px rgba(0, 0, 0, .85);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.mui-bar .mui-icon:active {
+    opacity: .3;
+}
+
+.mui-bar-nav.mui-bar .mui-icon {
+    margin-right: -10px;
+    margin-left: -10px;
+    padding-right: 10px;
+    padding-left: 10px;
+   
+}
+.mui-bar .mui-icon {
+    font-size: 24px;
+    position: relative;
+    z-index: 20;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+    text-decoration: none;
+
+}
+
+.mui-bar .mui-title {
+    right: 40px;
+    left: 40px;
+    display: inline-block;
+    overflow: hidden;
+    width: auto;
+    margin: 0;
+    text-overflow: ellipsis;
+    line-height: 50px;
+}
+
+.mui-title {
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 44px;
+    position: absolute;
+    display: block;
+    width: 100%;
+    margin: 0 -10px;
+    padding: 0;
+    text-align: center;
+    white-space: nowrap;
+    color: #000;
+}
+
+.mui-bar-nav~.mui-content{ padding-top: 0; }
+ .mui-control-content {
+                background-color: white;
+                min-height: 215px;
+            }
+            .mui-control-content .mui-loading {
+                margin-top: 50px;
+            }           
+
+</style>  
+
+<header class="mui-bar mui-bar-nav own-main-background-color" style="height: 50px">
+      <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" href="{:url('user/inde')}"></a>
+      <h1 class="mui-title">个人资料</h1>
+    </header>
+<div class="row">
+
+
+
+
+
+<div class="col-md-6">
+    
+    <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">我的信息</h3>
+        </div>
+
+ <div class="box-body no-padding">
+       <form id="form" name="form" method="post" >
+          <table class="table table-striped">
+            <tbody>
+                <tr>
+              <td>姓名</td>
+              <td><input id="name"  name="name" value="{$info['name']}" /></td>
+            </tr>
+            <tr>
+              <td>邮箱</td>
+              <td><input id="email"  name="email" value="{$info['email']}" /></td>
+            </tr>  
+            <tr>
+              <td>电话</td>
+              <td>
+                {if condition="$info.mobile"}
+                      {$info['mobile']}
+                      {else/}
+                <input id="mobile"  name="mobile" value="{$info['mobile']}" />
+                {/if}
+              </td>
+            </tr>
+          
+            <tr>
+              <td>身份证</td>
+              <td>
+            {if condition="$info.card"}
+                      {$info['card']}
+            {else/} <input id="card"  name="card" value="{$info['card']}" />
+                {/if}（只可修改一次） </td>
+            </tr>
+           <!--  <tr>
+              <td>身份证地址</td>
+              <td>
+         {$info['card_d']}（依据身份证自动生成）
+            </tr> -->
+            <tr>
+              <td>微信</td>
+              <td><input id="weixin"  name="weixin" value="{$info['weixin']}" /></td>
+            </tr>
+            <tr>
+              <td>qq</td>
+              <td><input id="qq"  name="qq" value="{$info['qq']}" /></td>
+            </tr>
+            <tr>
+              <td>银行卡</td>
+              <td><input id="bank"  name="bank" value="{$info['bank']}" /></td>
+            </tr>
+             <tr>
+              <td></td>
+              <td> <input value="修改" type="button" class="button small round blue" onclick="test10()"  /></td>
+            </tr>
+          </tbody>
+          </table>
+         
+
+          </form>
+        </div>
+
+       
+      </div>
+</div>
+  
+  </div>
+  <script type="text/javascript" charset="UTF-8">
+   function test10(){
+    var form = new FormData(document.getElementById("form"));
+            layer.open({
+            content: '确定操作？！',
+            btn: ['确认','取消'],
+            yes: function(index, layero) {          
+            $.ajax({
+                url:"{:url('info_edit')}",
+                type:"post",
+                data:form,
+                processData:false,
+                contentType:false,
+                dataType: "json",//预期服务器返回的类型
+                success:function(data){
+                        layer.open({
+                        content:data.msg,
+                        btn: ['确认'],
+                        yes: function(index, layero) {
+                            window.location.href="{:url('my_data')}";
+                        },
+                    });
+                },
+                error:function(e){
+                 // layer.open({
+                 //      content: data
+                 //      ,skin: 'msg'
+                 //      ,time: 2 //2秒后自动关闭
+                 //    });
+                }
+            });        
+        },
+        btn2: function(index, layero) {
+        }
+    });
+
+ }
+  </script>

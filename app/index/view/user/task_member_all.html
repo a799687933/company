@@ -1,0 +1,239 @@
+  <!DOCTYPE html>
+  <html>
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+  	<title>任务</title>
+     	<link rel="stylesheet" type="text/css" href="__STATIC__/css/mui.min.css"/>
+     	<link rel="stylesheet" type="text/css" href="__STATIC__/css/own.css"/>
+     	<link rel="stylesheet" type="text/css" href="__STATIC__/css/iconfont.css"/>
+      <script type="text/javascript" src="__STATIC__/js/mui.min.js"></script>
+      <script src="__STATIC__/js/jquery.hiSlider.min.js" charset="UTF-8"></script>
+      <script src="__STATIC__/js/clipboard.min.js" charset="UTF-8"></script>
+
+<style>
+.mui-table-view{padding:5px;}
+</style>
+  <body>
+  	<header class="mui-bar mui-bar-nav own-main-background-color">
+  		 <!-- <a class="mui-icon mui-pull-left" href="{:url('vip')}"><</a> -->
+       <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="line-height: 30px; color: white; text-decoration: none;"></a>
+  	<a href="{:url('user/task_member_record')}" class="mui-pull-right" style="color: #fff;font-size: 14px; height: 45px; line-height: 45px;">任务记录</a>
+  	</header>
+  	<div class="mui-content">
+
+          <form  method="post"  class="mui-input-group" style="background:none">
+  		<!-- 	href="{:url('user/task_member_detail',array('config'=>task))}" -->
+ <ul class="mui-table-view" id="detailcontent"> 
+                  <li class="mui-table-view-cell">
+                    <div style="float: left;"><img style="float: left;" style="" src="__STATIC__/images/loginbg1.png" height="25px" alt="">
+                    <div  style="float: right;line-height: 30px">任务一	<p><span>
+
+                </p></div></div>
+                <span class="fr"> 
+                {if condition="$today_submit[1] gt 0" }
+                  <a href="{:url('user/task_member_submit',array('config'=>task))}"> <input style="background:#707070;border:none;color: white;border-radius: 15px;" type="button" value="去提交任务"></a>
+             {else/}
+            <a href="#"> <input style="background:#707070;border:none;color: white;border-radius: 15px;" type="button" value="暂无可提交任务"></a>
+             {/if}
+                 </span>{$type_arr[$v.action_type]}
+                  
+                  </li>
+                 <li class="mui-table-view-cell">
+                  <div style="float: left;"><img style="float: left;" style="" src="__STATIC__/images/loginbg1.png" height="25px" alt="">
+                    <div  style="float: right;line-height: 30px">任务二 <p>
+                <span></span></p></div></div>
+                <span class="fr">
+               {if condition="$today_submit[2] gt 0" }
+                  <a href="{:url('user/task_member_submit',array('config'=>task2))}"> <input style="background:#707070;border:none;color: white;border-radius: 15px;" type="button" value="去提交任务"></a>
+             {else/}
+            <a href="#"> <input style="background:#707070;border:none;color: white;border-radius: 15px;" type="button" value="暂无可提交任务"></a>
+             {/if}
+                 </span>{$type_arr[$v.action_type]}
+                 
+                  </li>
+
+ </ul>
+        <!-- <div style="margin-top: 20px;">
+          <button type="submit" id="btn" class="mui-btn mui-btn-link own-btn-green mui-btn-block ajax-post" style="padding: 5px 0px;"  target-form="mui-input-group">领取任务</button></div> -->
+  		</form>
+
+     
+  	<div class="mui-content" id="biao1" cols="20">
+          <div class="mui-input-row">
+              <ul class="mui-table-view" id="detailcontent">
+                     {$task_specification}                         
+              </ul>
+          </div>
+          <div>
+       
+          </div>
+      </div>
+  </body>
+ <script>
+        var clipboard = new ClipboardJS('.bbtn');
+ 
+     clipboard.on('success', function(e) {
+         console.log(e);
+     });
+ 
+     clipboard.on('error', function(e) {
+       console.log(e);
+     });
+    </script>
+
+  <script type="text/javascript">
+          window.onload = function(){    
+              for(var i=1;i<=10;i++){
+              var oBox= document.getElementById('box'+i);
+              var futrue=document.getElementById("sk"+i).value;
+              // var futrue = new Date(document.getElementById('sk').value);
+              countdown();
+              setInterval(countdown,1000);
+              }
+   
+          function add(num){
+              if (num<10) {
+                  return '0' + num;
+              }
+              else{
+                  return num;
+              }
+          }
+
+          function countdown(){
+              var now = new Date();
+
+              var leftovoer = (futrue-now.getTime()/1000);
+              //var leftovoer = (futrue - now)/1000;
+              /* 剩余的天数 */
+              var day = parseInt(leftovoer/86400);
+
+              /* 剩余的小时 */
+              var hour = parseInt(leftovoer%86400/3600);
+
+              /* 剩余的分钟 */
+              var branch = parseInt(leftovoer%86400%3600/60);
+
+              /* 剩余的秒 */
+              var second = parseInt(leftovoer%60);
+
+              oBox.innerHTML = '倒计时：'+add(hour)+'时'+add(branch)+'分'+add(second)+'秒';
+              if (leftovoer<=0){
+                 oBox.innerHTML = '倒计时已经结束';
+                
+              }
+          }
+      }
+      </script>
+<script type="text/javascript" src="__STATIC__/js/mui.min.js"></script>
+<script type="text/javascript" src="__STATIC__/js/own.js"></script>
+<script type="text/javascript" src="__STATIC__/js/clipboard.min.js"></script>
+<script type="text/javascript" src="__STATIC__/js/flexible.js"></script>
+	<script type="text/javascript" charset="UTF-8">
+   function test12(){
+          
+            $.ajax({
+                url:"{:url('user/get_the_task',array('config'=>task))}",
+                type:"get",
+                processData:false,
+                contentType:false,
+                dataType: "json",//预期服务器返回的类型
+                success:function(data){
+                        layer.open({
+                        content: data.msg,
+                        btn: ['确认'],
+                        yes: function(index, layero) {
+                        parent.location.reload();
+                        	//layer.closeAll();
+                            window.location.href=data.url;
+                        },
+                        btn2: function(index, layero) {
+ 
+                        }
+                        ,
+                        cancel: function() {
+                            //右上角关闭回调
+                        }
+                    });
+                },
+                error:function(e){
+                    layer.open({
+                        content: '任务领取失败！',
+                        btn: ['确认'],
+                        yes: function(index, layero) {
+                        	layer.closeAll();
+                          //  window.location.href="{:url(admin/login/login)}";
+                        },
+                        btn2: function(index, layero) {
+ 
+                        }
+                        ,
+                        cancel: function() {
+                            //右上角关闭回调
+                        }
+                    });
+
+                }
+            });  
+
+             }
+       function test13(){
+          
+            $.ajax({
+                url:"{:url('user/get_the_task',array('config'=>task2))}",
+                type:"get",
+                processData:false,
+                contentType:false,
+                dataType: "json",//预期服务器返回的类型
+                success:function(data){
+                        layer.open({
+                        content: data.msg,
+                        btn: ['确认'],
+                        yes: function(index, layero) {
+                        parent.location.reload();
+                        	//layer.closeAll();
+                            window.location.href=data.url;
+                        },
+                        btn2: function(index, layero) {
+ 
+                        }
+                        ,
+                        cancel: function() {
+                            //右上角关闭回调
+                        }
+                    });
+                },
+                error:function(e){
+                    layer.open({
+                        content: '任务领取失败！',
+                        btn: ['确认'],
+                        yes: function(index, layero) {
+                        	layer.closeAll();
+                          //  window.location.href="{:url(admin/login/login)}";
+                        },
+                        btn2: function(index, layero) {
+ 
+                        }
+                        ,
+                        cancel: function() {
+                            //右上角关闭回调
+                        }
+                    });
+
+                }
+            });  
+
+             }
+  </script>
+<script>
+$(document).ready(function() {
+    var clipboard = new ClipboardJS('#d_clip_button');
+    clipboard.on('success', function(e) {
+        // layer.msg("复制成功", {icon: 1});
+        alert("复制成功");
+        e.clearSelection();
+    });
+});
+</script>
+  </html>

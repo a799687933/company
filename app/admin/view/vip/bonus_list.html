@@ -1,0 +1,81 @@
+
+<div class="box">
+    <div class="box-header ">
+        <div class="box-tools ">
+            <form action="{:url()}" method="get" class="form_single inline">
+                <div class="input-group input-group-sm search-form" style="width:720px;">
+                    <input name="username" class="pull-right search-input" value="{$Request.param.username}" placeholder="输入会员账号" type="text">
+   
+                    <input style="width:100px;margin-right:2px;" class="pull-right search-input date" name="date" type="text" value="{$Request.param.date}" />
+
+                    <span class="form-text">选择日期：</span>
+                    
+                    <div class="input-group-btn">
+                        <button type="submit" id="search" url="{:url()}" class="btn btn-default"><i class="fa fa-search"></i></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <br/>
+    </div>
+
+    <div class="box-body table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>结算日期</th>
+                {volist name='type_name' id='vo'}
+                    <th>{$vo.name}</th>
+                    {/volist}
+                    <th style="text-align:center;">明细</th>
+                </tr>
+            </thead>
+            {notempty name='list'}
+                <tbody>
+                    {volist name='list' id='vo' }
+                        <tr>
+                            <td>{$vo.date}</td>
+                            <td>{$vo.b1}</td>
+                            <td>{$vo.b2}</td>
+                            <td>{$vo.b3}</td>
+                            <td>{$vo.b4}</td>
+                            <td>{$vo.b5}</td>
+                            <td>{$vo.b6}</td>
+                            <td style="text-align:center;"><a href="{:url('bonusList2', ['times_id' => $vo['times_id'], 'username' =>100000])}">查看</a></td>
+                        </tr>
+                    {/volist}
+                    <tr>
+                        <td>总计</td>
+                        <td>{$sum.b1}</td>
+                        <td>{$sum.b2}</td>
+                        <td>{$sum.b3}</td>
+                        <td>{$sum.b4}</td>
+                        <td>{$sum.b5}</td>
+                        <td>{$sum.b6}</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+                {else/}
+                <tbody>
+                    <tr class="odd">
+                        <td colspan="8" class="text-center" valign="top">{:config('empty_list_describe')}</td>
+                    </tr>
+                </tbody>
+            {/notempty}
+        </table>
+    </div>
+    <div class="box-footer clearfix text-center">
+        {$list->render()}
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function(){
+        $('.date').datetimepicker({
+            format: 'yyyy-mm-dd',
+            language:"zh-CN",
+            minView:2,
+            autoclose:true
+        });
+    });
+</script>

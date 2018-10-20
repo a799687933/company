@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title>我的订单</title>
+   	<link rel="stylesheet" type="text/css" href="__STATIC__/css/mui.min.css"/>
+   	<link rel="stylesheet" type="text/css" href="__STATIC__/css/own.css"/>
+   	<link rel="stylesheet" type="text/css" href="__STATIC__/css/iconfont.css"/>
+	<link rel="stylesheet" type="text/css" href="__STATIC__/css/cart.css" />
+
+		<style>
+			.mui-control-content {
+				background-color: white;
+				min-height: 215px;
+			}
+			.mui-control-content .mui-loading {
+				margin-top: 50px;
+			}
+			.mui-table-view::before {
+				background-color: #fff;
+			}
+			.mui-table-view::after {
+				background-color: #f0f0f0;
+			}
+			.goods-cate a{ width:20%; display:block; float: left; height:40px; line-height:40px;background-color: #fff; color:#333;text-align: center;font-size: 14px;}
+			.goods-cate .active{background-color: #FF2D4B;color:#fff;}
+		 .goods-checkbox{ margin-top: 20px;background-image: url(__STATIC__/images/select_off.png); background-repeat: no-repeat; background-size: contain; width: 18px; height: 18px;}
+
+     .mui-media-body{ float: left; width: 100%;}
+        
+            .admin-list-img-size{ float: left; width: 60px; height: 60px; max-height: 60px; margin:0 10px; }
+            .goods-checkbox{ margin-top: 20px;background-image: url(__STATIC__/images/select_off.png); background-repeat: no-repeat; background-size: contain; width: 18px; height: 18px;}
+            .main-footer{ display: none }
+            label{ display: block; }
+            .zflx{ line-height: 26px; color: #333; font-size: 16px}
+            .zflx input{ margin:0 5px }
+
+      .mui-table-view{ margin-left: 0 }
+/*       @media (max-width: 979px){
+.navbar-fixed-top {
+    margin-bottom: 0px;
+} */
+      }
+
+
+
+		</style>
+
+        <style type="text/css">
+@media (max-width: 979px) and (min-width: 768px){
+    .row{  width: 98%; margin: 0 auto; }
+}
+@media (max-width: 979px){
+  .navbar-fixed-top{ margin-bottom:0; }
+}
+
+h3{ font-size: 20px; }
+
+.row{  width: 98%; margin: 0 auto; }
+header{ position: fixed; }
+
+.own-main-background-color {
+    background-color: #FBFBFB;
+    /* box-shadow: 0 0 0 0 #1F1F1F; */
+    /* border-bottom: 1px solid #EEEEEE; */
+}
+.mui-bar-nav {
+    top: 0px;
+    -webkit-box-shadow: 0 1px 6px #ccc;
+    box-shadow: 0 1px 6px #ccc;
+}
+.mui-bar {
+    border-top: 0px solid #eee;
+    position: fixed;
+    z-index: 10;
+    right: 0;
+    left: 0;
+    height: 44px;
+    /* padding-right: 10px;
+    padding-left: 10px; */
+    border-bottom: 0;
+    background-color: #fff;
+    -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, .85);
+    box-shadow: 0 0 1px rgba(0, 0, 0, .85);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.mui-bar .mui-icon:active {
+    opacity: .3;
+}
+
+.mui-bar-nav.mui-bar .mui-icon {
+    margin-right: -10px;
+    margin-left: -10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    line-height: 50px;
+}
+.mui-bar .mui-icon {
+    font-size: 24px;
+    position: relative;
+    z-index: 20;
+    padding-top: 10px;
+    padding-bottom: 10px;
+   
+    text-decoration: none;
+
+}
+
+.mui-bar .mui-title {
+    right: 40px;
+    left: 40px;
+    display: inline-block;
+    overflow: hidden;
+    width: auto;
+    margin: 0;
+    text-overflow: ellipsis;
+    line-height: 50px;
+}
+
+.mui-title {
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 44px;
+    position: absolute;
+    display: block;
+    width: 100%;
+    margin: 0 -10px;
+    padding: 0;
+    text-align: center;
+    white-space: nowrap;
+    color: #000;
+}
+
+
+
+</style>
+	
+</head>
+<body>
+<!-- <header class="mui-bar mui-bar-nav own-main-background-color" style="height: 50px">
+      <a class="mui-icon mui-icon-left-nav mui-pull-left" href="{:url('user/index')}"><</a>
+      <h1 class="mui-title">购物车</h1>
+    </header> -->
+	<!-- <header class="mui-bar mui-bar-nav own-main-background-color">
+		<a class="mui-icon mui-icon-left-nav mui-pull-left" href="{:url('user/index')}"></a>
+		<h1 class="mui-title">我的订单</h1>
+	</header> -->
+<header class="mui-bar mui-bar-nav own-main-background-color" style="height: 50px">
+      <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="line-height: 30px; color: white; text-decoration: none;"></a>
+      <h1 class="mui-title">我的订单</h1>
+</header>
+		<div class="mui-content">
+	
+			
+			<div style='height: 15px;'></div>
+			{empty name="lists"}
+          <div style="margin-top:50px;text-align:center;color:#999;font-size:18px"><img src="__STATIC__/images/no_cart.png">
+        <div class="mui-row">
+            <div class="mui-media mui-col-xs-12">
+                <button class='go-goods'>
+            <a href="{:url('index/index/index')}">去挑选商品</a>
+          </button>
+        </div>
+        </div>
+        </div>
+          {else /}
+ <form id="tf"  >
+		{volist name="lists" id="list" }
+       <div class="mui-row">
+                  <ul class="mui-table-view">
+                    <li class="mui-table-view-cell mui-media">
+                      <div class="mui-media-body mui-navigate-right" id="address">
+                        {empty name="ordersAddressInfo"}
+                        <a class="mui-ellipsis address-name" style='padding:10px 0; display: block;' href='{:url('selectaddress')}'>点我新增收货地址</a>
+                        {else /}
+                        <a class="mui-ellipsis address-name" style='float:left;padding-right: 20px;' href='{:url('selectaddress')}'>{$ordersAddressInfo['consignee_name']} <font class=''>{$ordersAddressInfo['mobile']}</font></a>
+                        <p class="mui-ellipsis address-detail">{$ordersAddressInfo['province']} {$ordersAddressInfo['city']} {$ordersAddressInfo['county']} {$ordersAddressInfo['address']}</p>
+                        <input id="address_id" name="address_id" value="{$ordersAddressInfo['id']}" type="checkbox" hidden="hidden" >
+                        {/empty}
+                      </div>
+                    </li>
+                  </ul>
+                  </div>
+
+
+                
+
+			<ul class="mui-table-view">
+                
+				<li class="mui-table-view-cell mui-media">
+					<div class="mui-media-body">
+                <label style="line-height: 60px;">
+         
+
+					<div class='goods-checkbox' >
+            <input name="ids[]" class="ids" data-num="{$list.goods_num}" data-price="{$list.goods_price}" type="checkbox" value="{$list.id}" onclick="total();" style="opacity:0;">
+                </div>
+                 <img class="admin-list-img-size" src="{$list.cover_id|get_picture_url}"/>  X {$list['goods_num']}
+
+                </label>
+                 <input value="删除选中商品" type="button" class="button small round red" onclick='del()' style=" margin: 15px 0;float: right" /><br><br>
+                <!--  <p style="line-height: 34px;">选择地址↓
+                   <a href="{:url('index/user/my_data_d')}">（点我编辑地址）</a><br><select style="width: calc(100% - 80px); border: 1px solid #ddd !important; vertical-align: top; padding: 5px;" name="address">
+          {volist name="info.address_d" id="vo"}
+           <option  name="address" value="{$vo}">{$vo}</option>{/volist}
+         </select></p>
+                 <p>姓名：{$info.username}</p> -->
+                    <input type='hidden' name="name" value="{$ordersAddressInfo['consignee_name']}"/>
+                  <input type='hidden' name="mobile" value="{$ordersAddressInfo['mobile']}"/>
+                   <input type='hidden' name="address" value="{$ordersAddressInfo['province']} {$ordersAddressInfo['city']} {$ordersAddressInfo['county']} {$ordersAddressInfo['address']}"/>
+                 <p>价格：{$list['price']}￥</p>
+             
+			    <!--  <p class="mui-ellipsis goods-name"><a  href='{:url('orderlist/detail',['orderid'=>$list['id']])}'></a>
+	                      状态： 等待支付
+                        </p> -->
+					
+						
+					</div>
+				</li>
+     
+			</ul>
+		
+			
+			
+		{/volist}
+		<div class="page"></div>
+		
+		</div>
+		<nav class="mui-bar mui-bar-tab" style="bottom: 48px">
+
+            <div class="mui-row">
+
+                <div class="mui-media mui-col-xs-9 sum-money-box" style="font-size: 14px;">
+              <input type="hidden" name='pay_type'>
+                        <div class='sum-money tag'>
+                         合计：<i><span  class="goods-price" id="total">￥0.00</span></i>
+                         <input type="hidden" name="goods_price" id="to" >
+                        </div>
+                </div>
+                <div class="mui-media mui-col-xs-3">
+              <input value="提交订单"  class='go-buy-box' type="botton" onclick="test7()"  >
+            </div> 
+             </form>
+        </nav>
+        {/empty}
+<script src="__STATIC__/js/mui.min.js"></script>
+<script src="__STATIC__/js/jquery.min.js"></script>		
+		<!-- 底部 -->
+<div style='height: 50px;'></div>
+
+<script type="text/javascript">
+//单个删除
+function del(){
+var form = new FormData(document.getElementById("tf"));
+            $.ajax({
+                url:"{:url('car_delete')}",
+                type:"post",
+                data:form,
+                processData:false,
+                contentType:false,
+                dataType: "json",//预期服务器返回的类型
+                success:function(data){
+                  layer.open({
+                        content: '删除成功！',
+                        btn: ['确认'],
+                        yes: function(index, layero) {
+                            window.location.href="{:url('car_list')}";
+                        },
+                        btn2: function(index, layero) {
+ 
+                        }
+                        ,
+                        cancel: function() {
+                            //右上角关闭回调
+                        }
+                    });
+                },
+                error:function(e){
+                   
+               layer.open({
+                      content: '删除失败'
+                      ,skin: 'msg'
+                      ,time: 2 //2秒后自动关闭
+                    });
+                }
+            });     
+}
+
+   function test7(){
+            var form = new FormData(document.getElementById("tf"));
+            $.ajax({
+                url:"{:url('order_add')}",
+                type:"post",
+                data:form,
+                processData:false,
+                contentType:false,
+                dataType: "json",//预期服务器返回的类型
+                success:function(data){
+                  layer.open({
+                        content: data.msg,
+                        btn: ['确认'],
+                        yes: function(index, layero) {
+                            window.location.href=data.url;
+                        },
+                        btn2: function(index, layero) {
+ 
+                        }
+                        ,
+                        cancel: function() {
+                            //右上角关闭回调
+                        }
+                    });
+                },
+                error:function(e){
+                 layer.open({
+                      content: data
+                      ,skin: 'msg'
+                      ,time: 2 //2秒后自动关闭
+                    });
+                }
+            });        
+             }
+</script>
+  <script>
+    function total(argument) {
+        var money = 0;
+        $('.ids').each(function () {
+            if ($(this).prop('checked')) {
+                money += $(this).data('num') * $(this).data('price');
+                $(this).parent('.goods-checkbox').css('background-image','url(__STATIC__/images/select_on.png)');
+            }else{
+                $(this).parent('.goods-checkbox').css('background-image','url(__STATIC__/images/select_off.png)');
+            }
+        });
+        $('#total').text('￥' + money);
+       $('#to').val(money);
+    }
+    
+</script>
+
+	</body>
+</html>

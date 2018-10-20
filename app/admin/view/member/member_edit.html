@@ -1,0 +1,134 @@
+<form action="{:url()}" method="post" class="form_single">
+    <div class="box">
+      <div class="box-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>用户名</label>
+              <span>（用户名，主要用于登录）</span>
+              <input class="form-control" name="username" placeholder="请输入用户名" value="{$info['username']}" type="text">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>昵称</label>
+              <span>（会员昵称，主要用于显示）</span>
+              <input class="form-control" name="nickname" placeholder="请输入昵称" value="{$info['nickname']}" type="text">
+            </div>
+          </div>
+
+       <div class="col-md-6">
+            <div class="form-group">
+              <label>姓名</label>
+              <span></span>
+              <input class="form-control" name="name" placeholder="请输入姓名" value="{$info['name']}" type="text">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>邮箱</label>
+              <span>（用户邮箱，用于找回密码等安全操作）</span>
+              <input class="form-control" name="email" placeholder="请输入邮箱" value="{$info['email']}" type="text">
+            </div>
+          </div>
+ 
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>手机</label>
+              <span>（手机号码，用于找回密码等安全操作）</span>
+              <input class="form-control" name="mobile" placeholder="请输入手机号码" value="{$info['mobile']}" type="text">
+            </div>
+          </div>
+         <div class="col-md-6">
+            <div class="form-group">
+              <label>登陆密码</label>
+              <span></span>
+              <input class="form-control" name="password" placeholder="请输入登陆密码" value="" type="text">
+            </div>
+          </div>
+       <div class="col-md-6">
+            <div class="form-group">
+              <label>安全密码</label>
+              <span></span>
+              <input class="form-control" name="password2" placeholder="请输入安全密码" value="{$info['password2']}" type="text">
+            </div>
+          </div>
+      <div class="col-md-6">
+            <div class="form-group">
+              <label>身份证</label>
+              <span></span>
+              <input class="form-control" name="card" placeholder="请输入身份证" value="{$info['card']}" type="text">
+            </div>
+          </div>
+
+       <div class="col-md-6">
+            <div class="form-group">
+              <label>现金币钱包</label>
+              <span></span>
+              <input class="form-control" name="b0" placeholder="请输入可提现金额" value="{$info['b0']}" type="text">
+            </div>
+          </div>
+
+<div class="col-md-6">
+            <div class="form-group">
+              <label>积分钱包</label>
+              <span></span>
+              <input class="form-control" name="b1" placeholder="" value="{$info['b1']}" type="text">
+            </div>
+          </div>
+
+
+<!-- 
+<div class="col-md-6">
+            <div class="form-group">
+              <label>销售奖励</label>
+              <span></span>
+              <input class="form-control" name="b2" placeholder="" value="{$info['b2']}" type="text">
+            </div>
+          </div> -->
+
+
+<!-- 
+<div class="col-md-6">
+            <div class="form-group">
+              <label>业绩奖励</label>
+              <span></span>
+              <input class="form-control" name="b3" placeholder="" value="{$info['b3']}" type="text">
+            </div>
+          </div>
+
+
+
+<div class="col-md-6">
+            <div class="form-group">
+              <label>消费钱包</label>
+              <span></span>
+              <input class="form-control" name="b4" placeholder="" value="{$info['b4']}" type="text">
+            </div>
+          </div>
+
+<div class="col-md-6">
+            <div class="form-group">
+              <label>易股券</label>
+              <span></span>
+              <input class="form-control" name="b5" placeholder="" value="{$info['b5']}" type="text">
+            </div>
+          </div>
+ -->
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="box-footer">
+        
+        <input type="hidden" name="id" value="{$info['id']|default='0'}"/>
+          
+        {include file="layout/edit_btn_group"/}
+        
+      </div>
+    </div>
+</form>

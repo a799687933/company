@@ -1,0 +1,51 @@
+
+<div class="box">
+    <div class="box-header ">
+        <div class="box-tools ">
+            
+
+        </div>
+        <br/>
+    </div>
+
+    <div class="box-body table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>会员账号</th>
+                    <th>触发会员</th>
+                    <th>钱包类型</th>
+                    <th>奖金类型</th>
+                    <th>金额</th>
+               
+                    <th>时间</th>
+                  
+                </tr>
+            </thead>
+            {notempty name='list'}
+                <tbody>
+                    {volist name='list' id='vo'}
+                        <tr>
+                            <td>{$vo.user_id}</td>
+                            <td>{$vo.user_did}</td>
+                            <td>{$cash[$vo.action_type]}</td>
+                            <td>{$type_arr[$vo.action_type]}</td>
+                            <td>{$vo.epoints}</td>
+                            <td>{$vo.pdt|date='Y-m-d H:i:s',###}</td>
+                           
+                        </tr>
+                    {/volist}
+                </tbody>
+                {else/}
+                <tbody>
+                    <tr class="odd">
+                        <td colspan="8" class="text-center" valign="top">{:config('empty_list_describe')}</td>
+                    </tr>
+                </tbody>
+            {/notempty}
+        </table>
+    </div>
+    <div class="box-footer clearfix text-center">
+        {$list->render()}
+    </div>
+</div>

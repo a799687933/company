@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="__STATIC__/widget/admin/editor/kindeditor/default/default.css" />
+<script type="text/javascript">
+
+    $(function(){
+        
+    var editor_{$widget_data.name};
+        editor_{$widget_data.name} = KindEditor.create('textarea[name="{$widget_data.name}"]', {
+                allowFileManager : false,
+                themesPath: KindEditor.basePath,
+                width: '100%',
+                height: '{$widget_config.editor_height}',
+                resizeType: {eq name="widget_config.editor_resize_type" value="1"}1 {else /} 0 {/eq},
+                pasteType : 2,
+                urlType : 'absolute',
+                fileManagerJson : '{:url('fileManagerJson')}',
+                uploadJson : "{:url('file/editorPictureUpload')}",
+                items : [
+                'source', '|', 'undo', 'redo', '|', 'preview', 'print', 'template', 'code', 'cut', 'copy', 'paste',
+        'plainpaste', 'wordpaste', '|', 'justifyleft', 'justifycenter', 'justifyright',
+        'justifyfull', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', 'subscript',
+        'superscript', 'clearhtml', 'quickformat', 'selectall', '|', 'fullscreen', '/',
+        'formatblock', 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold',
+        'italic', 'underline', 'strikethrough', 'lineheight', 'removeformat', '|', 'image', 'multiimage',
+        'flash', 'media', 'insertfile', 'table', 'hr', 'emoticons', 'baidumap', 'pagebreak',
+        'anchor', 'link', 'unlink', '|', 'about'
+                ],
+                extraFileUploadParams: { session_id : '{:session_id()}'}
+            });
+        
+        //ajax提交之前同步
+        $('button[type="submit"],#submit,.ajax-post,#autoSave').click(function(){
+                editor_{$widget_data.name}.sync();
+        });
+    });
+</script>

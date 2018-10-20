@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>联系客服</title>
+	   	<link rel="stylesheet" type="text/css" href="__STATIC__/css/mui.min.css"/>
+	   	<link rel="stylesheet" type="text/css" href="__STATIC__/css/own.css"/>
+	   	<link rel="stylesheet" type="text/css" href="__STATIC__/css/iconfont.css"/>
+	</head>
+	<body>
+<style type="text/css">
+.fr{
+	float: right;
+}
+.feedback .image-list {
+    width: 100%;
+    height: 85px;
+    background-size: cover;
+    padding: 10px 10px;
+    overflow: hidden;
+}
+.feedback .row {
+    width: 100%;
+    background-color: #fff;
+}
+.feedback .image-item.space {
+    border: none;
+}
+.feedback .image-item {
+    width: 65px;
+    height: 65px;
+    background-image: url(__STATIC__/images/iconfont-tianjia.png);
+    background-size: 100% 100%;
+    display: inline-block;
+    position: relative;
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border: solid 1px #e8e8e8;
+}
+.feedback .image-item input[type="file"] {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 0;
+}
+.feedback input, .feedback textarea {
+    border: none !important;
+}
+.feedback .image-item.space .image-close {
+    display: none;
+}
+.feedback .image-item .image-close {
+    position: absolute;
+    display: inline-block;
+    right: -6px;
+    top: -6px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 12px;
+    background-color: #FF5053;
+    color: #f3f3f3;
+    border: solid 1px #FF5053;
+    font-size: 9px;
+    font-weight: 200;
+    z-index: 1;
+}
+
+</style>
+ <style type="text/css">
+@media (max-width: 979px) and (min-width: 768px){
+    .row{  width: 98%; margin: 0 auto; }
+}
+@media (max-width: 979px){
+  .navbar-fixed-top{ margin-bottom:0; }
+}
+
+h3{ font-size: 20px; }
+
+.row{  width: 98%; margin: 0 auto; }
+header{ position: fixed; }
+
+.own-main-background-color {
+    background-color: #FBFBFB;
+    /* box-shadow: 0 0 0 0 #1F1F1F; */
+    /* border-bottom: 1px solid #EEEEEE; */
+}
+.mui-bar-nav {
+    top: 0px;
+    -webkit-box-shadow: 0 1px 6px #ccc;
+    box-shadow: 0 1px 6px #ccc;
+}
+.mui-bar {
+    border-top: 0px solid #eee;
+    position: fixed;
+    z-index: 10;
+    right: 0;
+    left: 0;
+    height: 44px;
+   /*  padding-right: 10px;
+   padding-left: 10px; */
+    border-bottom: 0;
+    background-color: #fff;
+    -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, .85);
+    box-shadow: 0 0 1px rgba(0, 0, 0, .85);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.mui-bar .mui-icon:active {
+    opacity: .3;
+}
+
+.mui-bar-nav.mui-bar .mui-icon {
+    margin-right: -10px;
+    margin-left: -10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    line-height: 50px;
+}
+.mui-bar .mui-icon {
+    font-size: 24px;
+    position: relative;
+    z-index: 20;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+    text-decoration: none;
+
+}
+
+.mui-bar .mui-title {
+    right: 40px;
+    left: 40px;
+    display: inline-block;
+    overflow: hidden;
+    width: auto;
+    margin: 0;
+    text-overflow: ellipsis;
+    line-height: 50px;
+}
+
+.mui-title {
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 44px;
+    position: absolute;
+    display: block;
+    width: 100%;
+    margin: 0 -10px;
+    padding: 0;
+    text-align: center;
+    white-space: nowrap;
+    color: #000;
+}
+
+.mui-bar-nav~.mui-content{ padding-top: 0; }
+
+
+</style>
+<body>
+	<header class="mui-bar mui-bar-nav own-main-background-color" style="height: 50px; padding:0">
+		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="padding-top: 0; padding-bottom: 0; padding:0 20px; line-height: 50px; font-size: 20px;color: #666; text-decoration: none;"></a>
+		<h1 class="mui-title">联系客服</h1>
+	</header>
+
+
+		<style>
+			.mui-control-content {
+				background-color: white;
+				min-height: 215px;
+			}
+			.mui-control-content .mui-loading {
+				margin-top: 50px;
+			}			
+		</style>
+
+		<div class="mui-content">
+
+
+			<div class="mui-pages">
+				<div id="feedback" class="mui-page feedback mui-page-center" style="">
+			
+			<div class="mui-page-content">
+				<!-- <p>问题和意见</p> -->
+				<div class="row mui-input-row">
+					<textarea id="question" class="mui-input-clear question" placeholder="请详细描述你的问题和意见"></textarea>
+				</div>
+				<!-- <p>图片(选填,提供问题截图)</p>
+				<div id="image-list" class="row image-list">
+				<div class="image-item space"><div class="image-close">X</div><input accept="image/*" id="image-1" type="file"></div></div> -->
+				<div class="mui-button-row" style="margin: 10px 15px;">
+					<button type="button" id="btn" class="mui-btn mui-btn-link own-btn-green mui-btn-block" style="padding: 5px 0px;">提交</button>
+				</div>
+			</div>
+		</div></div>
+
+
+		</div>
+		<script type="text/javascript" src="__STATIC__/js/mui.min.js"></script>
+		<script type="text/javascript" src="__STATIC__/js/feedback-page.js" ></script>
+
+		<script>
+		var btn = document.getElementById('btn');
+		var question = document.getElementById('question');
+
+		//表单数据
+		btn.addEventListener('tap',function(){
+			if (question.value.length < 1) {
+				mui.toast('请输入你的问题和意见');
+                question.focus();
+				return;
+			}
+			if (question.value.length > 200) {
+				mui.toast('字数在200字以内');
+                question.focus();
+				return;
+			}			
+
+			var fdata = {
+				"content":question.value
+			}
+
+			mui.ajax("{:url('user/server')}",{
+		        data:fdata,  
+		        dataType:'json',  
+		        type:'post',  
+		        timeout:10000,  
+				success:function(res){
+					console.log(res);
+					if(res.code == "1") {
+						mui.alert("感谢您的提交", "提示", function(){
+                    		window.history.back(-1);
+                		});
+					}else{
+						mui.alert(res.msg, "提示", "关闭");
+						return;
+					}
+				}, 
+		        error:function(){  
+		            mui.alert("网络超时", "错误", "关闭", null);  
+		        }  
+		    });
+
+			// form1.submit();
+
+		},false);
+		</script>
+	</body>
+</html>

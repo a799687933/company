@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>{:config('web_site_title')}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+	   	<link rel="stylesheet" type="text/css" href="__STATIC__/css/mui.min.css"/>
+	   	<link rel="stylesheet" type="text/css" href="__STATIC__/css/own.css"/>
+	   	<link rel="stylesheet" type="text/css" href="__STATIC__/css/iconfont.css"/>
+		<link rel="stylesheet" type="text/css" href="__STATIC__/css/cart.css" />
+	</head>
+
+	<body>
+		<style>
+			.mui-control-content {
+				background-color: white;
+				min-height: 215px;
+			}
+			.mui-control-content .mui-loading {
+				margin-top: 50px;
+			}			
+		</style>
+		<header class="mui-bar mui-bar-nav own-main-background-color">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<a class="mui-pull-right mui-txt" href="{:url('addAddress')}">新增</a>
+			<h1 class="mui-title">选择收货地址</h1>
+		</header>
+		<div class="mui-content">
+			<ul class="mui-table-view">
+				{volist name='ordersAddressLists' id='data'}
+				<li class="mui-table-view-cell mui-media">
+					<div class='goods-checkbox' style='margin-right: 10px;'>
+						{eq name="data.default" value="1"}
+							<img class='select select_on' id='{$data.id}' src='__STATIC__/images/select_on.png' style='height:12px; margin-top:15px;' class="mui-pull-left">
+						{else /}
+							<img class='select' id='{$data.id}' src='__STATIC__/images/select_off.png' style='height:12px; margin-top:15px;' class="mui-pull-left">
+						{/eq}
+					</div>
+					<div class="mui-media-body">
+						<p class="mui-ellipsis address-name"><a style='float:left;' href='#'>{$data.consignee_name}</a> <a class='mobile'>{$data.mobile}</a></p>
+						<p class="mui-ellipsis address-detail">{$data.address}</p>
+					</div>
+				</li>
+				<div class='goods-border'></div>
+				{/volist}
+			</ul>
+			<div style='height: 10px;'></div>
+		</div>
+		<!-- 底部 -->
+		<div style='height: 50px;'></div>
+		<nav class="mui-bar mui-bar-tab" style="bottom:50px;">
+		    <div class="mui-row">
+		        <div class="mui-media mui-col-xs-12">
+		            <a class='go-buy-box'>
+						下一步
+					</a>
+				</div>
+		    </div>
+		</nav>
+		<!-- 底部结束 -->
+		<script src="__STATIC__/js/mui.js"></script>
+		<script src="__STATIC__/js/jquery.min.js"></script>
+		<script type="text/javascript">
+		$('document').ready(function(){
+			$('.goods-checkbox').click(function(){
+				$('.select').attr('src','__STATIC__/images/select_off.png');
+				$(this).find('.select').attr('src','__STATIC__/images/select_on.png');
+				$('.select').removeClass('select_on');
+				$(this).find('.select').addClass('select_on');
+			});
+
+			$('.go-buy-box').click(function(){
+				address_id = $('.select_on').attr('id');
+				if(!address_id){
+					address_id=$('.select').eq(0).attr('id');
+				}
+				if(address_id){
+					location.href = '{:url('car_list')}?address_id='+address_id;
+				}else{
+					mui.toast('请选择收货地址');
+				}
+			})
+		})
+		</script>
+	</body>
+
+</html>

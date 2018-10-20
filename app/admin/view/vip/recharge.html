@@ -1,0 +1,101 @@
+
+<div class="box">
+    <div class="box-header ">
+        <div class="box-tools ">
+
+            <form action="{:url('recharge')}" method="post" class="form_single inline">
+                <div class="input-group input-group pull-left">
+                    <select name="type" class="form-control inline" style="width:135px;margin-right:2px;">
+                        <option value="1">本息钱包</option>
+                        <option value="2">动态钱包</option>
+                        <option value="3">团队业绩</option>
+                    </select>
+
+                    <input style="width:100px;margin-right:2px;" class="form-control pull-left" name="username2" type="text" placeholder="会员账号" onblur="check_realname($(this).val());"/>
+
+                    <input style="width:100px;margin-right:2px;" class="form-control pull-left" name="money" type="text" placeholder="金额"/>
+                    
+                    <button  type="submit" class="btn ladda-button ajax-post pull-left" data-style="slide-up" target-form="form_single">
+                        <span class="ladda-label"><i class="fa fa-send"></i> 确定充值</span>
+                    </button>
+
+                </div>
+            </form>
+
+            <form action="{:url('recharge')}" method="get" class="form_single inline pull-right">
+                <div class="input-group input-group-sm search-form" style="width:550px;">
+                    <input name="username" class="pull-right search-input" value="{$Request.param.username}" placeholder="输入会员账号" type="text">
+   
+                    <input style="width:100px;margin-right:2px;" class="pull-right search-input date" name="end" type="text" id="end" value="{$Request.param.end}" />
+
+                    <span class="form-text">~&nbsp;</span>
+
+                    <input style="width:100px;margin-right:2px;" class="pull-right search-input date" name="start" type="text" id="start" value="{$Request.param.start}" />
+
+                    <span class="form-text">起始日期：</span>
+                    
+                    <div class="input-group-btn">
+                        <button type="submit" id="search" url="{:url('recharge')}" class="btn btn-default"><i class="fa fa-search"></i></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <br/>
+    </div>
+
+    <div class="box-body table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>会员账号</th>
+                    <th>钱包类型</th>
+                    <th>充值金额</th>
+                    <th>充值后余额</th>
+                    <th>充值时间</th>
+                </tr>
+            </thead>
+            <notempty name='list'>
+                <tbody>
+                    <volist name='list' id='vo'>
+                        <tr>
+                            <td>{$vo.username}</td>
+                            <td>{$vo.type_text}</td>
+                            <td>{$vo.money}</td>
+                            <td>{$vo.change_after}</td>
+                            <td>{$vo.create_time}</td>
+                        </tr>
+                    </volist>
+                </tbody>
+                <else/>
+                <tbody>
+                    <tr class="odd">
+                        <td colspan="8" class="text-center" valign="top">{:config('empty_list_describe')}</td>
+                    </tr>
+                </tbody>
+            </notempty>
+        </table>
+    </div>
+    <div class="box-footer clearfix text-center">
+      
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function(){
+        $('.date').datetimepicker({
+            format: 'yyyy-mm-dd',
+            language:"zh-CN",
+            minView:2,
+            autoclose:true
+        });
+    });
+
+    function check_realname(username) {
+        $.post("{:url('checkRealname')}", {username: username}, function(data) {
+            if (data.code == 1) {
+                data.jump = false;
+            }
+            obalert(data);
+        });
+    }
+</script>

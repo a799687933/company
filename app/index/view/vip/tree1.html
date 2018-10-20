@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title>我的团队</title>
+   	<link rel="stylesheet" type="text/css" href="__STATIC__/css/mui.min.css"/>
+   	<link rel="stylesheet" type="text/css" href="__STATIC__/css/own.css"/>
+   	<link rel="stylesheet" type="text/css" href="__STATIC__/css/iconfont.css"/>
+<load href="__ROOT__/static/module/admin/js/tree.js" />
+<body>
+	<header class="mui-bar mui-bar-nav own-main-background-color" style=" height: 50px;">
+      <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="line-height: 30px; color: #333; text-decoration: none;"></a>
+      <h1 class="mui-title" style="line-height: 50px;">我的团队</h1>
+    </header>
+
+	<div class="mui-content">
+     <style>
+  .ncenter_box{padding:0px}
+  .treep2{display:none;}
+  .sub_bav td {
+    border: 0px solid #D0D0D0 !important;
+    border-collapse: collapse;
+    padding: 2px;
+  }
+  table{ border:0px !important; padding:0px !important;}
+  td{ border:0px !important; padding:0px !important;}
+  /*p,div{ line-height:0px !important;}*/
+</style>
+
+
+
+<div id="main" style="height:600px;">
+
+
+
+
+<div class="ncenter_box">
+
+  <div style="height: 30px;"></div>
+
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <form method='post' action="{:url(TreeAjax)}">
+    <!--   <tr>
+        <td height="30" style="width:100%;" colspan="2"><span>&nbsp;&nbsp;&nbsp;&nbsp;会员编号/级别编号：<input type="text" name="UserID" title="帐号查询" style="background: #3A4C58;height:30px;border-radius: 2px;text-indent: 10px"  value='{$UserID}'></span></td>
+        <td><input style="margin-left: 10px;margin-top: 8px;" type="submit" name="Submit" value="查询" class="btn1"/> </td>
+      </tr> -->
+
+      <tr height="30">
+        <td><span style="padding-left:15px;font-size:14px;">  团队总人数：{$all_nn} 人</span></td>
+      </tr>
+
+   
+    </form>
+    <tr style="height:40px">
+      <td>{$myStr}</td>
+    </tr>
+  </table>
+  <table width="100%" border="0" cellspacing="0" cellpadding="0" id="{$myTabN}">
+    <tr>
+      <td>
+        {volist name="z_tree" id="z_tt"}
+          <div>{$z_tt[0]}</div>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0" id="{$z_tt[1]}" class="treep2">
+            <tr>
+              <td id="{$z_tt[1]}_tree">{$z_tt[2]}<img src="__PUBLIC__/Images/loading2.gif" align="absmiddle"></td>
+            </tr>
+          </table>
+        {/volist}
+      </td>
+    </tr>
+  </table>
+
+</div>
+
+
+
+
+</div>
+
+
+
+    </div>
+
+<script type="text/javascript" src="__STATIC__/js/mui.min.js"></script>
+<script type="text/javascript" src="__STATIC__/js/own.js"></script>
+<script type="text/javascript">
+    var more=document.getElementById('more');
+    var moreBtn=document.getElementById('moreBtn');
+    var detailcontent = document.getElementById('detailcontent');
+    var page=parseInt(moreBtn.getAttribute("data-page"));
+
+        //监听按钮返回获取数据
+        moreBtn.addEventListener('tap', function() {
+            moreBtn.innerText='数据加载中'
+            page++;
+            mui.ajax('{:url('vip/recordjson')}?page='+page+'',{
+                dataType:'json',
+                type:'get',
+                timeout:10000,
+                success:function(data){
+                    if (data){
+                        setHtml(data.data);
+                    }else{
+                        more.innerHTML='没有更多数据了';
+                        moreBtn.style.display = 'none';
+                    }
+                },
+                error:function(){
+                    console.log('网络超时');
+                }
+            })
+
+        });
+
+        //初始化数据并且设置html
+        function setHtml(data) {
+            for (var i = 0; i < data.length; i++ ) {
+
+                li = document.createElement('li');
+                li.className = 'mui-table-view-cell';
+                li.innerHTML = '<span class="fr">' + data[i].rmb + '</span>' + data[i].typeStr + '<p><span class="fr"></span>'+data[i].ctime+'</p>';
+                detailcontent.appendChild(li);
+
+            }
+            moreBtn.setAttribute("data-page",page);
+            if(data.length<10){
+                more.innerHTML='没有更多数据了';
+                moreBtn.style.display = 'none';
+            }else{
+                moreBtn.innerText='加载更多';
+            }
+        }
+        </script>
+
+        <script>
+    function openmm(oid,tid,mid,numm,ppath){
+        var tobj = document.getElementById(oid);
+        var mobj = document.getElementById(tid);
+        var cmid = "o"+tid;
+        var cobj = document.getElementById(cmid);
+        var coimg = cobj.src;
+        if(tobj.className=="treep2"){
+            tobj.className="treep1";
+            var opppid = oid+"_tree";
+            ajaxChech(opppid,mid,numm,ppath)
+        }else{
+            tobj.className="treep2";
+        }
+        cobj.src = mobj.src;
+        mobj.src = coimg;
+
+
+    }
+    function ajaxChech(vid,aid,nnn,pp){
+        var xmlHttp;
+        try{
+            //FF Opear 8.0+ Safair
+            xmlHttp=new XMLHttpRequest();
+        }
+        catch(e){
+            try{
+                xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            catch(e){
+                alert("您的浏览器不支持AJAX");
+                return false;
+            }
+        }
+        xmlHttp.onreadystatechange=function(){
+            if(xmlHttp.readyState==4){
+                var valuet = xmlHttp.responseText;
+                document.getElementById(vid).innerHTML=valuet;
+            }
+        }
+        var url="__ROOT__/index/vip/ajax_tree_m/";
+        url+="/reid/"+aid+"/nn/"+nnn+"/pp/"+pp;
+        xmlHttp.open("GET",url,true);
+        xmlHttp.send(null);
+    }
+</script>
+    </body>
+</html>

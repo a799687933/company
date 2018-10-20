@@ -1,0 +1,110 @@
+
+<style>
+  .ncenter_box{padding:0px}
+  .treep2{display:none;}
+  .sub_bav td {
+    border: 0px solid #D0D0D0 !important;
+    border-collapse: collapse;
+    padding: 2px;
+  }
+  table{ border:0px !important; padding:0px !important;}
+  td{ border:0px !important; padding:0px !important;}
+  /*p,div{ line-height:0px !important;}*/
+</style>
+
+
+
+<div id="main" style="height:600px;">
+
+
+
+<load href="__ROOT__/static/module/admin/js/tree.js" />
+<div class="ncenter_box">
+  <div class="accounttitle"><h1>我的团队 &nbsp;&nbsp;[<a href='javascript:history.back()' style="color:white">返回</a>] </h1></div>
+  <div style="height: 30px;"></div>
+
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <form method='post' action="">
+      <tr>
+        <td height="30" style="width:100%;" colspan="2"><span>&nbsp;&nbsp;&nbsp;&nbsp;会员编号/级别编号：<input type="text" name="UserID" title="帐号查询" style="background: #DDAB34;height:30px;border-radius: 2px;text-indent: 10px"  value='{$UserID}'></span></td>
+        <td><input type="submit" name="Submit" value="查询" class="btn1"/> </td>
+      </tr>
+
+      <tr height="30">
+        <td><span style="padding-left:15px;font-size:14px;">  团队总人数：{$all_nn} 人</span></td>
+      </tr>
+
+   
+    </form>
+    <tr style="height:40px">
+      <td>{$myStr}</td>
+    </tr>
+  </table>
+  <table width="100%" border="0" cellspacing="0" cellpadding="0" id="{$myTabN}">
+    <tr>
+      <td>
+        {volist name="z_tree" id="z_tt"}
+          <div>{$z_tt[0]}</div>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0" id="{$z_tt[1]}" class="treep2">
+            <tr>
+              <td id="{$z_tt[1]}_tree">{$z_tt[2]}<img src="__PUBLIC__/Images/loading2.gif" align="absmiddle"></td>
+            </tr>
+          </table>
+        {/volist}
+      </td>
+    </tr>
+  </table>
+
+</div>
+
+
+
+
+</div>
+
+<script>
+    function openmm(oid,tid,mid,numm,ppath){
+        var tobj = document.getElementById(oid);
+        var mobj = document.getElementById(tid);
+        var cmid = "o"+tid;
+        var cobj = document.getElementById(cmid);
+        var coimg = cobj.src;
+        if(tobj.className=="treep2"){
+            tobj.className="treep1";
+            var opppid = oid+"_tree";
+            ajaxChech(opppid,mid,numm,ppath)
+        }else{
+            tobj.className="treep2";
+        }
+        cobj.src = mobj.src;
+        mobj.src = coimg;
+
+
+    }
+    function ajaxChech(vid,aid,nnn,pp){
+        var xmlHttp;
+        try{
+            //FF Opear 8.0+ Safair
+            xmlHttp=new XMLHttpRequest();
+        }
+        catch(e){
+            try{
+                xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            catch(e){
+                alert("您的浏览器不支持AJAX");
+                return false;
+            }
+        }
+        xmlHttp.onreadystatechange=function(){
+            if(xmlHttp.readyState==4){
+                var valuet = xmlHttp.responseText;
+                document.getElementById(vid).innerHTML=valuet;
+            }
+        }
+        var url="__URL__/ajax_tree_m/";
+        url+="/reid/"+aid+"/nn/"+nnn+"/pp/"+pp;
+        xmlHttp.open("GET",url,true);
+        xmlHttp.send(null);
+    }
+</script>

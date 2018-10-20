@@ -1,0 +1,111 @@
+<form action="{:url()}" method="post" class="form_single">
+    <div class="box">
+      <div class="box-body">
+        <div class="row">
+          
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>推荐人</label>
+              <span>（是谁推荐的）</span>
+              <input class="form-control" value="{$re_uid}" name="re_uid" placeholder="请输入编号" type="text">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>接点人</label>
+              <span>（在谁的下面）</span>
+              <input class="form-control" value="{$father_uid}" name="father_uid" placeholder="请输入编号" type="text">
+            </div>
+          </div>
+         <div class="col-md-6">
+            <div class="form-group">
+              <label>用户名</label>
+              <span>（用户名会作为默认的昵称）</span>
+              <input class="form-control" name="username" value="{$father_uid}" placeholder="请输入用户名" type="text">
+            </div>
+          </div>
+          
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>密码</label>
+              <span>（用户密码不能少于6位）</span>
+              <input class="form-control" name="password" placeholder="请输入密码" type="password">
+            </div>
+          </div>
+ 
+         
+        <!--   <div class="col-md-6">
+            <div class="form-group">
+              <label>邮箱</label>
+              <span>（用户邮箱，用于找回密码等安全操作）</span>
+              <input class="form-control" name="email" placeholder="请输入邮箱" type="text">
+            </div>
+          </div>
+ -->
+
+           <div class="col-md-6">
+            <div class="form-group">
+              <label>确认密码</label>
+              <span>（确认密码需要和密码一致）</span>
+              <input class="form-control" name="password_confirm" placeholder="请输入确认密码" type="password">
+            </div>
+          </div>
+ 
+        <div class="col-md-6" >
+            <div class="form-group">
+              <label>用户编号</label>
+              <span>（查找会员的编号）</span>
+              <input class="form-control" value="{$rand}" name="user_id" placeholder="请输入编号" type="text">
+            </div>
+          </div>
+          
+<!-- 
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>认购金额</label>
+              <span>（注册的金额）</span>
+              <select  class="form-control"  name='cpzj'>
+                {volist name='cpzj' id='vo'}
+              <option class="form-control" value="{$vo}" >{$vo}</option>
+               {/volist} 
+              </select>
+            </div>
+          </div> -->
+
+           <div class="col-md-6">
+            <div class="form-group">
+              <label>注册的区域</label>
+              <span>（相对于上级位置）</span>
+              <select class="form-control" name="TPL" id="TPL">
+              <option class="form-control" value="0" {$TPL[0]}> A区 </option>
+              <option class="form-control" value="1" {$TPL[1]}> B区 </option>
+             <option class="form-control" value="2" {$TPL[2]}> C区  </option>
+                <!--<option value="3" {$TPL[3]}> D 部门 </option>
+              <option value="4" {$TPL[4]}> E 部门 </option>
+              <option value="5" {$TPL[5]}> F 部门 </option>
+              <option value="6" {$TPL[6]}> G 部门 </option>
+              <option value="7" {$TPL[7]}> H 部门 </option>
+              <option value="8" {$TPL[8]}> I 部门 </option>-->
+            </select>
+            </div>
+          </div>
+
+        <!--   <div class="col-md-6">
+            <div class="form-group">
+                <label>是否共享会员</label>
+                <span>（若选择共享会员自己的会员则会继承给添加的会员）</span>
+                <div>
+                    <label class="margin-r-5"><input type="radio" name="is_share_member"  checked="checked" value="1"> 是</label>
+                    <label><input type="radio" name="is_share_member"  value="0"> 否</label>
+                </div>
+            </div>
+          </div> -->
+            
+        </div>
+      </div>
+      <div class="box-footer">
+        
+        {include file="layout/edit_btn_group"/}
+      </div>
+    </div>
+</form>

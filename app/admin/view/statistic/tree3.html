@@ -1,0 +1,82 @@
+<div id="main" style="height:600px;">
+<style>
+.tu_box{width:80px;background-color:#aaa;color:#000;}
+.tu_box td{text-align:center;line-height:16px;height:16px;}
+.tu_ko{ height:40px;line-height:40px !important;background-color:#FFF; }
+.tu_l{ width:35%;}
+.tu_z{ width:30%;}
+.tu_r{ width:35%;}
+.ta_content{
+    width: 6.5rem;
+    height: 10rem;
+    margin: 0 auto;
+    text-align: center;
+    border: none;
+  }
+  td, th{ padding: 0px 3px; }
+</style>
+<div class="ncenter_box">
+<!-- <div class="accounttitle"><h1>网络结构图 </h1></div> -->
+<div>
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tab3">
+      <form method='post' action="__URL__/Tree3">
+      <tr>
+        <td><!-- {$User_namex}： -->
+           <!--  <input type="text" name="User" title="帐号查询" style="border:2px solid #ddd">
+            <input type="submit" name="Submit" value="查询" class="btn1"/>
+            会员： {volist name="find" id="vo"}{$vo['user_id']},{/volist}下面可以注册 输入会员编号查询跳转
+             -->
+            <select name='level' onChange="window.location.href=__ROOT__/statistic/Tree3/ID/{$UID}/uLev/'+this.value;">
+            <option value="{$uLev}"> {$uLev} 层</option>
+            <option value="2">2 层</option>
+            <option value="3">3 层</option>
+            <option value="4">4 层</option>
+            <option value="5">5 层</option>
+            <option value="6">6 层</option>
+            <option value="7">7 层</option>
+            <option value="8">8 层</option>
+            <!-- <option value="9">第 9 层</option> -->
+         </select>
+            　　<a href="__ROOT__/statistic/Tree3/ID/{$id}">顶层</a>　　<a href="__ROOT__/statistic/Tree3/ID/{$FatherID}/uLev/{$uLev}">上一层</a></td>
+      </tr>
+      <tr>
+        <td>{$wop}</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>
+        
+       <!--  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="50%" height="30" align="center">
+            
+              <table width="90%" border="0" cellspacing="1" cellpadding="0" bgcolor="#66CC99">
+              <tr align="center" style="color:#000;">
+                <td bgcolor="#FFFFFF">上层</td>
+                <volist name='Level' id='vo'>
+                <td style="background:{$ColorUA[$key+1]};" height="30px">{$Level[$key]}</td>
+                </volist>
+              </tr>
+            </table> -->
+            
+            </td>
+            <td width="50%" align="center">
+            
+            <table width="90%" border="0" cellspacing="1" cellpadding="0" bgcolor="#66CC99">
+             <tr align="center" style="color:#000;">
+              
+                <!-- <volist name='TU_MiCheng' id='vo'>
+                <td style="background:{$TU_Color[$key]};" height="30px">{$TU_MiCheng[$key]}</td>
+                </volist> -->
+              </tr>
+            </table>
+            </td>
+          </tr>
+        </table>
+        
+        </td>
+      </tr>
+    </table>
+</div></div>

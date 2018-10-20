@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>VIP专区</title>
+	   	<link rel="stylesheet" type="text/css" href="__STATIC__/css/mui.min.css"/>
+	   	<link rel="stylesheet" type="text/css" href="__STATIC__/css/own.css"/>
+	   	<link rel="stylesheet" type="text/css" href="__STATIC__/css/iconfont.css"/>
+		<link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+		<style type="text/css">
+		.news .time{
+			color: #999;
+			font-size: 12px;
+		}
+		.fa{
+			font-size: 20px;
+			color: #d9b76f;
+		}
+		.headImg {
+			padding: 6% 0px 2% 0px;
+			background: #1c1b19;
+			background-position: center center;
+			background-size: 100% auto;
+			text-align: center;
+			color: white;
+		}
+		.headImg h5{
+			color: white;
+		}
+		
+		.touxiang {
+			text-align: center;
+		}
+		
+		.touxiang div {
+			width: 3.6em;
+			height: 3.6em;
+			padding: 0px;
+			border-radius: 50%;
+			border: 2px solid white;
+			margin-bottom: 5px;
+		}
+		.mui-icon-person{
+			font-size: 3.2em; 
+		}
+		.my-order-header{
+			background: #fff;
+			color: #c09349;
+			/*text-align: center;*/
+			line-height: 40px;
+		}
+		.my-order-header span{
+			color: #c09349;
+		}
+		.mui-media-body-s{font-size: 13px;}
+
+		.mycenter{
+			color: #fff;
+			background: #1c1b19 url(__STATIC__/images/hybg2.png) no-repeat 0 -30px;
+			-webkit-background-size: cover;
+		    -moz-background-size: cover;
+		    -o-background-size: cover;
+		    background-size: cover;
+		}
+		.message{
+			position: relative;
+			font-size: 22px;
+			margin-top: 20px;
+		}
+		.message span{
+			color: #fff;
+		}
+	</style>
+
+
+
+  <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+
+        .hide {
+            /*display: none;*/
+            opacity: 0;
+        }
+
+        .draw-gift {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .draw-gift .draw-img {
+            width: 100%;
+            position: relative;
+            margin-top: 6.5rem;
+        }
+
+        .draw-gift .draw-img .draw-down {
+            position: absolute;
+            width: 3rem;
+            height: 3.3rem;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-image: url(__STATIC__/images/red/open-no.png);
+            left: 50%;
+            margin-left: -4.5rem;
+            z-index: 10;
+            /*-webkit-animation:draw-down 0.5s ease 1.2s 1 alternate;*/
+            /*-webkit-animation-timing-function:cubic-bezier(0.25,0.1,0.25,1);*/
+        }
+
+        @-webkit-keyframes draw-down {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .draw-gift .draw-img .draw-down2 {
+            position: absolute;
+            width: 3rem;
+            height: 3.3rem;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-image: url(__STATIC__/images/red/open-before.png);
+            left: 50%;
+            margin-left: -4.5rem;
+            z-index: 10;
+            /*-webkit-animation:draw-down2 0.5s ease 1.4s 1 alternate;*/
+            /*-webkit-animation-timing-function:cubic-bezier(0.25,0.1,0.25,1);*/
+        }
+
+        @-webkit-keyframes draw-down2 {
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .draw-gift .draw-img .draw-mid {
+            position: absolute;
+            width: 1.5rem;
+            height:1.5rem;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-image: url(__STATIC__/images/red/open.png);
+            left: 50%;
+            margin-left: -3.75rem;
+            z-index: 100;
+            top: 0.75rem;
+            /*animation:open 0.3s linear 1s 3 alternate;*/
+        }
+
+        .draw-gift .draw-img .draw-mid-move {
+            -webkit-animation: open 0.2s linear 0.5s infinite alternate;
+            -webkit-animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+            animation: open 0.2s linear 0.5s infinite alternate;
+            animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+
+        @keyframes open {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(0.9);
+            }
+        }
+
+        @-webkit-keyframes open {
+            0% {
+                -webkit-transform: scale(1);
+            }
+            100% {
+                -webkit-transform: scale(0.9);
+            }
+        }
+
+        .draw-gift .draw-img .draw-up {
+            position: absolute;
+            width: 3rem;
+            height: 1.35rem;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-image: url(__STATIC__/images/red/open-back-1.png);
+            left: 50%;
+            margin-left: -4.5rem;
+            top: 0;
+            z-index: 8;
+            opacity: 0;
+        }
+
+        .draw-gift .draw-img .draw-up-up {
+            position: absolute;
+            width: 3rem;
+            height: 1.34rem;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-image: url(__STATIC__/images/red/open-back-2.png);
+            left: 50%;
+            margin-left: -4.5rem;
+            top: 0;
+            /*-webkit-transform: rotateX(180deg);*/
+            /*-webkit-transform-style: flat;*/
+            /*-webkit-transform-origin: bottom;*/
+            /*-webkit-animation: draw-up-up 1s linear 0s 0.5 normal;*/
+            /*backface-visibility: visible;*/
+            /*-webkit-animation-timing-function:cubic-bezier(0.25,0.1,0.25,1);*/
+            opacity: 0;
+            z-index: 3;
+        }
+
+        .draw-gift .draw-img .draw-list {
+            position: absolute;
+            width: 3rem;
+            height: 4rem;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-image: url(__STATIC__/images/red/draw-list-bg.jpg);
+            left: 50%;
+            margin-left: -2.5rem;
+            top: 3.5rem;
+            opacity: 0;
+            z-index: 8;
+        }
+
+        .draw-gift .draw-img .draw-list img {
+            vertical-align: middle;
+            position: absolute;
+            width: 70%;
+            top: 1.6rem;
+            left: 15%;
+        }
+
+        #draw-btn {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            font-size: 0.65rem;
+            color: #333;
+            top: 17rem;
+        }
+    </style>
+
+
+
+
+	</head>
+	<body>
+<header class="mui-bar mui-bar-nav own-main-background-color">
+
+        <h1 id="nav-title" class="mui-title">VIP专区</h1>
+    </header>
+		<div class="mui-content">
+			<div class="mycenter" style="background: #1c1b19 url;color: #fff;padding:30px 15px;margin:0">
+				<div class="mui-pull-left touxiang" style="margin-right:10px;">
+					<div><img style="font-size: 3em; border: 2px solid #7EBF26; border-radius: 50%; color: #7EBF26;"  src="__STATIC__/module/admin/ext/adminlte/dist/img/user3-128x128.jpg"  ></div>
+				</div>
+				<!-- <img class="mui-media-object mui-pull-left head-img" id="head-img" src="../images/logo.png"> -->
+                
+
+				<div class="message mui-pull-right"><a href="{:url('vip/message')}"><span class="mui-icon mui-icon-email">
+				{gt name="$message" value="0"}<span class="mui-badge mui-badge-warning">{$message}</span>{/gt}
+				</span></a></div>
+
+               
+				<div class="mui-media-body" style="margin-top:10px;">
+					{$data['username']}
+					<p class="mui-ellipsis" style="font-size: 0.8em;color:#e4c78a">级别：{$u_level} 
+					</p>
+                    <p>
+
+               {eq name="$data['agent']" value="0"}
+                <span class="mui-badge mui-badge-warning"><a href="javascript:test15();">申请代理商</a></span>
+               {/eq}
+
+
+              {eq name="$data['agent']" value="1"}
+                <span class="mui-badge mui-badge-warning">申请代理审核中</span>
+                  {/eq}
+
+              {eq name="$data['agent']" value="2"}
+                <span class="mui-badge mui-badge-warning">{$data['card_d']}代理</span>
+                 {/eq}
+
+                 {eq name="$data['agent']" value="3"}
+                <span class="mui-badge mui-badge-warning">{$data['card_d']}会员</span>
+                 {/eq}
+
+                 
+
+           
+              
+                    </p>
+				</div>
+			</div>
+
+			<div style='height: 10px;'></div>
+				<div class='my-order-header' style='width: 100%; /'>
+					<span style='margin-left:15px;'>我的收入</span>
+				</div>
+				<ul class="mui-table-view mui-grid-view mui-grid-9" style='background-color: #fff;'>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6">
+						<a href="{:url('vip/income')}">
+		                    <span class="">
+								{$data['b6']}
+							</span>
+		                    <div class="mui-media-body">累计收入</div>
+						</a>						
+					</li>
+					<li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6">
+						<a href="{:url('vip/withdrawadd')}">
+		                    <span class="">
+								{$data['b0']}
+							</span>
+		                    <div class="mui-media-body">可提现金额</div>
+						</a>
+					</li>
+		        </ul>
+			
+			<div style='height: 10px;'></div>
+				<div class='my-order-header' style='width: 100%; /'>
+					<span style='margin-left:15px;'>我的推广</span>
+				</div>
+				<ul class="mui-table-view mui-grid-view mui-grid-9" style='background-color: #fff;'>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6">
+						<a href="{:url('vip/xslist')}">
+		                    <span class="">
+								{$data['re_money']}
+							</span>
+		                    <div class="mui-media-body">销售额</div>
+						</a>						
+					</li>
+					<li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6">
+						<a href="{:url('vip/tdlist')}">
+		                    <span class="">
+								{$data['team_money']} 
+							</span>
+		                    <div class="mui-media-body">团队销量</div>
+						</a>
+					</li>
+		        </ul>
+			<div style='height: 10px;'></div>
+				<div class='my-order-header' style='width: 100%; /'>
+					<span style='margin-left:15px;'>常用工具</span>
+				</div>
+				<ul class="mui-table-view mui-grid-view mui-grid-9" style="background-color: #fff;">
+		            <li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
+						<a href="{:url('vip/record')}">
+		                    <span class="mui-icon">
+		                    	<i class="fa fa-list-ul"></i>
+							</span>
+		                    <div class="mui-media-body-s">数据记录</div>
+						</a>						
+					</li>
+					<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
+						<a href="{:url('lists')}">
+		                    <span class="mui-icon">
+		                    	<i class="fa fa-credit-card"></i>
+							</span>
+		                    <div class="mui-media-body-s">我的买家</div>
+						</a>
+					</li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
+						<a href="{:url('lists')}">
+		                    <span class="mui-icon">
+		                    	<i class="fa fa-chain"></i>
+							</span>
+		                    <div class="mui-media-body-s">教育中心</div>
+						</a>
+					</li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
+						<a href="{:url('qcode')}">
+		                    <span class="mui-icon">
+		                    	<i class="fa fa-share-alt"></i>
+							</span>
+		                    <div class="mui-media-body-s">分享推广</div>
+						</a>
+					</li>
+		        </ul>
+			<div style='height: 10px;'></div>
+
+		<div class='my-order-header' style='width: 100%; '>
+			<span style='margin-left:15px;'>公告</span>
+			<a href="{:url('user/article_list')}"><span style="float: right;margin-right:15px; font-size: 12px;">查看更多
+				</span></a>
+		</div>
+		<div class="mui-input-group news">
+			<ul class="mui-table-view" id="detailcontent">
+                {volist name="article_list" id="v"}
+				<li class="mui-table-view-cell"><a class="mui-navigate-right" href="{:url('index/user/details',['id'=>$v['id']])}">{$v.name}<div class="time">{$v.create_time}</div></a></li>
+                {/volist}
+			</ul>
+        </div>
+
+		<ul id="logoutBtn" class="mui-table-view" style="margin-top: 20px;margin-bottom: 20px;">
+			<li class="mui-table-view-cell" style="text-align: center;">
+				<a style="color: indianred;" href="javascript:test13();">退出登录</a>
+			</li>
+		</ul>
+	</div>
+
+
+<div class="draw-gift">
+    <div class="draw-img" style="position: fixed; width: auto; right:0px; bottom:150px; margin-top:0">
+        <div class="draw-up hide"></div>
+        <div class="draw-up-up" id="draw-up-up"></div>
+        <div class="draw-mid draw-mid-move"></div>
+        <div class="draw-down"></div>
+        <div class="draw-down2 hide"></div>
+        <div class="draw-list"></div>
+    </div>
+    
+</div>
+
+<script src="__STATIC__/js/mui.js"></script>
+<div style='height: 50px;'></div>
+
+	 <!-- 底部结束 -->
+	<script type="text/javascript" charset="UTF-8">
+   function test13(){
+          
+            $.ajax({
+                url:"{:url('vip/logout')}",
+                type:"get",
+                processData:false,
+                contentType:false,
+                dataType: "json",//预期服务器返回的类型
+                success:function(data){
+                        layer.open({
+                        content: '退出成功！',
+                        btn: ['确认'],
+                        yes: function(index, layero) {
+                            window.location.href="{:url(admin/login/login)}";
+                        },
+                        btn2: function(index, layero) {
+ 
+                        }
+                        ,
+                        cancel: function() {
+                            //右上角关闭回调
+                        }
+                    });
+                },
+                error:function(e){
+                    layer.open({
+                      content: '网络错误'
+                      ,skin: 'msg'
+                      ,time: 2 //2秒后自动关闭
+                    });
+
+                }
+            });     }
+
+
+
+
+
+ function test15(){
+          
+            $.ajax({
+                url:"{:url('vip/agent')}",
+                type:"get",
+                processData:false,
+                contentType:false,
+                dataType: "json",//预期服务器返回的类型
+                success:function(data){
+                        layer.open({
+                        content: data.msg,
+                        btn: ['确认'],
+                        yes: function(index, layero) {
+                            window.location.href= data.url;
+                        },
+                        btn2: function(index, layero) {
+ 
+                        }
+                        ,
+                        cancel: function() {
+                            //右上角关闭回调
+                        }
+                    });
+                },
+                error:function(e){
+                    layer.open({
+                      content: '网络错误'
+                      ,skin: 'msg'
+                      ,time: 2 //2秒后自动关闭
+                    });
+
+                }
+            });     }
+
+
+
+
+  $(function () {
+        $("#draw-btn,.draw-img").on("click", function () {
+            $(".draw-mid").removeClass("draw-mid-move").css({display:"none"});
+            $(".draw-up").animate({
+                opacity: "1"
+            }, 10);
+            $("#draw-up-up").animate({
+                opacity: "1",
+                top: "-1.12rem"
+            }, 20);
+
+            $(".draw-down").animate({
+                opacity: "1"
+            }, 30);
+            $(".draw-down2").animate({
+                opacity: "1"
+            }, 30);
+            $(".draw-list").animate({opacity:"1"},300).animate({top:"-1.4rem"},30);
+
+            $.ajax({
+		                url:"{:url('red_packet',['time'=>$today])}",
+		                type:"get",
+		                processData:false,
+		                contentType:false,
+		                dataType: "json",//预期服务器返回的类型
+		                success:function(data){
+		                        layer.open({
+		                        content: data.msg,
+		                        btn: ['确认'],
+		                        yes: function(index, layero) {
+		                            window.location.href="{:url()}";
+		                        },
+		                        btn2: function(index, layero) {
+		 
+		                        }
+		                        ,
+		                        cancel: function() {
+		                            //右上角关闭回调
+		                        }
+		                    });
+		                },
+		                error:function(e){
+		                    layer.open({
+		                      content: '网络错误'
+		                      ,skin: 'msg'
+		                      ,time: 2 //2秒后自动关闭
+		                    });
+
+		                }
+		            }); 
+        });
+    })
+  </script>
+
+    </body>
+</html>

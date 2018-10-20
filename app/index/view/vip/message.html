@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>消息</title>
+      <link rel="stylesheet" type="text/css" href="__STATIC__/css/mui.min.css"/>
+      <link rel="stylesheet" type="text/css" href="__STATIC__/css/own.css"/>
+      <link rel="stylesheet" type="text/css" href="__STATIC__/css/iconfont.css"/>
+        <style type="text/css">
+        .news .time{
+            color: #999;
+            font-size: 12px;
+        }
+        .news {
+            color: #333;
+        }
+        .red{
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 6px;
+            background: #f00;
+            margin-right: 5px;
+            margin-top: 8px;
+            float:left;
+        }
+        </style>
+  </head>
+  <body>
+	<header class="mui-bar mui-bar-nav own-main-background-color">
+		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		<h1 class="mui-title">消息</h1>
+	</header>
+
+  <div class="mui-content">
+    <div class="mui-input-group news">
+      <ul class="mui-table-view" id="detailcontent">
+        {volist name="data" id="v"}
+        <li class="mui-table-view-cell">{eq name="$v.status" value="0"}<span class="red"></span>{/eq}{$v.title}<div class="time">{$v.time}</div></li>
+        {/volist}
+      </ul>
+    </div>
+    {gt name="count" value="10"}
+    <div id="more">
+        <button id="moreBtn" type="button" data-page="1" class="mui-btn mui-btn-link">加载更多</button>
+    </div>
+    {/gt}
+  </div>
+
+<script type="text/javascript" src="__STATIC__/js/mui.min.js"></script>
+<script type="text/javascript" src="__STATIC__/js/own.js"></script>
+<script type="text/javascript">
+    var more=document.getElementById('more');
+    var moreBtn=document.getElementById('moreBtn');
+    var detailcontent = document.getElementById('detailcontent');
+    var page=parseInt(moreBtn.getAttribute("data-page"));
+
+        //监听按钮返回获取数据
+        moreBtn.addEventListener('tap', function() {
+            moreBtn.innerText='数据加载中'
+            page++;
+            mui.ajax('{:url('news/listjson')}?page='+page+'',{
+                dataType:'json',
+                type:'get',
+                timeout:10000,
+                success:function(data){
+                    if (data){
+                        setHtml(data);
+                    }else{
+                        more.innerHTML='没有更多数据了';
+                        moreBtn.style.display = 'none';
+                    }
+                },
+                error:function(){
+                    console.log('网络超时');
+                }
+            })
+
+        });
+
+        //初始化数据并且设置html
+        function setHtml(data) {
+            for (var i = 0; i < data.length; i++ ) {
+
+                li = document.createElement('li');
+                li.className = 'mui-table-view-cell';
+                li.innerHTML = '<a class="mui-navigate-right" href="?id=' + data[i].id + '">'+data[i].title+'<p class="time">' + data[i].time + '</p></a>';
+                detailcontent.appendChild(li);
+
+            }
+            moreBtn.setAttribute("data-page",page);
+            if(data.length<10){
+                more.innerHTML='没有更多数据了';
+                moreBtn.style.display = 'none';
+            }else{
+                moreBtn.innerText='加载更多';
+            }
+        }
+    
+        </script>
+    </body>
+</html>

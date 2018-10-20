@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title>推广二维码</title>
+   	<link rel="stylesheet" type="text/css" href="__STATIC__/css/mui.min.css"/>
+   	<link rel="stylesheet" type="text/css" href="__STATIC__/css/own.css"/>
+   	<link rel="stylesheet" type="text/css" href="__STATIC__/css/iconfont.css"/>
+<style>
+.d_clip_button{text-align:center;border:none;}
+.tgbg{background: url() no-repeat;background-size: 100%;margin-top: 60px;position: relative}
+.tgbg img{width: 100%;height: 100%;margin:0;padding: 0}
+</style>
+<body>
+	<header class="mui-bar mui-bar-nav own-main-background-color" style=" height: 50px;">
+      <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="line-height: 30px; color: white; text-decoration: none;"></a>
+      <h1 class="mui-title" style="line-height: 50px;">推广二维码</h1>
+    </header>
+
+
+	<!--  <div style="width:200px;margin: 0rem auto;margin-top: 5%;text-align:center;">
+                <h2>推广二维码</h2>
+                <img id="verifyImg" src="{$url}"  style="cursor:pointer;width:100%;margin-top: 20px;" align="absmiddle" />
+                
+        </div> -->
+        <div class="tgbg">
+          <img src="__STATIC__/images/erweimapic.png" alt="">
+          <div style="position: absolute;top: 28%;left: 28%"><img id="verifyImg" src="{$url}"  style="cursor:pointer;width:4rem;margin-top: 20px;height: 4rem" align="absmiddle" /></div>
+</div>
+        <!-- <div style="margin-top: 20px;text-align:center;font-size:12px;" id="aa">{$d}</div>
+       <div style="text-align:center;margin-top: 10px;"><button data-clipboard-action="copy" data-clipboard-text="{$d}" id="d_clip_button">复制链接</button></div>
+        </div>
+    </div> -->
+
+<script type="text/javascript" src="__STATIC__/js/mui.min.js"></script>
+<script type="text/javascript" src="__STATIC__/js/own.js"></script>
+<script type="text/javascript" src="__STATIC__/js/clipboard.min.js"></script>
+<script type="text/javascript" src="__STATIC__/js/flexible.js"></script>
+
+<script>
+$(document).ready(function() {
+    var clipboard = new ClipboardJS('#d_clip_button');
+    clipboard.on('success', function(e) {
+        // layer.msg("复制成功", {icon: 1});
+        alert("复制成功");
+        e.clearSelection();
+    });
+});
+</script>
+    </body>
+</html>

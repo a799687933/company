@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>个人中心</title>
+	   	<link rel="stylesheet" type="text/css" href="__STATIC__/css/mui.min.css"/>
+	   	<link rel="stylesheet" type="text/css" href="__STATIC__/css/own.css"/>
+	   	<link rel="stylesheet" type="text/css" href="__STATIC__/css/iconfont.css"/>
+	    <link rel="stylesheet" type="text/css" href="__STATIC__/css/jquery.hiSlider.min.css"/>
+         <script src="__STATIC__/js/jquery.hiSlider.min.js" charset="UTF-8"></script>
+	</head>
+	<body>
+	<style>
+	b{
+		color: #FF2D4B;
+		font-size: 18px;
+	}
+	.mui-control-content {
+		background-color: white;
+		min-height: 215px;
+	}
+	.mui-control-content .mui-loading {
+		margin-top: 50px;
+	}
+	.my-order-body{ width: 100%;}
+	.my-order-body a{ width:25%; display: block; float: left;color:#999; margin-top: 15px;}
+	.my-order-header a{color:#999}
+	.my-order-body a span{ width: 100%; float: left; text-align: center;font-size: 14px;}
+	.my-order-body a span img{ height:24px;}
+
+		.mui-media-body-s{font-size: 13px;}
+		.mui-icon img {height: 69px;}
+	</style>
+ <style type="text/css">
+        .mui-active .mui-icon,.mui-active .mui-tab-label {
+            color: #7FBF26;
+        }
+
+            .mui-table-view:after {
+                height: 0px;
+            }
+            /*图片显示的时候设置为自动 因为 从服务器来的图片大小相同*/
+            .mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-object {
+                line-height: auto;
+                max-width: auto;
+                height: auto;
+                /*border-top-right-radius: 4px;
+                border-top-left-radius: 4px;*/
+            }
+
+            .mui-table-view-cell {
+                margin-bottom: 0px;
+            }
+
+            .bgDiv {
+                /*border: 1px solid rgba(204, 204, 204, 0.7);*/
+                /*border-radius: 5px;*/
+                background-color: white;
+                width: 100%;
+            }
+
+            .mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-body {
+                margin-top: 2px;
+                margin-bottom: 5px;
+                height: auto;
+                padding:0 3px;
+            }
+
+            .mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-body p {
+                white-space: pre;
+                color: black;
+            }
+
+            .mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-body p.mui-ellipsis-2 {
+                line-height: 1.2;
+                margin-left: 3%;
+                text-align: left;
+                max-height: 35px;
+            }
+
+            .mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-body .price-one {
+                margin-top: 5px;
+                float: left;
+                font-size: 1em;
+                margin-left: 3%;
+                color: red;
+                margin-bottom: 10px;
+            }
+            .own-title{
+                border-left: 5px solid #7ebf25;
+                color: #7ebf25;
+                line-height: 1em;
+                margin-bottom: 10px;
+                margin-top: 10px;
+                padding-left: 10px;
+            }
+            .mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-body .price-two {
+                margin-top: 12px;
+                float: right;
+                font-size: 1.1em;
+                margin-right: 7%;
+                text-decoration: line-through;
+            }
+            .own-home-pro dl{
+                overflow: hidden;
+            }
+            .own-home-pro dl dt, .own-home-pro dl dd {
+                box-sizing: border-box;
+                display: block;
+                float: left;
+                overflow: hidden;
+                width: 50%;
+                margin:0;
+                border-top: 1px solid #eee;
+            }
+            .own-home-pro dl a {
+                display: block;
+                height: 100%;
+                width: 100%;
+            }
+            .own-home-pro dl img {
+                height: auto;
+                width: 100%;
+            }
+            .own-home-pro dl dd {
+                border-left: 1px solid #eee;
+            }
+
+
+            .area{
+                padding:15px 10px 0 10px;
+                height: 45px;
+            }
+            .area span{
+                color: #fff;
+                background-color: #9BCB5A;
+                border: 1px solid #9BCB5A;
+                text-align: center;
+                padding: 3px 16px;
+                border-radius: 15px;
+                font-size: 15px;
+            }
+            .area a{
+                text-align: center;
+            }
+            .mui-table-view::before{
+                background-color: #F8F8F8;
+            }
+
+
+            .foot {
+            background-color:#fff;
+            color:#999;
+            clear:both;
+            text-align:center;
+            padding:2%;
+            line-height: 1.8;
+            margin-top: 3%;
+            font-size: 14px;
+            }
+            @media(max-width: 767px){
+                 #main-container{ margin: 0 -20px; }
+                  body > .navbar{ margin-bottom: 0; }
+            }
+        ul{ margin: 0; }
+        .mui-bar-nav.mui-bar .mui-icon{ margin-right: 10px; }
+
+
+        .gonggao{height: 30px;overflow: hidden;line-height: 30px}
+        .gonggao p a{display: inline-block; white-space: nowrap;width: 98%;overflow: hidden;text-overflow:ellipsis;}
+    </style>
+
+
+<header class="mui-bar mui-bar-nav own-main-background-color">
+        <h1 id="nav-title" class="mui-title">共享传媒</h1>
+    </header>
+
+		<div class="mui-content">
+
+<ul class="hiSlider hiSlider3">
+    <li class="hiSlider-item"><a href=""><img src="__STATIC__/images/ban1.jpg"></a></li>
+    <li class="hiSlider-item"><a href=""><img src="__STATIC__/images/ban2.jpg"></a></li>
+    <li class="hiSlider-item"><a href=""><img src="__STATIC__/images/ban3.jpg"></a></li>
+</ul>
+
+
+   <marquee scrolldelay="100" height="30" style="width: 100%;float: left">    
+                               {$ad}
+   </marquee>
+  <!--  <div class="gonggao">
+        <p><a>{$ad}</a></p>
+        <p><a>这里是公告2这里是公告2</a></p>
+        <p><a>这里是公告3这里是公告3这里是公告3</a></p>
+    </div> -->
+<a  href="{:url('index/index/show',array('id'=>54))}" id="btn" >
+<img src="__STATIC__/images/xx.png" style="width: 100%" ></a>
+
+
+			<div style='height: 10px;'></div>
+				<ul class="mui-table-view mui-grid-view mui-grid-9" style='background-color: #fff;'>
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
+						<a href="{:url('user/task_member_img',array('config'=>'how'))}" id="btn" >
+		                    <span class="mui-icon">
+								<img src="__STATIC__/images/x1.png" height=30>
+							</span>
+		                    <div class="mui-media-body-s">如何赚佣</div>
+						</a>
+					</li>
+                   <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
+						<a href="{:url('vip/qcode')}" >
+		                    <span class="mui-icon">
+								<img src="__STATIC__/images/x2.png" height=30>
+							</span>
+		                    <div class="mui-media-body-s">推广二维码</div>
+						</a>
+					</li>
+                     	<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
+						<a  href="{:url('user/task_member_img',array('config'=>'ad_content'))}" id="btn" >
+		                    <span class="mui-icon">
+								<img src="__STATIC__/images/x3.png" height=30>
+							</span>
+		                    <div class="mui-media-body-s">广告投放</div>
+						</a>
+					</li>
+                 	<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
+						<a   href="javascript:test12();" id="btn" >
+		                    <span class="mui-icon">
+								<img src="__STATIC__/images/x4.png" height=30>
+							</span>
+		                    <div class="mui-media-body-s">共享商城</div>
+						</a>
+					</li>
+						<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
+						<a  href="javascript:test12();" id="btn" >
+		                    <span class="mui-icon">
+								<img src="__STATIC__/images/x5.png" height=30>
+							</span>
+		                    <div class="mui-media-body-s">共享美团</div>
+						</a>
+					</li>
+                  <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
+						<a  href="javascript:test12();" id="btn">
+		                    <span class="mui-icon">
+								<img src="__STATIC__/images/x6.png" height=30>
+							</span>
+		                    <div class="mui-media-body-s">共享影院</div>
+						</a>
+					</li> 
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
+						<a  href="javascript:test12();" id="btn" >
+		                    <span class="mui-icon">
+								<img src="__STATIC__/images/x7.png" height=30>
+							</span>
+		                    <div class="mui-media-body-s">手机充值</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
+						<a  href="javascript:test12();" id="btn" >
+		                    <span class="mui-icon">
+								<img src="__STATIC__/images/x8.png" height=30>
+							</span>
+		                    <div class="mui-media-body-s">关于共享</div>
+						</a>
+					</li>
+                     <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
+						<a  href="{:url('user/task_member_img',array('config'=>'kefu_weixin'))}"id="btn" >
+		                    <span class="mui-icon">
+								<img src="__STATIC__/images/x9.png" height=30>
+							</span>
+		                    <div class="mui-media-body-s">客服中心</div>
+						</a>
+					</li>
+                 
+
+
+
+
+
+		           <!--  <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
+						<a href="{:url('user/my_data_d')}">
+		                    <span class="mui-icon">
+								<img src="__STATIC__/images/address.png" height=30>
+							</span>
+		                    <div class="mui-media-body-s">收货地址</div>
+						</a>
+					</li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
+						<a href="{:url('user/my_data')}">
+		                    <span class="mui-icon">
+								<img src="__STATIC__/images/setting.png" height=30>
+							</span>
+		                    <div class="mui-media-body-s">个人资料</div>
+						</a>
+					</li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
+						<a href="{:url('user/article_list')}">
+		                    <span class="mui-icon">
+								<img src="__STATIC__/images/gouwuzhinan.png" height=30>
+							</span>
+		                    <div class="mui-media-body-s">帮助中心</div>
+						</a>
+					</li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
+						<a href="{:url('user/server')}">
+		                    <span class="mui-icon">
+								<img src="__STATIC__/images/shouhuofuwu.png" height=30>
+							</span>
+		                    <div class="mui-media-body-s">联系客服</div>
+						</a>
+					</li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
+						<a href="javascript:test12();" id="btn">
+		                    <span class="mui-icon">
+								<img src="__STATIC__/images/out.png" height=30>
+							</span>
+		                    <div class="mui-media-body-s">退出登录</div>
+						</a>
+					</li> -->
+		        </ul>
+			<div style='height: 10px;'></div>
+		</div>
+
+<script src="/public/js/mui.js"></script>
+<div style='height: 50px;'></div>
+
+
+
+	<script type="text/javascript" charset="UTF-8">
+
+
+/*轮播图*/
+$('.hiSlider3').hiSlider({
+        isFlexible: true,
+        isSupportTouch: true,
+        });
+        
+    $('.hiSlider3').mouseenter(function(){
+        $('.hiSlider-btn-prev').css('display','block')
+        $('.hiSlider-btn-next').css('display','block')
+    })
+    $('.hiSlider3').mouseleave(function(){
+        $('.hiSlider-btn-prev').css('display','none')
+        $('.hiSlider-btn-next').css('display','none')
+    })
+
+
+function x(){
+            $(".gonggao").animate({top:-40},200,function(){
+                $(".gonggao").css({top:0})
+                $(".gonggao p:last").after($(".gonggao p:first"))
+            })
+    }
+    var move=setInterval(x,3000)
+$(".gonggao").mouseenter( function(){
+        clearInterval(move)
+    })  
+$(".gonggao").mouseleave( function(){
+        move=setInterval(x,3000)
+    })
+
+
+
+
+   function test12(){
+          
+            $.ajax({
+                url:"{:url('vip/index')}",
+                type:"get",
+                processData:false,
+                contentType:false,
+                dataType: "json",//预期服务器返回的类型
+                success:function(data){
+                        layer.open({
+                        content: '正在开发中！',
+                        btn: ['确认'],
+                        yes: function(index, layero) {
+                          //  window.location.href="{:url(admin/login/login)}";
+                        },
+                        btn2: function(index, layero) {
+ 
+                        }
+                        ,
+                        cancel: function() {
+                            //右上角关闭回调
+                        }
+                    });
+                },
+                error:function(e){
+                    layer.open({
+                      content: '正在开发中！'
+                      ,skin: 'msg'
+                      ,time: 2 //2秒后自动关闭
+                    });
+
+                }
+            });  
+
+             }
+
+
+  </script>
+    </body>
+</html>

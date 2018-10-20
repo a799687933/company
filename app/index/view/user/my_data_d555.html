@@ -1,0 +1,241 @@
+
+
+
+<style type="text/css">
+
+@media (max-width: 979px) and (min-width: 768px){
+    .row{  width: 98%; margin: 0 auto; }
+}
+@media (max-width: 979px){
+  .navbar-fixed-top{ margin-bottom:0; }
+}
+
+h3{ font-size: 20px; }
+
+.row{  width: 98%; margin: 0 auto; }
+header{ position: fixed; }
+
+.own-main-background-color {
+    background-color: #FBFBFB;
+    /* box-shadow: 0 0 0 0 #1F1F1F; */
+    /* border-bottom: 1px solid #EEEEEE; */
+}
+.mui-bar-nav {
+    top: 0px;
+    -webkit-box-shadow: 0 1px 6px #ccc;
+    box-shadow: 0 1px 6px #ccc;
+}
+.mui-bar {
+    border-top: 0px solid #eee;
+    position: fixed;
+    z-index: 10;
+    right: 0;
+    left: 0;
+    height: 44px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-bottom: 0;
+    background-color: #fff;
+    -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, .85);
+    box-shadow: 0 0 1px rgba(0, 0, 0, .85);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.mui-bar .mui-icon:active {
+    opacity: .3;
+}
+
+.mui-bar-nav.mui-bar .mui-icon {
+    margin-right: -10px;
+    margin-left: -10px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.mui-bar .mui-icon {
+    font-size: 24px;
+    position: relative;
+    z-index: 20;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 50px;
+    text-decoration: none;
+
+}
+
+.mui-bar .mui-title {
+    right: 40px;
+    left: 40px;
+    display: inline-block;
+    overflow: hidden;
+    width: auto;
+    margin: 0;
+    text-overflow: ellipsis;
+    line-height: 50px;
+}
+
+.mui-title {
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 44px;
+    position: absolute;
+    display: block;
+    width: 100%;
+    margin: 0 -10px;
+    padding: 0;
+    text-align: center;
+    white-space: nowrap;
+    color: #000;
+}
+
+</style>
+<header class="mui-bar mui-bar-nav own-main-background-color" style="height: 50px">
+      <a class="mui-icon mui-icon-left-nav mui-pull-left" href="{:url('user/index')}"><</a>
+      <h1 class="mui-title">收货地址</h1>
+    </header>
+<div class="row">
+
+
+<div class="col-md-6">
+    
+    <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">我的地址</h3>
+        </div>
+
+ <div class="box-body no-padding">
+       <form id="form" name="form" method="post" >
+          <table class="table table-striped">
+            <tbody>
+                
+           <!--  <tr>
+              <td>邮箱</td>
+              <td><input id="email"  name="email" value="{$info['email']}" /></td>
+            </tr>  
+            <tr>
+              <td>电话</td>
+              <td>
+                {if condition="$info.mobile"}
+                      {$info['mobile']}
+                      {else/}
+                <input id="mobile"  name="mobile" value="{$info['mobile']}" />
+                {/if}
+              </td>
+            </tr> -->
+         
+            <tr class="deltr">
+              <td style=" white-space: nowrap;">地址/电话/姓名</td>
+              <td>   {volist name="$info.address_d" id="vo" key=$key}
+                <input  name="adbx[]"  cols="30" value="{$vo}" >{/volist}
+    
+                <input value="删除"  type="button" class="button small round blue del" onclick="test1({$key})" a='del' />
+               </td>
+
+            </tr> 
+            
+             <tr class="addresslist">
+              <td></td>
+              <td> <input value="修改" type="button" class="button small round blue" onclick="test6()"  />
+              <input value="新增地址" type="button" class="button small round blue dj" /> 
+              </td></td>
+            </tr>
+          </tbody>
+          </table>
+         
+
+          </form>
+        </div>
+
+       
+      </div>
+</div>
+
+
+
+<script type="text/javascript">
+    $('.dj').click(function () {
+        $('.addresslist').before( "<tr><td style=' white-space: nowrap;'>输入框:</td> <td>  <input  name='address_plus' /></td></tr>" );
+    });
+</script>
+
+<script src="__STATIC__/js/jquery.min.js"></script> 
+<script type="text/javascript" charset="UTF-8">
+   function test1(key){
+            $(key).attr('a');
+            var form = new FormData(document.getElementById("form"));
+            $.ajax({
+                url:"{:url('user/address_del')}?vo="+key,
+                type:"get",
+                processData:false,
+                contentType:false,
+                dataType: "json",//预期服务器返回的类型
+                success:function(data){
+                        layer.open({
+                        content: '删除成功！',
+                        btn: ['确认'],
+                        yes: function(index, layero) {
+                            window.location.href="{:url(my_data_d)}";
+                        },
+                        btn2: function(index, layero) {
+ 
+                        }
+                        ,
+                        cancel: function() {
+                            //右上角关闭回调
+                        }
+                    });
+                },
+                error:function(e){
+                    layer.open({
+                      content: '网络错误'
+                      ,skin: 'msg'
+                      ,time: 2 //2秒后自动关闭
+                    });
+
+                }
+            });  
+
+             }
+
+ function test6(){
+            var form = new FormData(document.getElementById("form"));
+            $.ajax({
+                url:"{:url('info_edit')}",
+                type:"post",
+                data:form,
+                processData:false,
+                contentType:false,
+                dataType: "json",//预期服务器返回的类型
+                success:function(data){
+                        layer.open({
+                        content: '修改成功！',
+                        btn: ['确认'],
+                        yes: function(index, layero) {
+                            window.location.href="{:url(my_data_d)}";
+                        },
+                        btn2: function(index, layero) {
+ 
+                        }
+                        ,
+                        cancel: function() {
+                            //右上角关闭回调
+                        }
+                    });
+                },
+                error:function(e){
+                    layer.open({
+                      content: '网络错误'
+                      ,skin: 'msg'
+                      ,time: 2 //2秒后自动关闭
+                    });
+
+                }
+            });        
+             }
+
+
+  </script>
+
+<!-- container --> 
+</div> 
+  </div>
+

@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4116d536-4ded-4c7d-860d-6a90c69af9d2" name="默认的" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/common.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/common.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/controller/Addon.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/controller/Addon.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/controller/AdminBase.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/controller/AdminBase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/controller/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/controller/Article.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/controller/Auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/controller/Auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/controller/Blogroll.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/controller/Blogroll.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/controller/Config.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/controller/Config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/controller/Database.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/controller/Database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/controller/Exelog.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/controller/Exelog.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/controller/File.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/controller/File.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/controller/Fileclean.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/controller/Fileclean.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/controller/Index.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/controller/Index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/controller/Log.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/controller/Log.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/controller/Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/controller/Login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/controller/Member.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/controller/Member.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/controller/Menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/controller/Menu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/controller/Seo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/controller/Seo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/controller/Service.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/controller/Service.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/controller/Shopadmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/controller/Shopadmin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/controller/Statistic.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/controller/Statistic.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/controller/Trash.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/controller/Trash.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/controller/Widget.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/controller/Widget.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/logic/AdminBase.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/logic/AdminBase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/logic/AuthGroup.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/logic/AuthGroup.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/logic/AuthGroupAccess.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/logic/AuthGroupAccess.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/logic/Blogroll.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/logic/Blogroll.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/logic/Database.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/logic/Database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/logic/ExeLog.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/logic/ExeLog.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/logic/Log.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/logic/Log.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/logic/Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/logic/Login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/logic/Member.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/logic/Member.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/logic/Menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/logic/Menu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/logic/Region.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/logic/Region.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/logic/Service.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/logic/Service.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/logic/Statistic.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/logic/Statistic.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/logic/Trash.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/logic/Trash.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/model/ActionLog.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/model/ActionLog.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/model/AdminBase.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/model/AdminBase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/model/AuthGroup.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/model/AuthGroup.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/model/AuthGroupAccess.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/model/AuthGroupAccess.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/model/ExeLog.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/model/ExeLog.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/model/Menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/model/Menu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/service/AdminServiceBase.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/service/AdminServiceBase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/service/GoodsService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/service/GoodsService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/service/TreeService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/service/TreeService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/validate/AdminBase.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/validate/AdminBase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/validate/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/validate/Article.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/validate/ArticleCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/validate/ArticleCategory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/validate/AuthGroup.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/validate/AuthGroup.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/validate/Blogroll.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/validate/Blogroll.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/validate/Config.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/validate/Config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/validate/Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/validate/Login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/validate/Member.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/validate/Member.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/validate/Menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/validate/Menu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/validate/Seo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/validate/Seo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/validate/Shop.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/validate/Shop.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/validate/ShopCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/validate/ShopCategory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/addon/addon_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/addon/addon_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/addon/hook_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/addon/hook_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/article/article_category_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/article/article_category_edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/article/article_category_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/article/article_category_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/article/article_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/article/article_edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/article/article_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/article/article_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/auth/group_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/auth/group_edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/auth/group_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/auth/group_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/auth/menu_auth.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/auth/menu_auth.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/blogroll/blogroll_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/blogroll/blogroll_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/config/config_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/config/config_edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/config/config_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/config/config_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/config/setting.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/config/setting.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/database/data_backup.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/database/data_backup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/database/data_restore.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/database/data_restore.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/exelog/api_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/exelog/api_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/exelog/app_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/exelog/app_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/fileclean/file_clear.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/fileclean/file_clear.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/index/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/index/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/layout/bottom.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/layout/bottom.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/layout/crumbs.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/layout/crumbs.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/layout/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/layout/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/layout/sidebar_left.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/layout/sidebar_left.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/layout/sidebar_right.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/layout/sidebar_right.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/layout/top.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/layout/top.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/log/log_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/log/log_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/login/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/login/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/member/member_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/member/member_add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/member/member_auth.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/member/member_auth.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/member/member_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/member/member_edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/member/member_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/member/member_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/menu/menu_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/menu/menu_edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/menu/menu_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/menu/menu_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/seo/seo_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/seo/seo_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/service/driver_install.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/service/driver_install.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/service/driver_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/service/driver_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/service/service_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/service/service_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/shop/address_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/shop/address_add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/shop/address_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/shop/address_edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/shop/address_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/shop/address_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/shop/car_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/shop/car_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/shop/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/shop/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/shop/order_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/shop/order_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/shop/show.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/shop/show.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/shopadmin/drawal.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/shopadmin/drawal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/shopadmin/shop_category_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/shopadmin/shop_category_edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/shopadmin/shop_category_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/shopadmin/shop_category_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/shopadmin/shop_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/shopadmin/shop_edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/shopadmin/shop_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/shopadmin/shop_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/statistic/exe_speed.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/statistic/exe_speed.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/statistic/member_growth.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/statistic/member_growth.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/statistic/member_tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/statistic/member_tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/statistic/money_flow.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/statistic/performer_facility.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/statistic/performer_facility.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/statistic/tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/statistic/tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/statistic/tree1.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/statistic/tree1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/statistic/tree2.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/statistic/tree2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/statistic/tree3.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/statistic/tree3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/trash/trash_data_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/trash/trash_data_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/trash/trash_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/trash/trash_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/widget/file/file.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/widget/file/file.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/widget/file/img.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/widget/file/img.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/widget/file/imgs.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/widget/file/imgs.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/widget/icon/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/widget/icon/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/view/widget/region/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/view/widget/region/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/widget/Editor.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/widget/Editor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/widget/File.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/widget/File.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/widget/Icon.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/widget/Icon.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/widget/Region.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/widget/Region.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin/widget/WidgetBase.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin/widget/WidgetBase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/index/controller/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/index/controller/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/index/controller/Vip.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/index/controller/Vip.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/index/view/layout/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/index/view/layout/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/index/view/user/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/index/view/user/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/index/view/vip/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/index/view/vip/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/images/ban1 - 副本.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/images/ban1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/static/images/ban1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/images/ban2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/static/images/ban2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/static/images/ban3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/static/images/ban3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/cache/7a/97a35160987a8f39536d2c5ee90e09.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/cache/7a/97a35160987a8f39536d2c5ee90e09.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/cache/85/d70c24281f075dabff72a42b5764e0.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/log/201809/03.log" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/log/201809/03.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/temp/2468fe415a5f455f108ba730a06ea2f7.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/2468fe415a5f455f108ba730a06ea2f7.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/temp/258127e9b2f9b864215b86ad63930ee0.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/258127e9b2f9b864215b86ad63930ee0.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/temp/345cd41b24aac76211ff4736e22a183e.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/345cd41b24aac76211ff4736e22a183e.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/temp/356147ff1de13cbfa9355e3b61a14458.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/temp/3a1a1f7ea503618a941545c45ead6fb0.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/temp/5ca9c0b85c55268b9205d0fff792695c.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/5ca9c0b85c55268b9205d0fff792695c.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/temp/66948631e543d942155f172641131a58.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/temp/6f6e20fc801920ea1c1ab81f2630e732.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/6f6e20fc801920ea1c1ab81f2630e732.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/temp/7ba62506e953b7fb29be6e5b9ebc39d0.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/temp/990d9d791c33acbf31863b5977fb1524.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/temp/9e736605a3e26dd43eb1706604f17fb2.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/temp/a3ee06aa2f472b177fc2081eb05b1737.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/temp/bbf5de085fd531a51ddd04617e2271af.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/bbf5de085fd531a51ddd04617e2271af.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/temp/c0453542b9e57cdb1b24c89a8effda63.php" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/temp/c0453542b9e57cdb1b24c89a8effda63.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/temp/ce8443d53fda0708287501208d85ced4.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/temp/f14ae2a8af7ca9d87bee383b0026e83c.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/temp/ff1a74f48ca32da6ed1f962e657dee51.php" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+  </component>
+  <component name="FileEditorManager">
+    <leaf />
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>href=&quot;/public</find>
+      <find>&lt;img src='/public</find>
+      <find>/public</find>
+      <find>session('member_info')</find>
+      <find>善策</find>
+      <find>善策</find>
+      <find>善策</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>href=&quot;__STATIC__</replace>
+      <replace>&lt;img src='__STATIC__</replace>
+      <replace>__STATIC__</replace>
+      <replace>$this-&gt;user</replace>
+      <replace>善策</replace>
+      <replace>善策</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>D:\wamp64\www\one\app\index\view</dir>
+      <dir>D:\wamp64\www\one\app\admin\view\shop</dir>
+      <dir>D:\wamp64\www\s8726\app\index\view</dir>
+      <dir>D:\wamp64\www\s8726\app\index\view\vip</dir>
+      <dir>D:\wamp64\www\s8726\app\index\controller</dir>
+      <dir>D:\wamp64\www\s8726</dir>
+      <dir>D:\wamp64\www\j8830</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/app/common/logic/Shop.php" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/public/static/module/admin/ext/edittable/package.json" />
+    </packageJsonPaths>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/aliyuncs/oss-sdk-php" />
+      <path value="$PROJECT_DIR$/vendor/qiniu/php-sdk" />
+      <path value="$PROJECT_DIR$/vendor/phpoffice/phpexcel" />
+      <path value="$PROJECT_DIR$/vendor/firebase/php-jwt" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/topthink/think-image" />
+      <path value="$PROJECT_DIR$/vendor/topthink/think-captcha" />
+      <path value="$PROJECT_DIR$/vendor/topthink/think-installer" />
+    </include_path>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="126" />
+    <option name="width" value="1706" />
+    <option name="height" value="1056" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="j8830" type="b2602c69:ProjectViewProjectNode" />
+              <item name="j8830" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4116d536-4ded-4c7d-860d-6a90c69af9d2" name="默认的" comment="" />
+      <created>1533874983856</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1533874983856</updated>
+      <workItem from="1533874987558" duration="641000" />
+      <workItem from="1533957078518" duration="308000" />
+      <workItem from="1534127155848" duration="293000" />
+      <workItem from="1534403532457" duration="578000" />
+      <workItem from="1534427346153" duration="635000" />
+      <workItem from="1535939660639" duration="1951000" />
+      <workItem from="1535943097484" duration="667000" />
+      <workItem from="1535959535587" duration="238000" />
+      <workItem from="1536230650649" duration="377000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="5688000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-11" y="-11" width="1702" height="1016" extended-state="6" />
+    <layout>
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="调试" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="运行" order="7" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13337469" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="找到" order="8" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/common/logic/Shop.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12800">
+          <caret line="320" selection-start-line="320" selection-end-line="320" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/common/logic/Shop.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12800">
+          <caret line="320" selection-start-line="320" selection-end-line="320" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/common/logic/Shop.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12280">
+          <caret line="307" selection-start-line="307" selection-end-line="307" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/common/logic/Shop.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12280">
+          <caret line="307" selection-start-line="307" selection-end-line="307" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/common/logic/Shop.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12280">
+          <caret line="307" lean-forward="true" selection-start-line="307" selection-end-line="307" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/common/logic/Shop.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1285">
+          <caret line="354" selection-start-line="354" selection-end-line="354" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

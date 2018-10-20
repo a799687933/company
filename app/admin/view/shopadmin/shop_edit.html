@@ -1,0 +1,132 @@
+<form action="{:url()}" method="post" class="form_single">
+    <div class="box">
+      <div class="box-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>标题</label>
+              <span class="">（产品名称）</span>
+              <input class="form-control" name="name" placeholder="请输入产品标题名称" value="{$info['name']|default=''}" type="text">
+            </div>
+          </div>
+            
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>分类</label>
+              <span class="">（产品分类）</span>
+                <select name="category_id" class="form-control" multiple="multiple">
+                    {volist name='shop_category_list' id='vo'}
+                        <option value="{$vo['id']}" {notempty name="info['category_id']"}{if condition="$info['category_id'] eq $vo['id']"} selected="selected" {/if}{/notempty} >{$vo['name']}</option>
+                    {/volist}
+                </select>
+            </div>
+          </div>
+            
+            <div class="col-md-6">
+            <div class="form-group">
+              <label>商品排序</label>
+              <span class="">（越小越前）(大于1000的在首页显示)</span>
+              <input class="form-control" name="price" placeholder="请输入数字" value="{$info['price']|default=''}" type="text">
+            </div>
+          </div>
+<div class="col-md-6">
+            <div class="form-group">
+                <label>封面图片</label>
+                <span class="">（请上传单张封面图片）</span>
+                <br/>
+                {assign name="cover_id" value="$info.cover_id|default='0'" /}
+                {:widget('file/index', ['name' => 'cover_id', 'value' => $cover_id, 'type' => 'img'])}
+            </div>
+          </div>
+
+             <div class="col-md-6">
+            <div class="form-group">
+                <label>案例大图</label>
+                <span class="">（请上传单张图片）</span>
+                <br/> 
+                {assign name="img_ids" value="$info.img_ids|default=''" /}
+                {:widget('file/index', ['name' => 'img_ids', 'value' => $img_ids, 'type' => 'imgs'])}
+            </div>
+          </div>
+        <div class="col-md-6">
+            <div class="form-group">
+              <label>项目背景</label>
+            <textarea class="form-control" name="cost" rows="3" placeholder="请输入项目背景">{$info['cost']|default=''}</textarea>
+            </div>
+          </div>
+
+
+
+
+     <!--   <div class="col-md-6">
+            <div class="form-group">
+              <label>易股券</label>
+              <span class="">（购买后送的易股券）</span>
+              <input class="form-control" name="coupons" placeholder="请输入易股券" value="{$info['coupons']|default=''}" type="text">
+            </div>
+          </div> -->
+       <!--  <div class="col-md-6">
+            <div class="form-group">
+              <label>产品数目</label>
+              <span class="">（产品数目）</span>
+              <input class="form-control" name="num" placeholder="请输入产品数目" value="{$info['num']|default=''}" type="text">
+            </div>
+          </div> -->
+
+          <div class="col-md-6">
+            <div class="form-group">
+                <label>最终收获</label>
+                <span class="">（最终收获）</span>
+                <textarea class="form-control" name="describe" rows="3" placeholder="请输入最终收获">{$info['describe']|default=''}</textarea>
+            </div>
+          </div>
+            
+          
+            
+         <!--  <div class="col-md-6">
+            <div class="form-group">
+                <label>多图片</label>
+                <span class="">（请上传多图片）</span>
+                <br/> 
+                {assign name="img_ids" value="$info.img_ids|default=''" /}
+                {:widget('file/index', ['name' => 'img_ids', 'value' => $img_ids, 'type' => 'imgs'])}
+                
+            </div>
+          </div>
+            
+            
+          <div class="col-md-6">
+            <div class="form-group">
+                <label>附件</label>
+                <span class="">（产品可下载附件）</span>
+                <br/>
+                {assign name="file_id" value="$info.file_id|default='0'" /}
+                {:widget('file/index', ['name' => 'file_id', 'value' => $file_id, 'type' => 'file'])}
+            </div>
+          </div> -->
+            
+          </div>
+        <div class="row">
+           
+            
+          <div class="col-md-12">
+            <div class="form-group">
+                <label>产品内容</label>
+                <textarea class="form-control textarea_editor" name="content" placeholder="请输入产品内容">{$info['content']|default=''}</textarea>
+                {:widget('editor/index', array('name'=> 'content','value'=> ''))}
+            </div>
+          </div>
+            
+        </div>
+        
+      <div class="box-footer">
+          
+        <input type="hidden" name="id" value="{$info['id']|default='0'}"/>
+        
+        {include file="layout/edit_btn_group"/}
+        
+      </div>
+        
+      </div>
+      </div>
+</form>

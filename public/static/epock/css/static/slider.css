@@ -1,0 +1,163 @@
+@charset "utf-8";
+
+/* main_image */
+
+.main_visual,
+.off-main_visual {
+    width: 100%; 
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.main_visual {
+    height: 480px;
+}
+
+.off-main_visual {
+    height: 572px;
+}
+
+.main_image .main-img-ul,
+.off-main_image .off-main-img-ul {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0
+}
+
+.main_image,
+.off-main_image {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.main_image .main-img-li {
+    height: 480px;
+}
+
+.off-main_image .off-main-img-li {
+    height: 572px;
+}
+
+.main_image .main-img-li,
+.off-main_image .off-main-img-li {
+    float: left;
+    width: 100%;
+}
+
+.main_image .main-img-li a,
+.off-main_image .off-main-img-li a {
+    display: block;
+    width: 100%;
+    text-align: left;
+}
+
+.main_image img,
+.off-main_image img {
+    /* width: 100%; */
+}
+
+.main_image img {
+    height: 600px;
+}
+
+.off-main_image img {
+    height: 572px;
+}
+
+div.flicking_con,
+div.flicking_icon {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    z-index: 999;
+    width: 90px;
+    height: 27px;
+    margin: 0 0 0 -45px;
+}
+div.flicking_icon{
+    bottom: 70px;
+}
+div.flicking_con a,
+div.flicking_icon a {
+    float: left;
+    width: 30px;
+    height: 27px;
+    margin: 0;
+    padding: 0;
+    background: url(../../img/carouselBtn.png) center no-repeat;
+    display: block;
+}
+
+div.flicking_con a.on,
+div.flicking_icon a.on {
+    background: url(../../img/carouselBtnActive.png) center no-repeat;
+}
+
+#btn_prev,
+#btn_next,
+#ibtn_prev,
+#ibtn_next {
+    z-index: 11111;
+    position: absolute;
+    display: block;
+    width: 65px!important;
+    height: 65px!important;
+    top: 50%;
+    margin-top: -33px;
+    cursor: default;
+}
+#btn_prev{
+    background: url(../../img/左切换-hover@2x.png) no-repeat left top;
+}
+#ibtn_prev{
+    background: url(../../img/左切换@2x.png) no-repeat left top;
+}
+#btn_prev,
+#ibtn_prev {
+    left: 10px;
+}
+
+#btn_next{
+    background: url(../../img/右切换-hover@2x.png) no-repeat right top;
+}
+#ibtn_next{
+    background: url(../../img/右切换@2x.png) no-repeat right top;
+}
+#btn_next,
+#ibtn_next {
+    right: 10px;
+}
+.main_visual-moov{
+	height: 180px;
+}
+.main_visual-moov img{
+	height: 180px;
+	width: 100%;
+}
+.nav-top a{
+	font-size: 18px;
+	color: #3D3E46;
+	letter-spacing: 0;
+}
+@media  (max-width: 900px) { /*当屏幕尺寸小于600px时，应用下面的CSS样式*/
+  .main_visual {
+  	height: 222px!important;
+  }
+	.main_visual-moov img{
+		height: 222px!important;
+		width: auto!important;
+	}
+}
+@media  (max-width: 900px) { /*当屏幕尺寸小于600px时，应用下面的CSS样式*/
+  .pcyc{
+  	display: none;
+  }
+}
+@media  (min-width: 900px) { /*当屏幕尺寸小于600px时，应用下面的CSS样式*/
+  .ydyc{
+  	display: none;
+  }
+}

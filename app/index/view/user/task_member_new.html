@@ -1,0 +1,134 @@
+  <!DOCTYPE html>
+  <html>
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+  	<title>任务</title>
+     	<link rel="stylesheet" type="text/css" href="__STATIC__/css/mui.min.css"/>
+     	<link rel="stylesheet" type="text/css" href="__STATIC__/css/own.css"/>
+     	<link rel="stylesheet" type="text/css" href="__STATIC__/css/iconfont.css"/>
+      <script src="__STATIC__/js/jquery.hiSlider.min.js" charset="UTF-8"></script>
+      <script src="__STATIC__/widget/admin/file/jquery.Huploadify.js"></script>
+      <script type="text/javascript" src="__STATIC__/js/mui.min.js"></script>
+      <link rel="stylesheet" href="__STATIC__/widget/admin/file/Huploadify.css">
+  <body>
+  	<header class="mui-bar mui-bar-nav own-main-background-color">
+  		 <!-- <a class="mui-icon mui-pull-left" href="{:url('vip')}"><</a> -->
+       <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="line-height: 30px; color: white; text-decoration: none;"></a>
+  		<a href="{:url('user/task_member_record')}" class="mui-pull-right" style="color: #fff;font-size: 14px; height: 45px; line-height: 45px;">任务记录</a>
+  		<h1 class="mui-title">任务</h1>
+  	</header>
+
+   
+  	<form  method="post"  class="muigroup">
+     
+  	<div class="mui-content" style="margin-top: 50px;">
+
+          <div class="mui-input-row">
+              <ul class="mui-table-view" id="detailcontent">
+  		      {volist name="list" id="v"}
+           <input  name="sk" style="display: none" id="sk{$i}"  value="{$v.pdt+$countdown}" />
+           <input name="id" style="display: none"   value="{$v.id}" />
+           <input name="old_img_ids" style="display: none"   value="{$v.img_ids}" />
+                  <li class="mui-table-view-cell">
+                 {$type_arr[$v.action_type]}
+                  <!-- {$v.epoints} -->
+                   
+                      <br>  
+                    
+                       <span class="label label-success"  id="box{$i}">
+                       </span>
+                      
+               <div class="col-md-12">
+            <div class="form-group">
+                <textarea class="form-control textarea_editor" name="content" placeholder="请输入任务内容">{$v['bz']|default='这里填写内容'}</textarea>
+            </div>
+          </div>
+                      {assign name="img_ids" value="$v.img_ids|default=''" /}
+                      {:widget('admin/file/index', ['name' =>'img_ids', 'value' =>'', 'type' => 'imgs'])}<a href="{:url('user/task_member_clean',array('id'=>$v.id))}"> <input style="background:#707070;border:none;color: white;border-radius: 15px;" type="button" value="清空任务"></a>
+                  <p>
+                <span>{$v.pdt|date='Y-m-d H:i:s',###}</span></p>
+                  </li>
+  		      {/volist}
+     </ul>
+ </form>
+     </div>
+     <div class="mui-content">
+          
+        <input type='hidden' name='task' value="type">
+        <div class="mui-button-row" style="margin: 10px 15px;">
+          <button type="submit" id="btn" class="mui-btn mui-btn-link own-btn-green mui-btn-block ajax-post" style="padding: 5px 0px;"  target-form="muigroup">任务提交</button>
+        </div>
+      
+        <!-- <div class="mui-row" style="margin: 10px 15px;">
+          <span style="font-size:14px;color:red">备注：1.内部转账只能转给自己或自己的团队<br>
+          　　　2.转账收10%手续费，20%转换为消费积分</span>
+        </div> -->
+    </div>
+          <div>
+              <div class="mui-content">
+          <div class="mui-input-row">
+              <ul class="mui-table-view" id="detailcontent">
+                 {$task.bz}
+            {volist name="task_img" id="v"}
+           <input  name="sk" style="display: none" id="sk{$i}"  value="{$v.pdt+$countdown}" />
+                  <li class="mui-table-view-cell">
+                 <img class="admin-list-img-size" src="{$v|get_picture_url}"/>
+                  </li>      
+            {/volist}
+            
+              </ul>
+          </div>
+          <div>
+          </div>
+      </div>
+
+  </body>
+
+
+  <script type="text/javascript">
+          window.onload = function(){    
+              for(var i=1;i<=10;i++){
+              var oBox= document.getElementById('box'+i);
+              var futrue=document.getElementById("sk"+i).value;
+              // var futrue = new Date(document.getElementById('sk').value);
+              countdown();
+              setInterval(countdown,1000);
+              }
+   
+          function add(num){
+              if (num<10) {
+                  return '0' + num;
+              }
+              else{
+                  return num;
+              }
+          }
+
+          function countdown(){
+              var now = new Date();
+
+              var leftovoer = (futrue-now.getTime()/1000);
+              //var leftovoer = (futrue - now)/1000;
+              /* 剩余的天数 */
+              var day = parseInt(leftovoer/86400);
+
+              /* 剩余的小时 */
+              var hour = parseInt(leftovoer%86400/3600);
+
+              /* 剩余的分钟 */
+              var branch = parseInt(leftovoer%86400%3600/60);
+
+              /* 剩余的秒 */
+              var second = parseInt(leftovoer%60);
+
+              oBox.innerHTML = '倒计时：'+add(hour)+'时'+add(branch)+'分'+add(second)+'秒';
+              if (leftovoer<=0){
+                 oBox.innerHTML = '倒计时已经结束';
+                
+              }
+          }
+      }
+      </script>
+      
+  </html>

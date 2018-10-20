@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>提现</title>
+	   	<link rel="stylesheet" type="text/css" href="__STATIC__/css/mui.min.css"/>
+	   	<link rel="stylesheet" type="text/css" href="__STATIC__/css/own.css"/>
+	   	<link rel="stylesheet" type="text/css" href="__STATIC__/css/iconfont.css"/>
+      <script type="text/javascript" src="__STATIC__/js/mui.min.js"></script>
+	   	
+	</head>
+	<body>
+		
+		<header class="mui-bar mui-bar-nav own-main-background-color" style=" height: 50px;">
+  <!-- <a class="mui-icon mui-pull-left" href="{:url('vip')}"><</a> -->
+<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="line-height: 30px; color: white; text-decoration: none;"></a>
+
+      <h1 class="mui-title" style="line-height: 50px;">提现</h1>
+     
+    </header>
+
+	<div class="mui-content" style="margin-top: 20px;">
+
+        <form id="detailcontent" name="form1" method="post" role="form" class="mui-input-group">
+			<div class="mui-input-row">
+				<label>姓名</label>
+				<input type="text" class="mui-input-clear fm" value="{$data.name}" id="zname" name="zname"  placeholder="姓名"/>
+			</div>
+			<div class="mui-input-row">
+				<label>银行卡号/支付宝账号</label>
+				<input type="text" class="mui-input-clear fm" value="{$data.card}" id="zhi" name="zhi"  placeholder="银行卡号/支付宝账号"/>
+			</div>
+			<div class="mui-input-row">
+				<label>选择类型</label>
+				<select class="mui-btn-block mui-input-clear fm" id="bank" name="bank" style="font-size:14px;">
+					{empty name="$data.bank"}
+						<option value="">选择类型</option>
+					{else/}
+						<option value="{$data.bank}">{$data.bank}</option>
+					{/empty}
+					{volist name="banks" id="bank"}
+						<option value="{$bank}">{$bank}</option>
+					{/volist}
+			 	</select>
+			</div>
+			<!-- <div class="mui-input-row">
+				<label>开户行</label>
+				<input type="text" class="mui-input-clear fm" value="{$data.kaihu}" id="kaihu" name="kaihu" placeholder="开户行"/>
+			</div> -->
+			<div class="mui-input-row">
+				<label>金额</label>
+				<input type="text" class="mui-input-clear fm" value="" id="num" name="num" placeholder="金额"/>
+			</div>
+			<div class="mui-input-row">
+				<label>安全密码</label>
+				<input type="password2" class="mui-input-password" placeholder="请输入安全密码" id="password2" name="password2" />
+			</div>
+		</form>
+		<div class="mui-button-row" style="margin: 10px 15px;">
+			<button type="button" onclick="test15()"  class="mui-btn mui-btn-link own-btn-green mui-btn-block" style="padding: 5px 0px;">确定提交</button>
+		</div>
+	</div>
+</div>
+<div class="mui-content">
+        <div class="mui-input-row">
+            <ul class="mui-table-view" id="detailcontent">
+		      {volist name="list" id="v"}
+                <li class="mui-table-view-cell">
+                <span class="fr">{$v.num}</span>申请{$v.bank}{$v.card}提现
+                  {if condition="$v.status eq 0"}                    
+                   <span class="label label-success">审核中</span>
+                  {elseif condition="$v.status eq 1" /}
+                  <span class="label label-success">已通过</span>
+                  {elseif condition="$v.status eq 2" /}
+                  <span class="label label-danger">已驳回</span>
+                 {if condition="$v.text"}  
+                   原因:{$v.text}{/if}
+                  {/if}               
+                <p><span class="fr"></span>{$v.ctime|date='Y-m-d H:i:s',###}</p>
+                </li>
+		      {/volist}
+            </ul>
+        </div>
+        <div>
+          {$list->render()}
+        </div>
+    </div>
+<script type="text/javascript">
+
+
+   function test15(){
+            var form = new FormData(document.getElementById("detailcontent"));
+            $.ajax({
+                url:"{:url('withdrawadd')}",
+                type:"post",
+                data:form,
+                processData:false,
+                contentType:false,
+                dataType: "json",//预期服务器返回的类型
+
+                success:function(data){
+                
+                  layer.open({
+                        content: data.msg,
+                        btn: ['完成操作','返回'],
+                        yes: function(index, layero) {
+                            window.location.href=data.url;
+                        },
+                        btn2: function(index, layero) {
+ 
+                        }
+                        ,
+                        cancel: function() {
+                            //右上角关闭回调
+                        }
+                    });
+                },
+                error:function(e){
+                 layer.open({
+                      content: data
+                      ,skin: 'msg'
+                      ,time: 2 //2秒后自动关闭
+                    });
+                }
+            });        
+             }
+
+</script>
+</body>
+</html>

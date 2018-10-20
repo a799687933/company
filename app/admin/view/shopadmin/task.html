@@ -1,0 +1,287 @@
+
+
+  
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/libs/nifty-component.css"/><!-- 弹出窗体 -->
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/libs/fileinput.min.css"/>
+  <link rel="stylesheet" type="text/css" href="__STATIC__/css/bootstrap/bootstrap.min.css"/>
+  <link rel="stylesheet" type="text/css" href="__STATIC__/css/libs/font-awesome.css"/>
+  <link rel="stylesheet" type="text/css" href="__STATIC__/css/libs/nanoscroller.css"/> 
+  <link rel="stylesheet" type="text/css" href="__STATIC__/css/compiled/theme_styles.css"/>
+
+<!--  <script src="__STATIC__/js/jquery.js"></script>
+  <script src="__STATIC__/js/bootstrap.js"></script>
+  <script src="__STATIC__/js/jquery.nanoscroller.min.js"></script>
+  <script src="__STATIC__/js/jquery.nanoscroller.min.js"></script> -->
+
+ 
+  <style type="text/css">
+   .skin-blue .content .btn.btn-success {
+    background-color: #2ecc71;
+    border-color: #27ae60;
+}
+
+.skin-blue .content .btn.btn-danger {
+    background-color: #e74c3c;
+    border-color: #c0392b;
+}
+
+ .skin-blue .content .btn.btn-primary {
+    background-color: #3498db;
+    border-color: #2980b9;
+}
+  </style>
+
+
+{block name="main"}
+
+<!-- 弹出框 -->
+    <div class="md-modal md-effect-7" id="modal-7">
+        <div class="md-content">
+            <div class="modal-header">
+                <button class="md-close close">&times;</button>
+                <h4 class="modal-title">驳回</h4>
+            </div>
+            <div class="modal-body">
+                <form id="myform" action="{:url('task_insert')}" method="post" enctype="multipart/form-data">
+                    <input type="text" name="id" id="id" value="">
+                    <input type="hidden"  name="type" id="type" value="1">
+                    <input type="hidden" name="status" value="2">
+                    <div class="form-group">
+                        <label for="exampleTextarea">驳回理由</label>
+                        <input type="text" name="text" value="" class="form-control" placeholder="">
+                        <span style="color:red;font-size:12px;"></span>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary pull-right md-close" onclick="bohui();">提交</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="md-overlay"></div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>任务管理</h1>
+                </div>
+            </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="main-box clearfix">
+                            <header class="main-box-header clearfix">
+                        <h2 class="pull-left">任务管理</h2>
+                        <div class="filter-block pull-right">
+                            <form action="{:url('task')}" method="get">
+
+<!--                               <div class="form-group pull-left">
+                              <a href="{:url('Drawal/index')}?type=1" class="btn btn-primary pull-right">
+                                    快捷
+                              </a>
+                              </div> -->
+
+                            
+
+                              <div class="pull-left" style="margin-left:10px;">
+                                  <select class="form-control input-sm filterCategory" name="status">
+                                  <option value="">全部</option>
+                                  <option value="3">未处理</option>
+                                  <option value="1">已通过</option>
+                                  <option value="2">已驳回</option>
+                                  </select>
+                              </div>
+                                <div class="form-group pull-left">
+                                <input type="text" name="user" class="form-control" placeholder="用户账号">
+                                </div>
+                               <!--  <a href="{:url('member/exportchargeList')}" class="btn btn-primary pull-right">
+                                    导出execl
+                                </a> -->
+                                <button type="submit" href="#" class="btn btn-primary pull-right">
+                                  <i class="fa fa-search search-icon"></i>
+                                  搜索
+                                </button>
+                                <a href="{:url('config/setting')}"  class="btn btn-primary pull-right">
+                                    发布任务
+                                </a>
+
+                            </form>
+                        </div>
+                    </header>
+
+                    <div class="main-box-body clearfix">
+                      <div class="table-responsive clearfix">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th>
+                                    <span>编号</span>
+                                </th>
+                                <th class="text-center">
+                                    <span>账号</span>
+                                </th>
+                                <th class="text-center">
+                                    <span>姓名</span>
+                                </th>
+                               
+                                <th class="text-center">
+                                    <span>任务图片</span>
+                                </th>
+                                <th class="text-center">
+                                    <span>会员图片</span>
+                                </th>
+                                <th class="text-center">
+                                    <span>时间</span>
+                                </th>
+                                <th class="text-center">
+                                    <span>操作</span>
+                                </th>
+                            </tr>
+                            </thead>
+                          <tbody>
+                            {foreach name="data" item="v" key="k"}
+
+                                <tr>
+                                  <td>
+                                      <a >{$v.id}</a>
+                                  </td>
+                                  <td class="text-center">
+                                      <a >{$v.username}</a>
+                                  </td>
+                                  <td class="text-center">
+                                      <a >{$v.name}</a>
+                                  </td>
+                                  
+                                  <td class="text-center">
+                                   {if condition="$v['task_type'] eq 'task'" }
+                                    <a href="{:url('index/user/task_member_img',array('id'=>$v.id,'type'=>2))}"> <input style="background:#707070;border:none;color: white;border-radius: 15px;" type="button" value="查看任务一图片"></a>
+                                   {else/}
+                                  <a href="{:url('index/user/task_member_img',array('id'=>$v.id,'type'=>2))}"> <input style="background:#707070;border:none;color: white;border-radius: 15px;" type="button" value="查看任务二图片"></a>
+                                   {/if}
+
+                                  </td>
+                                  <td class="text-center">
+                                    <a href="{:url('index/user/task_member_img',array('id'=>$v.id))}"> <input style="background:#707070;border:none;color: white;border-radius: 15px;" type="button" value="查看图片"></a>
+                                  </td>
+                                  <td class="text-center">
+                                      {$v.ctime}
+                                  </td>
+                                  <td>
+                                 
+                                      {if condition="$v.status eq 3"}
+
+                                    
+                                        <a href="javascript:caozuo({$v.id});" class="btn btn-sm btn-success">通过</a>
+                                    
+                                      <a href="javascript:bohuiwin({$v.id});" class="btn btn-sm btn-danger md-trigger" data-modal="modal-7">驳回</a>
+                                      {elseif condition="$v.status eq 1" /}
+                                      <span class="label label-success">已通过</span>
+                                      {elseif condition="$v.status eq 2" /}
+                                      <span class="label label-danger">已驳回</span>
+                                     
+                                   {else /}
+                                   <span class="label label-primary">任务中</span>
+                                   {/if}
+
+                                  </td>
+                                </tr>
+                            {/foreach}
+                          </tbody>
+                        </table>
+                      </div>
+                      <div style="float:right;font-size:20px">{$page->render()}</div>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        </div>
+    </div>
+    
+{/block}
+{block name="js"}
+
+	<script src="__STATIC__/js/classie.js" type="text/javascript"></script><!-- 弹出窗口 -->
+  <script src="__STATIC__/js/modalEffects.js" type="text/javascript"></script><!-- 弹出窗口 -->
+  <script src="__STATIC__/js/fileinput.min.js" type="text/javascript"></script> 
+
+  <script type="text/javascript">
+    function caozuo(id){
+      if(confirm('确认操作？')){
+        $.ajax({
+          type:'get',
+          url:"{:url('task_insert')}",
+          data:{
+            'id':id,'status':"1"
+          },
+          dataType:'json',
+          success: function(data) {
+              if(data.code == 1){
+                alert(data.msg);
+                window.location.reload();
+              } else {
+                alert(data.msg);
+              }
+          },
+          error: function(request) {
+            alert("页面错误");
+          }
+        });
+      }  
+
+    }
+
+
+    function kuaijie(id){
+      if(confirm('确认操作？')){
+        $.ajax({
+          type:'get',
+          url:"{:url('kuaijie')}",
+          data:{
+            'id':id,'status':"1"
+          },
+          dataType:'json',
+          success: function(data) {
+              if(data.code == 1){
+                alert(data.msg);
+                window.location.reload();
+              } else {
+                alert(data.msg);
+              }
+          },
+          error: function(request) {
+            alert("页面错误");
+          }
+        });
+      }  
+
+    }
+
+
+    function bohuiwin(id){
+      $("#id").val(id);
+    };
+    function bohui(){
+      $("#modal-7").removeClass("md-show");
+      var formData = $('#myform').serialize();
+      $.ajax({
+        type:'POST',
+        url:"{:url('shopadmin/task_insert')}",
+        data: formData,
+        dataType:'json',
+        success: function(data) {
+            if(data.code == 1){
+              alert(data.msg);
+              window.location.reload();
+            } else {
+              alert(data.msg);
+            }
+        },
+        error: function(request) {
+          alert("页面错误");
+        }
+      });
+
+    }
+  </script>
+{/block}

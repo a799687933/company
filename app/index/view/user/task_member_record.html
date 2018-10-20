@@ -1,0 +1,118 @@
+  <!DOCTYPE html>
+  <html>
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+  	<title>任务</title>
+     	<link rel="stylesheet" type="text/css" href="__STATIC__/css/mui.min.css"/>
+     	<link rel="stylesheet" type="text/css" href="__STATIC__/css/own.css"/>
+     	<link rel="stylesheet" type="text/css" href="__STATIC__/css/iconfont.css"/>
+      <script type="text/javascript" src="__STATIC__/js/mui.min.js"></script>
+      <script src="__STATIC__/js/jquery.hiSlider.min.js" charset="UTF-8"></script>
+
+
+  <body>
+  	<header class="mui-bar mui-bar-nav own-main-background-color">
+  		 <!-- <a class="mui-icon mui-pull-left" href="{:url('vip')}"><</a> -->
+       <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="line-height: 30px; color: white; text-decoration: none;"></a>
+  		<a href="/index/dealer/zhuanlist.html" class="mui-pull-right" style="color: #fff;font-size: 14px; height: 45px; line-height: 45px;"></a>
+  		<h1 class="mui-title">任务记录</h1>
+  	</header>
+  	
+  	<div class="mui-content">
+          <div class="mui-input-row">
+              <ul class="mui-table-view" id="detailcontent">
+  		      {volist name="list" id="v"}
+           <input  name="sk" style="display: none" id="sk{$i}"  value="{$v.pdt+$countdown}" /><!-- <a href="{$v.img_ids_array|default='0'|get_picture_url}"> -->
+
+
+                  <li class="mui-table-view-cell">
+                <span class="fr"> <a href="{:url('user/task_member_img',array('id'=>$v.id))}"> <input style="background:#707070;border:none;color: white;border-radius: 15px;" type="button" value="查看图片"></a>
+                 </span>{$type_arr[$v.action_type]}
+
+                {if condition="$v['task_type'] eq 'task'" }
+                任务一{/if}
+                 {if condition="$v['task_type'] eq 'task2'" }
+                任务二{/if}
+                  <!-- {$v.epoints} -->
+                  {if condition="$v.action_type eq 61"}
+                    {if condition="$v.status eq 0"} <br>                   
+                     <span class="label label-success"  id="box{$i}">
+                     </span>
+
+                    {elseif condition="$v.status eq 3" /}
+                    <span class="label label-success">图片已经上传，审核中</span>
+
+                
+                    {elseif condition="$v.status eq 1" /}
+                    <span class="label label-success">已通过</span>
+                    {assign name="img_ids" value="$info.img_ids|default=''" /}
+                    {:widget('file/index', ['name' => 'img_ids', 'value' =>$v.id, 'type' => 'imgs'])}
+                    {elseif condition="$v.status eq 2" /}
+                    <span class="label label-danger">已驳回</span>
+                   {if condition="$v.text"}  
+                     原因:{$v.text}{/if}
+                    {/if}  {/if} 
+                  <p>
+                <span>{$v.pdt|date='Y-m-d H:i:s',###}</span></p>
+                  </li>
+           
+                
+                  
+  		      {/volist}
+            
+              </ul>
+          </div>
+          <div>
+            {$list->render()}
+          </div>
+      </div>
+  </body>
+
+
+  <script type="text/javascript">
+          window.onload = function(){    
+              for(var i=1;i<=10;i++){
+              var oBox= document.getElementById('box'+i);
+              var futrue=document.getElementById("sk"+i).value;
+              // var futrue = new Date(document.getElementById('sk').value);
+              countdown();
+              setInterval(countdown,1000);
+              }
+   
+          function add(num){
+              if (num<10) {
+                  return '0' + num;
+              }
+              else{
+                  return num;
+              }
+          }
+
+          function countdown(){
+              var now = new Date();
+
+              var leftovoer = (futrue-now.getTime()/1000);
+              //var leftovoer = (futrue - now)/1000;
+              /* 剩余的天数 */
+              var day = parseInt(leftovoer/86400);
+
+              /* 剩余的小时 */
+              var hour = parseInt(leftovoer%86400/3600);
+
+              /* 剩余的分钟 */
+              var branch = parseInt(leftovoer%86400%3600/60);
+
+              /* 剩余的秒 */
+              var second = parseInt(leftovoer%60);
+
+              oBox.innerHTML = '倒计时：'+add(hour)+'时'+add(branch)+'分'+add(second)+'秒';
+              if (leftovoer<=0){
+                 oBox.innerHTML = '倒计时已经结束';
+                
+              }
+          }
+      }
+      </script>
+      
+  </html>

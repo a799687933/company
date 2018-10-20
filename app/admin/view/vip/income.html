@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>我的收入</title>
+	   	<link rel="stylesheet" type="text/css" href="__STATIC__/css/mui.min.css"/>
+	   	<link rel="stylesheet" type="text/css" href="__STATIC__/css/own.css"/>
+	   	<link rel="stylesheet" type="text/css" href="__STATIC__/css/iconfont.css"/>
+	   	<style>
+		.tx{border:1px solid #fff;padding:2px 6px;border-radius:3px;font-size:14px;float: right;}
+		.box p,.box h5,.box a{color: #fff;}
+		.box{background:#C59D5B;color:#fff;padding:30px 20px;
+		background:-webkit-linear-gradient(bottom left, #C49C5B, #E3C58E);
+		background:-o-linear-gradient(bottom left, #C49C5B, #E3C58E);
+		background:linear-gradient(to top right, #C49C5B, #E3C58E);
+		}
+		.box h2{text-shadow: 1px 1px 5px #AE894D;}
+	   	</style>
+	</head>
+	<body>
+	
+	<header class="mui-bar mui-bar-nav own-main-background-color" style=" height: 50px;">
+      <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="line-height: 30px; color: #333; text-decoration: none;"></a>
+      <h1 class="mui-title" style="line-height: 50px;">我的收入</h1>
+    </header>
+
+	<div class="mui-content">
+		<div class="box">
+			<h5>可提现金额</h5>
+			<span class="tx"><a href="{:url('withdrawadd')}">提现</a></span>
+			<span class="tx"><a href="{:url('transfer')}">转账</a></span>
+			<h2>￥{$data['b0']}</h2>
+			<p>累计收入：￥{$data['b6']}</p>
+		</div>
+	
+		<ul class="mui-table-view">
+			<li class="mui-table-view-cell">
+				销售奖励<span class="mui-pull-right">{$data['b1']}</span>
+			</li>
+			<li class="mui-table-view-cell">
+				业绩奖励<span class="mui-pull-right">{$data['b2']}</span>
+			</li>
+			<li class="mui-table-view-cell">
+				消费钱包<span class="mui-pull-right">{$data['b3']}</span>
+			</li>
+			<li class="mui-table-view-cell">
+				易股券<span class="mui-pull-right">{$data['b4']}</span>
+			</li>
+		</ul>
+	</div>
+
+<script type="text/javascript" src="__STATIC__/js/mui.min.js"></script>
+</body>
+</html>

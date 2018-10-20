@@ -1,0 +1,381 @@
+
+ {if condition="$Think.session.member_info.id neq 1"}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+  <title>订单详情</title>
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/mui.min.css"/>
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/own.css"/>
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/iconfont.css"/>
+  <link rel="stylesheet" type="text/css" href="__STATIC__/css/cart.css" />
+  
+</head>
+<body>
+    <style>
+      .mui-control-content {
+        background-color: white;
+        min-height: 215px;
+      }
+      .mui-control-content .mui-loading {
+        margin-top: 50px;
+      }
+      .sum-money{
+        float: left;
+        padding-left: 10px;
+      }
+      .mui-bar-nav~.mui-content{ padding-top:0; }
+      .mui-bar .mui-icon {
+    font-size: 24px;
+    position: relative;
+    z-index: 20;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 50px;
+    text-decoration: none;
+
+}
+.mui-bar .mui-title{ line-height: 50px; }
+.mui-bar-tab{ bottom: 0px; }
+
+    </style>
+
+    <header class="mui-bar mui-bar-nav own-main-background-color" style="height: 50px">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+      <h1 class="mui-title">订单详情</h1>
+    </header>
+    <!-- 头部结束 -->
+    <div class="mui-content">
+
+   <form  method="post" class="form_single"><input type="hidden" name="id" />
+      <ul class="mui-table-view">
+        <li class="mui-table-view-cell mui-media">
+          <div class="mui-media-body">
+            <p class="mui-ellipsis address-name" style='margin-bottom: 5px;'><a style='float:left;' href='#'>订单编号</a> <a class='mobile'>{$order['code']}</a></p><input value="{$order['code']}" type='hidden' name="code">
+            <p class="mui-ellipsis address-detail" style="text-align: right;"><a style='float:left;color:#999' href='#'>状态</a> <a style='float:right;color:#999'>
+                  
+                   {if condition="$order.status_a eq 0"}
+                  <a style="color: blue;" >未支付</a>
+                    {/if}
+                    {if condition="$order.status_a  eq 1"}
+                        <a style="color:#017ce8;" >未发货</a>
+                    {/if} 
+                    {if condition="$order.status_a eq 2"}
+                   <a style="color: blue;" href="javascript:test2()">确认收货</a>
+                    {/if}
+                
+                    {if condition="$order.status_a  eq 1"}
+                     <a style="color: blue;">等待发货</a>
+                    {/if}
+                
+                   {if condition="$order.status_a  eq 3"}
+                        <a style="color:#017ce8;" >订单完成</a>
+                    {/if}
+                          </a> </p>
+          </div>
+        </li>
+        <div class='goods-border'></div>
+        <li class="mui-table-view-cell mui-media">
+          <div class="mui-media-body">
+            <p class="mui-ellipsis address-name" style='margin-bottom: 5px;'><a style='float:left;' href='#'>收货人信息</a></p>
+            <p class="mui-ellipsis address-detail"><a style='float:left;color:#999' href='#'>收货人姓名</a> <a style='float:right;color:#999'>{$order['username']}</a> </p>
+            <p class="mui-ellipsis address-detail"><a style='float:left;color:#999' href='#'>联系电话</a> <a style='float:right;color:#999'>{$order['mobile']}</a> </p>
+            <p class="mui-ellipsis address-detail"><a style='float:left;color:#999' href='#'>送货地址</a> <a style='float:right;color:#999'>{$order['goods_address']}</a> </p>
+          </div>
+        </li>
+        <div class='goods-border'></div>
+        <li class="mui-table-view-cell mui-media">
+          <div class="mui-media-body">
+            <p class="mui-ellipsis address-name" style='margin-bottom: 5px;'><a style='float:left;' href='#'>配送信息</a></p>
+            <p class="mui-ellipsis address-detail"><a style='float:left;color:#999' href='#'>配送方式</a> <a style='float:right;color:#999'>
+               {$order['express_type']}
+                        </a> </p>
+            <p class="mui-ellipsis address-detail"><a style='float:left;color:#999' href='#'>送货日期</a> <a style='float:right;color:#999'>
+                   {$order.date|date="Y-m-d",###}
+                <p class="mui-ellipsis address-detail"><a style='float:left;color:#999' href='#'>快递单号</a> <a style='float:right;color:#999'>{$order['express_no']}</a> </p>
+          </div>
+        </li>
+      </ul>
+      <div style='height: 10px;'></div>
+      <ul class="mui-table-view">
+        <li class="mui-table-view-cell mui-media">
+          <div class="mui-media-body">
+            <p class="mui-ellipsis address-name" style='margin-bottom: 5px;'><a style='float:left;' href='#'>付款信息</a></p>
+            <p class="mui-ellipsis address-detail"><a style='float:left;color:#999' href='#'>商品总价</a> <a style='float:right;color:#999'>￥{$order['price']*$order['goods_num']}</a> </p>
+            {switch name="$ordersInfo['pay_type']"}
+                         {case value="wxpay"}<p class="mui-ellipsis address-detail"><a style='float:left;color:#999' href='#'>微信支付</a></p>{/case}
+                         {case value="alipay"}<p class="mui-ellipsis address-detail"><a style='float:left;color:#999' href='#'>支付宝支付</a> <a style='float:right;color:#ff2c4c;font-size: 14px;'>￥{$ordersInfo['amount']}</a> </p>{/case}
+                         {/switch}
+                         <p class="mui-ellipsis address-detail"><a style='float:left;color:#999' href='#'>运费<a style='float:right;color:#ff2c4c;font-size: 14px;'>
+                        {$order['address_fee']}
+                         </a> <a style='float:right;color:#ff2c4c;font-size: 14px;'>￥{$ordersInfo['yunfei']}</a> </p>
+                         <p class="mui-ellipsis address-detail"><a style='float:left;color:#999' href='#'>合计</a> <a style='float:right;color:#ff2c4c;font-size: 14px;'>￥{$order['price']*$order['goods_num']}</a> </p>
+
+          </div>
+        </li>
+      </ul>
+      <div style='height: 10px;'></div>
+      <ul class="mui-table-view">
+        <li class="mui-table-view-cell mui-media">
+                   <img class="admin-list-img-size" src="{$order.cover_id|get_picture_url}" style="width: 60px; height: 60px; vertical-align: top;" /> 
+            <div class="mui-media-body" style=" display: inline-block; width: calc(100% - 70px);float:right">
+              <p class="mui-ellipsis goods-name">
+                <a style='float:left;' href="{:url('index/index/show',['id'=>$order['goods_id']])}">{$order['name']}</a>
+              </p>
+              <p class="mui-ellipsis goods-standard">数量：{$order['goods_num']}</p>
+
+              <p class="mui-ellipsis goods-price"><span class='price'>￥{$order['price']}</span></p>
+            </div>
+        </li>
+        <div class='goods-border'></div>
+      </ul>
+      <div style='height: 10px;'></div>
+
+    </div>
+    <!-- 底部 -->
+    <div style='height: 50px;'></div>
+    <nav class="mui-bar mui-bar-tab">
+
+            <div class="mui-row">
+
+                <div class="mui-media mui-col-xs-9 sum-money-box" style="font-size: 14px;">
+                   {if condition="$order.status_a  eq 0"}
+                选择：
+                   <select style="width: 47%; margin-bottom: 0; border: 1px solid #ddd !important; padding:2px 3px" name="pay_type">
+<option  id="pay_type_0"  name="pay_type" value="0">全现金支付</option>
+<option  id="pay_type_1" name="pay_type" value="1">全积分支付</option>
+<option  id="pay_type_2" name="pay_type" value="2">现金半积分支付</option>
+         </select>{/if}
+                        <div class='sum-money tag'>
+                        <i><span  class="goods-price" id="total"></span></i>
+                         <input type="hidden" name="goods_price" id="to" >
+                        </div>
+                </div>
+                <div class="mui-media mui-col-xs-3">
+      {switch name="$order.status_a" }
+        {case value="2"}
+        <a href="javascript:test2()" style='text-align: center;color:#FFF' class='go-buy-box'>
+        确认收货
+        </a> {/case}
+        {case value="1"}
+        <a href="javascript:test2()" style='text-align: center;color:#FFF' class='go-buy-box'>
+        确认收货
+        </a> {/case}
+       {case value="3"}
+        <a  style='text-align: center;color:#FFF' class='go-buy-box'>
+          订单完成
+        </a>{/case}
+        {case value="0"}
+
+        <a href="javascript:test2()" style='text-align: center;color:#FFF' class='go-buy-box'>
+          支付
+        </a>
+              {/case}
+              {/switch}
+            </div> 
+            
+        </nav>
+    <script src="__STATIC__/js/mui.min.js"></script>
+  </body>
+
+
+  </html>
+ {/if}
+
+ {if condition="$Think.session.member_info.id eq 1"}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+  <title>订单详情</title>
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/mui.min.css"/>
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/own.css"/>
+    <link rel="stylesheet" type="text/css" href="__STATIC__/css/iconfont.css"/>
+  <link rel="stylesheet" type="text/css" href="__STATIC__/css/cart.css" />
+  
+</head>
+<body>
+    <style>
+      .mui-control-content {
+        background-color: white;
+        min-height: 215px;
+      }
+      .mui-control-content .mui-loading {
+        margin-top: 50px;
+      }
+      .sum-money{
+        float: left;
+        padding-left: 10px;
+      }
+      .mui-bar-nav~.mui-content{ padding-top:0; }
+      .mui-bar .mui-icon {
+    font-size: 24px;
+    position: relative;
+    z-index: 20;
+    padding-top: 10px;
+    padding-bottom: 10px;
+   
+    text-decoration: none;
+
+}
+.mui-bar .mui-title{ line-height: 50px; }
+.mui-bar-tab{ bottom: 0px; }
+.ladda-spinner{ display: none !important; }
+
+    </style>
+
+    <header class="mui-bar mui-bar-nav own-main-background-color" style="height: 50px">
+      <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+      <h1 class="mui-title">订单详情</h1>
+    </header>
+    <!-- 头部结束 -->
+    <div class="mui-content">
+
+   <form  method="post" class="form_single"><input type="hidden" name="id" />
+      <ul class="mui-table-view">
+        <li class="mui-table-view-cell mui-media">
+          <div class="mui-media-body">
+            <p class="mui-ellipsis address-name" style='margin-bottom: 5px;'><a style='float:left;' href='#'>订单编号</a> <a class='mobile'>{$order['code']}</a></p><input value="{$order['code']}" type='hidden' name="code">
+            <p class="mui-ellipsis address-detail" style="text-align: right;"><a style='float:left;color:#999' href='#'>状态</a> <a style='float:right;color:#999'>
+                    {if condition="$Think.session.member_info.id eq 1"}
+                    {if condition="$order.status_a  eq 0"}
+                        <a style="color:#017ce8;" href="javascript:test2()">未支付（点击完成支付）</a>
+                    {/if}
+                    {if condition="$order.status_a  eq 1"}
+                     <a style="color: blue;" href="javascript:test2()">点击确认发货</a>
+                    {/if}
+                    {if condition="$order.status_a  eq 2"}
+                     <a style="color: blue;" href="javascript:test2()">确认收货（点击直接收货）</a>
+                    {/if}
+                    {/if}
+                   {if condition="$order.status_a  eq 3"}
+                        <a style="color:#017ce8;" >订单完成</a>
+                    {/if}
+                          </a> </p>
+          </div>
+        </li>
+        <div class='goods-border'></div>
+        <li class="mui-table-view-cell mui-media">
+          <div class="mui-media-body">
+            <p class="mui-ellipsis address-name" style='margin-bottom: 5px;'><a style='float:left;' href='#'>收货人信息</a></p>
+            <p class="mui-ellipsis address-detail"><a style='float:left;color:#999' href='#'>收货人姓名</a> <a style='float:right;color:#999'><input value="{$order['username']}" name="name"></a> </p>
+            <p class="mui-ellipsis address-detail"><a style='float:left;color:#999' href='#'>联系电话</a> <a style='float:right;color:#999'><input value="{$order['mobile']}" name="mobile"></a> </p>
+            <p class="mui-ellipsis address-detail"><a style='float:left;color:#999' href='#'>送货地址</a> <a style='float:right;color:#999'><input value="{$order['goods_address']}" name="address"></a> </p>
+          </div>
+        </li>
+        <div class='goods-border'></div>
+        <li class="mui-table-view-cell mui-media">
+          <div class="mui-media-body">
+            <p class="mui-ellipsis address-name" style='margin-bottom: 5px;'><a style='float:left;' href='#'>配送信息</a></p>
+            <p class="mui-ellipsis address-detail"><a style='float:left;color:#999' href='#'>配送方式</a> <a style='float:right;color:#999'>
+                <input value="{$order['express_type']}" name="express_type"> 
+                        </a> </p>
+            <p class="mui-ellipsis address-detail"><a style='float:left;color:#999' href='#'>送货日期</a> <a style='float:right;color:#999'>
+                   <input value="{$order['date']}" name="date">
+                <p class="mui-ellipsis address-detail"><a style='float:left;color:#999' href='#'>快递单号</a> <a style='float:right;color:#999'><input value="{$order['express_no']}" name="express_no"></a> </p>
+          </div>
+        </li>
+      </ul>
+      <div style='height: 10px;'></div>
+      <ul class="mui-table-view">
+        <li class="mui-table-view-cell mui-media">
+          <div class="mui-media-body">
+            <p class="mui-ellipsis address-name" style='margin-bottom: 5px;'><a style='float:left;' href='#'>付款信息</a></p>
+            <p class="mui-ellipsis address-detail"><a style='float:left;color:#999' href='#'>商品总价</a> <a style='float:right;color:#999'>￥{$order['price']*$order['goods_num']}</a> </p>
+            {switch name="$ordersInfo['pay_type']"}
+                         {case value="wxpay"}<p class="mui-ellipsis address-detail"><a style='float:left;color:#999' href='#'>微信支付</a></p>{/case}
+                         {case value="alipay"}<p class="mui-ellipsis address-detail"><a style='float:left;color:#999' href='#'>支付宝支付</a> <a style='float:right;color:#ff2c4c;font-size: 14px;'>￥{$ordersInfo['amount']}</a> </p>{/case}
+                         {/switch}
+                         <p class="mui-ellipsis address-detail"><a style='float:left;color:#999' href='#'>运费<a style='float:right;color:#ff2c4c;font-size: 14px;'>
+                         	<input value="{$order['address_fee']}" name="address_fee">
+                         </a> <a style='float:right;color:#ff2c4c;font-size: 14px;'>￥{$ordersInfo['yunfei']}</a> </p>
+                         <p class="mui-ellipsis address-detail"><a style='float:left;color:#999' href='#'>合计</a> <a style='float:right;color:#ff2c4c;font-size: 14px;'>￥{$order['price']*$order['goods_num']}</a> </p>
+
+          </div>
+        </li>
+      </ul>
+      <div style='height: 10px;'></div>
+      <ul class="mui-table-view">
+        <li class="mui-table-view-cell mui-media">
+                   <img class="admin-list-img-size" src="{$order.cover_id|get_picture_url}" style="width: 60px; height: 60px; vertical-align: top;" /> 
+            <div class="mui-media-body" style=" display: inline-block; width: calc(100% - 70px);float:right">
+              <p class="mui-ellipsis goods-name">
+                <a style='float:left;' href="{:url('index/index/show',['id'=>$order['goods_id']])}">{$order['name']}</a>
+              </p>
+              <p class="mui-ellipsis goods-standard">数量：{$order['goods_num']}</p>
+
+              <p class="mui-ellipsis goods-price"><span class='price'>￥{$order['price']}</span></p>
+            </div>
+        </li>
+        <div class='goods-border'></div>
+      </ul>
+      <div style='height: 10px;'></div>
+
+    </div>
+    <!-- 底部 -->
+    <div style='height: 50px;'></div>
+    <nav class="mui-bar mui-bar-tab" style="bottom: 50px;">
+
+            <div class="mui-row">
+
+                <div class="mui-media mui-col-xs-9 sum-money-box" style="font-size: 14px;">
+              
+                        <div class='sum-money tag'>
+                        <i><span  class="goods-price" id="total"></span></i>
+                         <input type="hidden" name="goods_price" id="to" >
+                        </div>
+                </div>
+                <div class="mui-media mui-col-xs-3">
+
+        <a  style='text-align: center;color:#FFF' class='go-buy-box'>
+         <button  type="submit" class="btn ladda-button ajax-post" target-form="form_single" style="display: block; width: 100%; height: 100%; background:none; box-shadow: none; color: #fff;"> 修改
+</button>
+        </a>
+            </div> 
+            
+        </nav>
+    <script src="__STATIC__/js/mui.min.js"></script>
+  </body>
+
+
+  </html>
+ {/if}
+
+<script type="text/javascript" charset="UTF-8">
+   function test2(){
+            layer.open({
+            content: '确定操作？！',
+            btn: ['确认','取消'],
+            yes: function(index, layero) {          
+            $.ajax({
+                url:"{:url('order_comfirm_get', ['code' => $order.code,'status' =>$order.status_a,'goods_price' => $order['price']*$order['goods_num'],'goods_cost' => $order['cost']*$order['goods_num'],'coupons' => $order.coupons])}",
+                type:"get",
+                processData:false,
+                contentType:false,
+                dataType: "json",//预期服务器返回的类型
+                success:function(data){
+                        layer.open({
+                        content: data.msg,
+                        btn: ['确认'],
+                        yes: function(index, layero) {
+                        window.location.href="{:url('order_show',['code'=>$order.code])}";
+                        },
+                    });
+                },
+                error:function(e){
+                 layer.open({
+                      content: data.msg
+                      ,skin: 'msg'
+                      ,time: 2 //2秒后自动关闭
+                    });
+                }
+            });        
+        },
+        btn2: function(index, layero) {
+        }
+    });
+
+ }
+  </script>

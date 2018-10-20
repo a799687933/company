@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>加入经销商</title>
+	   	<link rel="stylesheet" type="text/css" href="/public/css/mui.min.css"/>
+	   	<link rel="stylesheet" type="text/css" href="/public/css/own.css"/>
+	   	<link rel="stylesheet" type="text/css" href="/public/css/iconfont.css"/>
+	</head>
+	<body>
+<style type="text/css">
+.fr{
+	float: right;
+}
+</style>
+<body>
+	<header class="mui-bar mui-bar-nav own-main-background-color">
+		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		<h1 class="mui-title">加入经销商</h1>
+	</header>
+	<style>
+		.mui-control-content {
+			background-color: white;
+			min-height: 215px;
+		}
+		.mui-control-content .mui-loading {
+			margin-top: 50px;
+		}			
+	</style>
+
+	<div class="mui-content">
+		<a href="{:url('goods/clist')}?id=45">加入经销商</a>
+	</div>
+
+<script src="/public/js/mui.js"></script>
+<div style='height: 50px;'></div>
+	{include file="public/nav" /}
+	<script type="text/javascript" charset="UTF-8">
+
+	var btn = document.getElementById('btn');
+	var form1 = document.getElementById('form1');
+
+	//表单数据
+	var inputList=form1.getElementsByTagName('input');
+	btn.addEventListener('tap',function(){
+		if (inputList[2].value.length < 1) {
+			mui.toast('请输入昵称');
+            inputList[2].focus();
+			return;
+		}
+		if (inputList[4].value.length > 0) {
+			if (inputList[3].value.length < 1) {
+				mui.toast('请输入原登录密码');
+				inputList[3].focus();
+				return;
+			}
+		}
+		if (inputList[6].value.length > 0) {
+			if (inputList[5].value.length < 1) {
+				mui.toast('请输入原安全密码');
+				inputList[5].focus();
+				return;
+			}
+		}
+
+	    var nickname    	=inputList[2].value;
+	    var oldpassword            =inputList[3].value;
+	    var password            =inputList[4].value;
+	    var oldpassword2            =inputList[5].value;
+	    var password2           =inputList[6].value;
+
+		var fdata = {
+			"nickname":nickname,
+			"oldpassword":oldpassword,
+			"password":password,
+			"oldpassword2":oldpassword2, 
+			"password2":password2
+		}
+
+		mui.ajax("{:url('user/userprofile')}",{
+	        data:fdata,  
+	        dataType:'json',  
+	        type:'post',  
+	        timeout:60000,  
+			success:function(res){
+				console.log(res);
+				if(res.code == "1") {
+					mui.alert("修改成功", "提示", "关闭");
+				}else{
+					mui.alert(res.msg, "提示", "关闭");
+					return;
+				}
+			}, 
+	        error:function(){  
+	            mui.alert("网络超时", "错误", "关闭", null);  
+	        }  
+	    });
+
+		// form1.submit();
+
+	},false);
+		</script>
+	</body>
+</html>

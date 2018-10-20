@@ -1,0 +1,108 @@
+
+		<!-- Left Sidebar End -->
+
+		<!-- ============================================================== -->
+		<!-- Start right Content here -->
+		<!-- ============================================================== -->
+		<div class="content-page">
+			<!-- Start content -->
+			<div class="content">
+				<div class="container">
+				
+
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="card-box">	
+			<div class="table-rep-plugin" style="display: none;">
+				<div class="table-responsive b-0" data-pattern="priority-columns">			
+				</div>
+			</div>
+			<div class="table-rep-plugin">
+				<div class="table-responsive b-0" data-pattern="priority-columns">
+						
+		 <form name="form3" method="post" action="{:url('vip/s_del')}">
+						<h4>收件箱</h4>
+
+		<table id="this_table" class="table table-striped">
+		
+			<thead>
+				<tr>
+					<th><input type="checkbox" name="chkall" value="checkbox" onclick="CheckAll(this.form)"  class="btn2" id="chkall" /></th>
+					<!-- <th>会员编号</th> -->
+					<th>状态</th>
+   					<!-- <th>发件人</th> -->
+   					<th>主题</th>
+   					<th>时间</th> 
+				</tr>
+			</thead>
+			
+			<tbody>
+				
+		{volist name='list' id='vo'}
+			<tr>
+				<td><input id="checkbox" type="checkbox" name="tabledb[]" value="{$vo['id']}" class="btn2" /></td>
+				<!-- <td>{$vo['s_user_id']}</td> -->
+    			<td>{eq name="vo['s_read']" value="1"}<span class="STYLE2" >已阅</span>{else/}<span class="STYLE1" >未阅</span>{/eq}</td>
+    			<!-- <td>{$vo['f_user_id']}</td> -->
+    			<td><a style="color: red" href="{:url('vip/s_view',array('did'=>$vo['id']))}">{$vo['title']}</a></td>
+    			<td>{$vo.f_time|date='Y-m-d H:i:s',###}</td>
+			</tr>		
+		{/volist}
+			<tr>
+				<td colspan="6">
+				&nbsp;&nbsp;
+				<input name="全选" type="button" class="btn btn-primary" id="AllX" onclick="CheckAll(this.form)" value="全选" />
+				&nbsp;&nbsp;
+				<input type="submit" name="action" value="删除信件" onclick="return allcheckbox();"  class="btn btn-danger" /></td>
+			</tr>
+			<tr><td colspan="6">{$page}</td></tr>
+		
+			</tbody>
+			
+			<!-- <thead>
+				<tr>
+					<td colspan="3" align="right"></td>
+					<th colspan="1" align="left">总数: 5,599.000</th>
+				</tr>
+			</thead>	 -->
+			
+		</table>
+
+		
+
+	
+						
+				</div>
+			</div>
+
+		
+				
+				</div>
+			</div>	
+		</div>
+
+		
+				</div>
+			</div>
+		</div>	
+	 
+
+	</div>
+	
+
+</body></html>
+
+<script language="JavaScript">
+  ifcheck = true;
+  function CheckAll(form)
+  {
+      for (var i=0;i<form.elements.length-2;i++)
+      {
+          var e = form.elements[i];
+          e.checked = ifcheck;
+      }
+      ifcheck = ifcheck == true ? false : true;
+  }
+</script>
+
+<include file="Public:footer"/>

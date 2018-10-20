@@ -1,0 +1,111 @@
+@charset "utf-8";
+/* CSS Document */
+.clear { clear: both; }
+/* banner */
+.main_visual { height: 422px; overflow: hidden; position: relative; margin-bottom: 15px; }
+.main_image { height: 100%; overflow: hidden; position: relative; }
+.main_image ul { width: 9999px; height: 100%; overflow: hidden; position: absolute; top: 0; left: 0 }
+.main_image li { float: left; width: 100%; height: 100%; }
+.main_image li span { display: block; width: 100%; height: 100% }
+.main_image li a { display: block; width: 100%; height: 100% }
+.main_image li img { width: 100%; min-height: 170px; }
+div.flicking_con { position: absolute; bottom: 20px; right: 5%; z-index: 999; width: 63px; height: 21px; margin: 0 0 0 -31px; }
+div.flicking_con a { float: left; width: 21px; height: 21px; margin: 0; padding: 0; background: url('../images/btn_main_img.png') 0 0 no-repeat; display: block; text-indent: -1000px }
+div.flicking_con a.on { background-position: 0 -21px }
+#btn_prev, #btn_next { z-index: 11111; position: absolute; display: block; width: 73px!important; height: 74px!important; top: 50%; margin-top: -37px; display: none; }
+#btn_prev { background: url(../images/hover_left.png) no-repeat left top; left: 100px; }
+#btn_next { background: url(../images/hover_right.png) no-repeat right top; right: 100px; }
+/*商品列表*/
+.shop_bg { /* border: 1px solid #841422; */  border: 1px solid #185288;}
+.shop_box { margin-bottom: 0px; }
+.shop_box .titbg h3 { color: #666; padding: 15px; font-size: 14px; }
+.shop { clear: both; overflow: hidden; /* border-top: 1px solid #841422; */ border-top: 1px solid #185288;}
+/*商品*/
+.shop li { float: left; width: 20%; }
+.items { font-weight: bold; margin: 10px; padding: 10px; border: 1px solid #ccc; }
+.items:hover { /* border: 1px solid #d0041f; */ border: 1px solid #3575bc;}
+.shop_img { display: block; width: 100%; height: 260px; vertical-align: middle; }
+.price { width: 98%; font-size: 0.8em; line-height: 2em; color: #FF0000; margin: 1px; padding-left: 5px; }
+.price span { font-size: 0.8em; text-decoration: line-through; line-height: 10px; color: #737373; }
+.name { width: 98%; font-size: 0.8em; line-height: 2em; color: #666; margin: 1px; padding-left: 5px; }
+.buy { font-size: 1em; margin: 0px auto; line-height: 32px; /* background: #d0041f; */background: #185288; text-align: center; color: #FFFFFF; }
+.buy a { color: #fff; display: block; }
+.buy a:hover { /* background: #841422; */background: #3575bc; }
+/*商品 end*/
+/*分页*/
+.pagetBox { padding:0 15px; padding-top:20px;  color: #000; font-size: 13px; overflow: hidden;  }
+.pagetBox .num { float: left; }
+.pagetBox ul { float: right; }
+.pagetBox li { float: left; margin-bottom: 10px; }
+.pagetBox input[type='button'] { border-radius:5px; display: block; background: #fff; border:none;  cursor: pointer; padding: 0 8px; height: 24px; margin: 0 1px; font-size: 12px; color: #555; }
+.pagetBox input[type='button']:hover { background: #f00;  color:#fff; }
+.pagetBox select { border: 1px solid #ccc; height: 24px; font-size: 12px; color: #573917; }
+.pagetBox p { border: 1px solid #c2c2c2; line-height: 22px; height: 22px; padding: 0 10px; font-size: 12px; color: #573917; }
+.pagetBox p span { color: #ff0000; padding: 0 2px; }
+/*分页 end*/
+@media only screen and (max-width:1600px) {
+.shop li { float: left; width: 25%; }
+.items { margin: 5px; padding: 5px; }
+.shop_img { height: 200px; }
+.price { line-height: 1.5em; }
+.name { line-height: 1.5em; }
+.buy { font-size: 0.8em; line-height: 25px; }
+/*商品 end*/
+}
+@media only screen and (max-width:800px) {
+.shop li { float: left; width: 33.3333333%; }
+.items { margin: 5px; padding: 5px; }
+.shop_img { height: 200px; }
+.price { line-height: 1.5em; }
+.name { line-height: 1.5em; }
+.buy { font-size: 0.8em; line-height: 25px; }
+/*商品 end*/
+}
+@media only screen and (max-width:640px) {
+.shop li { float: left; width: 50%; }
+.items { margin: 5px; padding: 5px; }
+.shop_img { height: 180px; }
+.price { line-height: 1.5em; }
+.name { line-height: 1.5em; }
+.buy { font-size: 0.8em; line-height: 25px; }
+/*商品 end*/
+}
+@media only screen and (max-width:440px) {
+.shop li { float: left; width: 50%; }
+.items { margin: 5px; padding: 5px; }
+.shop_img { height: 130px; }
+.price { line-height: 1.5em; }
+.name { line-height: 1.5em; }
+.buy { font-size: 0.8em; line-height: 25px; }
+/*商品 end*/
+}
+/*商品详情*/
+.goods_details_box { border: 1px solid #ccc; overflow: hidden; padding: 16px; }
+.img_box { float: left; border: 1px solid #ddd; box-shadow: 0 0 10px #ccc; padding: 5px; }
+.img_box img { display: block; width: 100%; min-width: 300px; max-width: 300px; height: auto; /*max-height: 300px;*/ vertical-align: middle; }
+.introduce { float: left; }
+.introduce li { color: #666; font-size: 14px; line-height: 35px; padding-left: 2em; }
+.introduce li h4 { font-size: 14px; font-style: normal; }
+.introduce li span { color: #F00; font-size: 16px; }
+.introduce li em { text-decoration: line-through; color: #999; padding-left: 1em; }
+.shuliang { border: 1px solid #ddd; height: 25px; width: 50px; }
+.btn_buy { float: left; padding: 0 2em; height: 38px; line-height: 38px; background-color: #f4f4f4; border: 1px solid #ddd; color: #555; font-size: 1em; text-align: center; }
+.btn_add { float: left; margin: 0 1em; padding: 0 2em; height: 38px; line-height: 38px; font-size: 1em; text-align: center; background-color: #E02222; border: 1px solid #E02222; color: #fff; }
+/*商品描述*/
+.history { border-bottom: 3px solid #E02222; height: 32px; margin-top: 20px; }
+.history h2 { height: 32px; line-height: 32px; width: 148px; text-align: center; font-size: 14px; float: left; color: #fff; background: #E02222; margin-right: 5px; }
+.details-box { padding: 20px 5px; }
+.details-box img { display: block; width: 100%; max-width: 1160px; height: auto; }
+/*商品详情end*/
+@media (max-width:800px) {
+.main_visual { height: 170px; }
+.img_box img { min-width: 100%; }
+/*商品详情*/
+.introduce { width: 100%; margin-bottom: 1em; }
+.introduce li { padding-left: 0em; }
+.btn_buy { height: 2em; margin-top: .5em; margin-right: 0.5em; line-height: 2em; }
+.btn_add { margin: 0em; margin-top: .5em; padding: 0 2em; height: 2em; line-height: 2em; }
+/*商品描述*/
+.history h2 { width: 100px; }
+/*商品详情end*/
+}

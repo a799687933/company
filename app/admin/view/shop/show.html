@@ -1,0 +1,290 @@
+<layout name="public/layout" />
+
+<div class="container">
+    <!-- <div class="row" style="background:#fff;margin-top:15px;">
+        <div class="col-lg-12 tab_title">
+            <h1>商品详情 &nbsp;&nbsp;[<a style="color: #DBEF3C;" href="{:url('Shop/index')}">返回商城首页</a>]</h1>
+        </div>
+        <div class="col-lg-12 writting">
+            <div><h1>{$goods.name}</h1></div>
+             <img  src="{$info.cover_id|get_picture_url}" class="shopimg"/>
+            <div class="info price">￥{$info.price}<b>库存数量：{$info.num}  <ob_link><a href="{:url('car_add', array('id' => $info['id'],'num' =>1))}"
+             target="_blank"
+                class="btn "></i>加入购物车</a></ob_link></b>
+           <input id='num' name='num' value="1">
+            </div>
+            <div class="info des"><b>商品详情：</b>{$info.content|htmlspecialchars_decode}</div>
+        </div>
+    </div>
+ -->
+
+
+
+
+    <head>
+        <meta charset="utf-8">
+        <title>{$goods.name}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="stylesheet" type="text/css" href="__STATIC__/css/mui.min.css"/>
+        <link rel="stylesheet" type="text/css" href="__STATIC__/css/own.css"/>
+        <link rel="stylesheet" type="text/css" href="__STATIC__/css/iconfont.css"/>
+        <link rel="stylesheet" type="text/css" href="__STATIC__/css/goods_detail.css"/>
+        <link rel="stylesheet" type="text/css" href="__STATIC__/css/car.css"/>
+ <style>
+.table {
+    width: 100%;
+}
+h1{ text-align: center; border-bottom: 1px solid #ddd;}
+.shopimg{border:1px solid #ccc;margin-top:10px;  width: 500px; max-height: 500px; display: block; margin:15px auto;}
+.info{ width: 500px; margin:5px auto; }
+.info.price{ color: red; font-size: 18px; border-bottom: 1px solid #ddd; padding-bottom: 10px;}
+.info.price b{ float: right; font-weight: normal; font-size: 16px; }
+.info.des b{ display: block; margin-bottom:10px; }
+</style>
+<style>
+
+            .but_add{
+                color: #fff;
+                line-height: 50px;
+                background-color: #F1302F;
+                cursor: pointer;
+            }
+            .num-content {
+                margin-top: 10px;
+                font-size: 0.8em;
+                color: #999;
+            }
+
+            .num-content .mui-numbox {
+                width: 100px;
+                border-radius: 0;
+                height: 30px;
+                padding: 0 30px;
+            }
+
+            .num-content .mui-numbox [class*=numbox-btn] {
+                border-radius: 0;
+                width: 30px;
+            }
+
+            .num-content .mui-numbox .mui-numbox-input {
+                color: #333;
+            }
+            .buy-all {
+                font-size: 13px;
+                float: left;
+                padding-top:18px;
+            }
+            .buy-all label{
+                float: left;
+            }
+            .main{ margin-top:0; }
+            @media(max-width: 767px){
+                body > .navbar{ margin-bottom: 0 }
+            }
+            .gwcbtn{ background-color: transparent; background-image: none; color: #fff; border: none; box-shadow: none; height: 50px; width: 100%;}
+            .btn.active, .btn:activ{ background-color: transparent; }
+
+        </style>
+        <style type="text/css">
+
+@media (max-width: 979px) and (min-width: 768px){
+    .row{  width: 98%; margin: 0 auto; }
+}
+@media (max-width: 979px){
+  .navbar-fixed-top{ margin-bottom:0; }
+}
+
+h3{ font-size: 20px; }
+
+.row{  width: 98%; margin: 0 auto; }
+header{ position: fixed; }
+
+.own-main-background-color {
+    background-color: #FBFBFB;
+    /* box-shadow: 0 0 0 0 #1F1F1F; */
+    /* border-bottom: 1px solid #EEEEEE; */
+}
+.mui-bar-nav {
+    top: 0px;
+    -webkit-box-shadow: 0 1px 6px #ccc;
+    box-shadow: 0 1px 6px #ccc;
+}
+.mui-bar {
+    border-top: 0px solid #eee;
+    position: fixed;
+    z-index: 10;
+    right: 0;
+    left: 0;
+    height: 44px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-bottom: 0;
+    background-color: #fff;
+    -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, .85);
+    box-shadow: 0 0 1px rgba(0, 0, 0, .85);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.mui-bar .mui-icon:active {
+    opacity: .3;
+}
+
+.mui-bar-nav.mui-bar .mui-icon {
+    margin-right: -10px;
+    margin-left: -10px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.mui-bar .mui-icon {
+    font-size: 24px;
+    position: relative;
+    z-index: 20;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 50px;
+    text-decoration: none;
+
+}
+
+.mui-bar .mui-title {
+    right: 40px;
+    left: 40px;
+    display: inline-block;
+    overflow: hidden;
+    width: auto;
+    margin: 0;
+    text-overflow: ellipsis;
+    line-height: 50px;
+}
+
+.mui-title {
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 44px;
+    position: absolute;
+    display: block;
+    width: 100%;
+    margin: 0 -10px;
+    padding: 0;
+    text-align: center;
+    white-space: nowrap;
+    color: #000;
+}
+
+</style>
+
+        <script src="__STATIC__/js/mui.js"></script>
+        <script src="__STATIC__/js/jquery.min.js"></script>
+        <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>  
+    </head>
+    <body>
+    <header class="mui-bar mui-bar-nav own-main-background-color" style="height: 49px">
+      <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="line-height: 30px; color: white; text-decoration: none;"></a>
+      <h1 class="mui-title">商品信息</h1>
+    </header>
+        <div class="main">
+            <form id="tf" >
+            <!-- {empty  name="$data['photo_path_1']"}
+                <img src="/public/images/nopic.jpg" style="width:100%;" alt="">
+            {else /}
+                <img src="{$data['photo_path_1']}" style="width:100%;" alt="">
+            {/empty} -->
+             <img  src="{$info.cover_id|get_picture_url}" class="shopimg"/>
+            <div style="padding:4px 8px">
+           <input  name="id"  type="hidden"  value="{$info['id']}" />
+
+                <div class="goods_title" name="name">{$info['name']}</div>
+                <div class="goods_stand">规格:{$data['standard']}</div>
+            </div>
+            <div class="goods_info">
+                <span>价格:<span style="color:red;">￥<b>{$info.price}</b></span></span>
+            </div>
+            
+                <div class="good_num num-content" id="num-content">
+                    <span>数量：</span>
+                    <div class="mui-numbox" data-numbox-step='1' data-numbox-min='1' data-numbox-max='{$info.num}'>
+                        <button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
+                        <input class="mui-numbox-input"  name="num"  type="number" id="buy-num" style="vertical-align: top;" />
+                        <button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
+                    </div>
+                    &nbsp;剩余：<span id="goods-num">{$info.num}</span>件
+                </div>
+                <input class="mui-numbox-input" type="hidden" id="buy-id" value="{$data['id']}" />
+            <div style="width:100%;height:10px;background:#F0F0F0; margin-top: 10px;">
+            </div>
+            <div class="comment-detail">
+          <div>
+       <span id="ds_detail" class="active">商品详情</span></div>
+            </div>
+            <div style="clear:both"></div>
+            <div class="detail-wap">
+              {$info.content|htmlspecialchars_decode}
+            </div>
+ 
+        </div>
+
+
+        {notempty name="$info['num']"}
+        <nav class="mui-bar" style="width:100%;padding: 0;height:50px;box-shadow: none;text-align:center;bottom:0;">
+            <div class="mui-row car1">
+                <div class="mui-media mui-col-xs-8 buy-all" style="width: 55%">
+                    <img src="__STATIC__/images/select_on.png" style="height:16px;float:left; margin-left: 10px; margin-right: 10px;">
+                    <label id="xieyi"  style="font-size: 12px;">同意爱心大使合伙人协议</label>
+                    <input type="hidden" id="xieyiinput" value="1" />
+                </div>
+
+                    <a href="{:url('user/car_list')}" class="mui-media mui-col-xs-8 buy-all" style="width: 11.6%; padding-bottom: 12px;"><img src="__STATIC__/images/gwc.png" style="width: 20px;"><b style="color:red;"">{$ordernum[0]}样</b></a>
+
+                <div class="mui-media mui-col-xs-4">
+                   <!--  <div class="but_add" id="buy-now"><ob_link><a href="{:url('user/car_add', array('id' => $info['id'],'num' =>1))}" target="_blank"   class="btn "></i>加入购物车</a></ob_link></div> -->
+                   <div class="but_add" id="buy-now"> 
+            <button   type="button" onclick="test3()" class="gwcbtn">加入购物车</button></div>
+                </div>
+            </div>
+        </nav>
+        {/notempty}
+</form> 
+      <script type="text/javascript" charset="UTF-8">
+   function test3(){
+            var form = new FormData(document.getElementById("tf"));
+            $.ajax({
+                url:"{:url('user/cart_add')}",
+                type:"post",
+                data:form,
+                processData:false,
+                contentType:false,
+                dataType: "json",//预期服务器返回的类型
+                success:function(data){
+                        layer.open({
+                        content: '加入购物车成功！',
+                        btn: ['确认'],
+                        yes: function(index, layero) {
+                            window.location.href="{:url('index/show',['id'=>$info.id])}";
+                        },
+                        btn2: function(index, layero) {
+ 
+                        }
+                        ,
+                        cancel: function() {
+                            //右上角关闭回调
+                        }
+                    });
+                },
+                error:function(e){
+
+                    layer.open({
+                      content: '网络错误'
+                      ,skin: 'msg'
+                      ,time: 2 //2秒后自动关闭
+                    });
+
+                }
+            });        
+             }
+  </script>
+    
+    </body>
+</div>

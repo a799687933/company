@@ -1,0 +1,135 @@
+
+<link href="__STATIC__/css/index.css" rel="stylesheet" type="text/css"/>
+<link href="__STATIC__/css/cart1.css" rel="stylesheet" type="text/css"/>
+<link href="__STATIC__/css/StyleSheet.css" rel="stylesheet" type="text/css"/>
+<script language=javascript src="__STATIC__/js/wpCalendar.js"></script>
+<style type="text/css">
+.us_btn{height:27px; line-height:27px; font-size:12px; font-weight:bold; padding:0 10px; text-decoration:underline;}
+.STYLE1 {color: #FF0000}
+.label{ background-color: transparent;    color: #555; padding-left: 1em;display: inline-block; font-weight: 700;font-size: 16px;  margin: 0.4em 0}
+.footer{ display: none; }
+.pagination{ display: inline-block;}
+</style>
+<div id="main">
+
+<div class="data_box">
+
+ <div class="listing_box">
+
+  <div class="group" style="clear:both;text-align:left;">
+       <!--    <label class="label"> 推荐奖钱包：{$fck_rs['b1']}</label>
+          <label class="label">对碰奖钱包：{$fck_rs['b2']}</label>
+          <label class="label">对等奖钱包：{$fck_rs['b3']}</label> 
+          <label class="label">分红奖钱包：{$fck_rs['b4']}</label>
+          <label class="label">手续费钱包：{$fck_rs['b5']}</label>
+          <label class="label">循环钱包：{$fck_rs['b6']}</label>
+          <label class="label">现金钱包：{$fck_rs['b22']}</label>
+          <label class="label">收入钱包：{$fck_rs['b11']}</label>
+          <label class="label">组织钱包：{$fck_rs['b12']}</label>
+          <label class="label">回馈钱包：{$fck_rs['b16']}</label> -->
+        </div>
+<!--  <form id="form1" name="form1" method="post" action="__URL__/money_flow">
+ <ul class="search">
+   
+     <div class="group" style="clear:both;">
+       <label class="label">开始日期：</label>
+       <input name="S_Date" type="text" id="S_Date" readonly value="{$S_Date}" class="input" style="width: 170px;" />
+        <label class="label">结算日期：</label>
+        <input name="E_Date" type="text" id="E_Date" readonly value="{$E_Date}" class="input" style="width: 170px;"/>
+        <label class="label">搜索会员：</label>
+        <input name="UserID" type="text" id="UserID" value="{$UserID}" class="input" style="width: 170px;"/>
+        <input type="submit" name="Submit" value="查询" class="searchbtn" />
+     </div>
+  
+ </ul>
+ </form> -->
+ <div class="listing">
+<table width="100%" border="0" cellpadding="0" cellspacing="3" style="margin-bottom: 10px;" class="ts">
+    <tr >
+    <td colspan="5">
+
+    <eq name="ry" value="100">
+    <span class="us_btn">查看全部</span>
+    <else/>
+    <input type="button" name="action" value="查看全部" class="searchbtn" onclick="window.location='__ROOT__/statistic/money_flow/tp/100/S_Date/{$S_Date}/E_Date/{$E_Date}/UserID/{$UserID}/'"/>
+    </eq>
+
+    {volist name="fee_s7" id="tt" key="ti"}
+    <input type="button" name="action" value="{$tt}" class="searchbtn" onclick="window.location='__ROOT__/statistic/money_flow/tp/{$neslit[$ti-1]}/S_Date/{$S_Date}/E_Date/{$E_Date}/UserID/{$UserID}/'">
+    {/volist}
+    </td>
+    </tr>
+  <tr align="center" class="content_td">
+    <th nowrap >操作会员（一）</th>
+    <th nowrap >操作会员（二）</th>
+    <th nowrap ><span>金额</span></th>
+    <th nowrap ><span>时间</span></th>
+    <th nowrap ><span>备注</span></th>
+  </tr>
+  {volist name="list" id="vo"}
+  <tr align="center" class="content_td">
+    <td >{$vo['uid']}</td>
+    <td >{$vo['user_did']}</td>
+    <td ><span class="STYLE1">{$vo['epoints']}</span></td>
+    <td >{$vo.pdt|date='Y-m-d H:i:s',###}</td>
+    <td>
+      {$type_arr[$vo.action_type]}
+        </td>
+  </tr>
+{/volist}
+</table>
+<table align="center" width="100%">
+  <tr class="content_td">
+    <td colspan="5"><div align="center">{$list->render()}</div></td>
+    </tr>
+</table>
+</div>
+  <!-- <include file="Public:scriptes" /> -->
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
+<!-- <script>new TableSorter("tb1");</script>
+<script src="__PUBLIC__/layui/layui.js" charset="utf-8"></script>
+<link rel="stylesheet" href="__PUBLIC__/layui/css/layui.css"> -->
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+<!-- <script>
+  layui.use('laydate', function(){
+    var laydate = layui.laydate;
+
+    var start = {
+      min: laydate.now()
+      ,max: '2099-06-16 23:59:59'
+      ,istoday: false
+      ,choose: function(datas){
+      end.min = datas; //开始日选好后，重置结束日的最小日期
+      end.start = datas //将结束日的初始值设定为开始日
+    }
+  };
+  
+  var end = {
+    min: laydate.now()
+    ,max: '2099-06-16 23:59:59'
+    ,istoday: false
+    ,choose: function(datas){
+      start.max = datas; //结束日选好后，重置开始日的最大日期
+    }
+  };
+  
+  document.getElementById('S_Date').onclick = function(){
+    start.elem = this;
+    laydate(start);
+  }
+  document.getElementById('E_Date').onclick = function(){
+    end.elem = this
+    laydate(end);
+  }
+  
+});
+</script> -->
+
+
+</div>
+

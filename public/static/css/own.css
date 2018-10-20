@@ -1,0 +1,106 @@
+.own-left-nav-color {
+	color: white;
+}
+
+.own-main-color {
+	color: #7FBF26;
+}
+/*设置背景色*/
+
+.own-gray-color {
+	background-color: #f8f8f8;
+}
+
+body {
+	background-color: #F0EFF4;
+}
+/*将返回按钮和导航条标题设置为白色*/
+
+.mui-icon-back:before,
+.mui-icon-left-nav:before,
+.mui-bar-nav .mui-title,
+#rightBar:before {
+
+}
+.mui-icon{
+color:gray;
+}
+
+.own-black-color {
+	color: black;
+}
+
+.own-text-through {
+	text-decoration: line-through;
+}
+
+.own-main-background-color {
+	background-color: #1D82D2;
+	/*box-shadow: 0 0 0 0 #1F1F1F;*/
+	/*border-bottom: 1px solid #EEEEEE;*/
+}
+
+.own-header-hidden {
+	display: none!important;
+}
+
+.own-content-padding {
+	padding-top: 0 !important;
+}
+
+.own-btn-green {
+	color: #fff;
+	border: 1px solid #7FBF26;
+	background-color: #7FBF26;
+}
+
+.own-btn-green.mui-active:enabled,
+.own-btn-green:enabled:active {
+	color: #fff;
+	border: 1px solid #7FBF26;
+	background-color: #7FBF26;
+}
+
+.own-font-size {
+	font-size: 1em;
+}
+/*父子页面的loader*/
+
+.mui-bar .mui-action-back {
+	color: gray;
+}
+
+.loader {
+	position: absolute;
+	top: 25%;
+	width: 100%;
+	height: 60%;
+	color: #888;
+	font-size: 14px;
+	text-align: center;
+}
+
+.mui-content {
+	background-color: #F0EFF4;
+}
+
+.mui-active .mui-icon, .mui-active .mui-tab-label {
+color: #7fbf26;
+}
+.mui-bar .mui-txt{
+color: #555;font-size: 14px; height: 45px; line-height: 45px;
+}
+
+.fr{
+	float: right;
+}
+#more{
+    text-align: center;
+    padding: 10px;
+    font-size: 12px;
+	color: #999;
+}
+
+.news .time{
+	color: #999;
+}

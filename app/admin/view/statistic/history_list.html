@@ -1,0 +1,85 @@
+
+<div class="box">
+    <div class="box-header ">
+        <div class="box-tools ">
+            <form action="{:url('historyList')}" method="get" class="form_single inline">
+                <div class="input-group input-group-sm search-form" style="width:720px;">
+                    <input name="username" class="pull-right search-input" value="{$Request.param.username}" placeholder="输入会员账号" type="text">
+   
+                    <input style="width:100px;margin-right:2px;" class="pull-right search-input date" name="end" type="text" value="{$Request.param.end}" />
+
+                    <span class="form-text">~&nbsp;</span>
+
+                    <input style="width:100px;margin-right:2px;" class="pull-right search-input date" name="start" type="text" value="{$Request.param.start}" />
+
+                    <span class="form-text">起始日期：</span>
+
+                    <select name="type" class="form-control inline pull-right" style="width:110px;margin-right:10px;">
+                        <option value="0">显示全部</option>
+                        {volist name="type_arr" id="vo"  key="ti" }
+                            <option value="{$neslit[$ti-1]}">{$vo} </option>
+                        {/volist}
+                    </select>
+
+                    <span class="form-text">类型：</span>
+                    
+                    <div class="input-group-btn">
+                        <button type="submit" id="search" url="{:url('historyList')}" class="btn btn-default"><i class="fa fa-search"></i></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <br/>
+    </div>
+
+    <div class="box-body table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>操作会员</th>
+                    <th>触发会员</th>
+                 
+                    <th>金额</th>
+                    
+                    <th>时间</th>
+                    <th style="text-align:center;">备注</th>
+                </tr>
+            </thead>
+            {notempty name='list'}
+                <tbody>
+                    {volist name='list' id='vo'}
+                        <tr>
+                            <td>{$vo.user_id}</td>
+                            <td>{$vo.user_did}</td>      
+                            <td>{$vo.epoints}</td>
+                            <td>{$vo.pdt|date='Y-m-d H:i:s',### }</td>
+                            <td style="text-align:center;">
+                                {$type_arr[$vo.action_type]}
+                            </td>
+                        </tr>
+                    {/volist}
+                </tbody>
+                {else/}
+                <tbody>
+                    <tr class="odd">
+                        <td colspan="8" class="text-center" valign="top">{:config('empty_list_describe')}</td>
+                    </tr>
+                </tbody>
+            {/notempty}
+        </table>
+    </div>
+    <div class="box-footer clearfix text-center">
+        {$list->render()}
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function(){
+        $('.date').datetimepicker({
+            format: 'yyyy-mm-dd',
+            language:"zh-CN",
+            minView:2,
+            autoclose:true
+        });
+    });
+</script>

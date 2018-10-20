@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>编辑地址</title>
+      <link rel="stylesheet" type="text/css" href="__STATIC__/css/mui.min.css"/>
+      <link rel="stylesheet" type="text/css" href="__STATIC__/css/own.css"/>
+      <link rel="stylesheet" type="text/css" href="__STATIC__/css/iconfont.css"/>
+	<link href="__STATIC__/css/mui.picker.css" rel="stylesheet" />
+	<link href="__STATIC__/css/mui.poppicker.css" rel="stylesheet" />
+  </head>
+  <body>
+		<style>
+			.mui-control-content {
+				background-color: white;
+				min-height: 215px;
+			}
+			.mui-control-content .mui-loading {
+				margin-top: 50px;
+			}
+			.mui-btn {
+				font-size: 16px;
+				padding: 8px;
+				margin: 3px;
+			}
+			h5.mui-content-padded {
+				margin-left: 3px;
+				margin-top: 20px !important;
+			}
+			h5.mui-content-padded:first-child {
+				margin-top: 12px !important;
+			}
+			.ui-alert {
+				text-align: center;
+				padding: 20px 10px;
+				font-size: 16px;
+			}			
+		</style>
+		
+
+    <header class="mui-bar mui-bar-nav own-main-background-color">
+      <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+      <h1 class="mui-title">编辑地址</h1>
+    </header>
+		
+		<div class="mui-content">
+        	<form id="detailcontent" name="form1" method="post" role="form" class="mui-input-group" action="{:url('address/editAddress')}">
+				<div class="mui-input-row">
+					<label>收货人</label>
+					<input type="text" value="{$addressInfo['consignee_name']}" id="consignee_name">
+				</div>
+				<div class="mui-input-row">
+					<label>手机号</label>
+					<input type="text" value="{$addressInfo['mobile']}" placeholder="请输入您的手机号" id="mobile">
+				</div>
+				<div class="mui-input-row">
+					<label>地区信息</label>
+					
+					<div id='cityResult3' style="float:left;padding-top:10px !important;font-size:12px">
+					<span id="province" >{$addressInfo['province']}</span><span style="margin-left:10px" id="city">{$addressInfo['city']}</span><span style="margin-left:10px" id="dist">{$addressInfo['county']}</span>
+					</div>
+					<div id='showCityPicker3' style="float:right;margin-right:15px !important;font-size:12px;margin-top:10px;">选择地区</div>
+				</div>
+			
+				<div class="mui-input-row">
+					<label>详细地址</label>
+					<input type="text" value="{$addressInfo['address']}" placeholder="街道门牌信息" id="address">
+				</div>
+				<input type="hidden" id="id" value="{$addressInfo['id']}" />
+			</form>
+			<div class="mui-button-row" style="margin: 10px 15px;">
+			<button type="button" id="btn" class="mui-btn mui-btn-link own-btn-green mui-btn-block" style="padding: 5px 0px;">修改</button>
+			</div>
+		</div>
+		
+<script src="__STATIC__/js/mui.min.js"></script>
+		<!-- 底部 -->
+<div style='height: 50px;'></div>
+	 <!-- 底部结束 -->
+<!-- 城市选择 -->
+	<script src="__STATIC__/js/mui.picker.js"></script>
+	<script src="__STATIC__/js/mui.poppicker.js"></script>
+	<script src="__STATIC__/js/city.data-3.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		(function($, doc) {
+			$.init();
+			$.ready(function() {
+
+				//					//级联示例
+				var cityPicker3 = new $.PopPicker({
+					layer: 3
+				});
+				cityPicker3.setData(cityData3);
+				var showCityPickerButton = doc.getElementById('showCityPicker3');
+				var province = doc.getElementById('province');
+				var city = doc.getElementById('city');
+				var dist = doc.getElementById('dist');
+				showCityPickerButton.addEventListener('tap', function(event) {
+					cityPicker3.show(function(items) {
+						province.innerText = (items[0] || {}).text ;
+						city.innerText = (items[1] || {}).text ;
+				    	dist.innerText = (items[2] || {}).text ;
+					});
+					
+				}, false);
+			});
+		})(mui, document);
+
+var btn = document.getElementById('btn');
+var detailcontent = document.getElementById('detailcontent');
+var inputList=detailcontent.getElementsByTagName('input');
+//修改button点击事件
+btn.addEventListener('tap',function(){
+	// detailcontent.submit();
+    var id       =document.getElementById('id').value;
+    var province =document.getElementById('province').innerText;
+    var city     =document.getElementById('city').innerText;
+    var county   =document.getElementById('dist').innerText;
+    var consignee_name    =inputList[0].value;
+    var mobile            =inputList[1].value;
+    var address           =inputList[2].value;
+
+	if (consignee_name.length <1) {
+		mui.toast('请输入收货人姓名');
+        province.focus();
+		return;
+	}
+	if (mobile.length <11) {
+		mui.toast('请输入收货人手机号');
+        province.focus();
+		return;
+	}
+	if (province.length <1) {
+		mui.toast('请选择省份');
+        province.focus();
+		return;
+	}
+	if (city.length <1) {
+		mui.toast('请选择城市');
+        province.focus();
+		return;
+	}
+	if (county.length <1) {
+		mui.toast('请选择区域');
+        province.focus();
+		return;
+	}
+	if (address.length <1) {
+		mui.toast('请输入详细地址');
+        province.focus();
+		return;
+	}
+
+
+	var fdata = {
+		"id":id,
+		"address":address,
+		"province":province,
+		"city":city, 
+		"county":county,
+		"consignee_name":consignee_name,
+		"mobile":mobile
+	}
+	mui.ajax("{:url('editAddress')}",{
+        data:fdata,  
+        dataType:'json',  
+        type:'post',  
+        timeout:60000,  
+		success:function(res){
+			console.log(res);
+			if(res.code == "1") {
+				mui.alert("修改成功", "提示", "关闭");
+			}else{
+				mui.alert(res.msg, "提示", "关闭");
+				return;
+			}
+		}, 
+        error:function(){  
+            mui.alert("网络超时", "错误", "关闭", null);  
+        }  
+    });
+
+
+});
+</script> 
+	</body>
+</html>

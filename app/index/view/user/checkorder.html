@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>确认订单</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	   	<link rel="stylesheet" type="text/css" href="__STATIC__/css/mui.min.css"/>
+	   	<link rel="stylesheet" type="text/css" href="__STATIC__/css/own.css"/>
+	   	<link rel="stylesheet" type="text/css" href="__STATIC__/css/iconfont.css"/>
+		<link rel="stylesheet" type="text/css" href="__STATIC__/css/cart.css" />
+	</head>
+	<body>
+		<style>
+			.mui-control-content {
+				background-color: white;
+				min-height: 215px;
+			}
+			.mui-control-content .mui-loading {
+				margin-top: 50px;
+			}			
+			.goods-standard{
+				color: #f00;
+				line-height: 1.0;
+				display: inline-block;
+			}
+			.goods-standard span{
+				border: 1px solid #f00;
+				padding: 2px 5px;
+				display: inline-block;
+			}
+			#address {
+				min-height: 40px;
+				background: url(/public/images/location.png) no-repeat center left;
+				background-size: 23px auto;
+				padding-left: 26px;
+			}
+		</style>
+		<header class="mui-bar mui-bar-nav own-main-background-color">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">确认订单</h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-row">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell mui-media">
+					<div class="mui-media-body mui-navigate-right" id="address">
+						{empty name="info.address"}
+						<p class="mui-ellipsis address-name"><a style='float:left;padding:10px 0;' href='{:url('index/user/address')}'>新增收货地址</a></p>
+						{else /}
+						<p class="mui-ellipsis address-name"><a style='float:left;padding-right: 20px;' href='{:url('cart/selectaddress')}'>{$ordersAddressInfo['consignee_name']}</a> <a class=''>{$ordersAddressInfo['mobile']}</a></p>
+						<p class="mui-ellipsis address-detail">{$ordersAddressInfo['province']} {$ordersAddressInfo['city']} {$ordersAddressInfo['county']} {$info['address']}</p>
+						<input id="address_id" name="address_id" value="{$ordersAddressInfo['id']}" type="checkbox" hidden="hidden" >
+						{/empty}
+					</div>
+				</li>
+			</ul>
+			</div>
+			<div style='height: 10px;'></div>
+			<ul class="mui-table-view">
+				{volist name='lists' id='data'}
+				<li class="mui-table-view-cell mui-media">
+					<img src="{$data.cover_id|get_picture_url}" style='float:left;margin:0 10px;height:60px;width:80px;'>
+					<div class="mui-media-body">
+						<p class="mui-ellipsis goods-name"><a style='float:left;' href='#'>{$data.name}</a></p>
+						<p class="mui-ellipsis goods-price"><span class='price'>￥{$data.goods_price}</span><span class='num'>X{$data.goods_num}</span></p>
+					</div>
+				</li>
+				<div class='goods-border'></div>
+				{/volist}
+			</ul>
+		
+			<div style='height: 10px;'></div>
+			<ul class="mui-table-view" style="font-size:13px;line-height:1;">
+				<li class="mui-table-view-cell mui-media">
+				商品金额<span class="mui-pull-right goods-price">￥{$cartMoney}</span>
+				</li>
+				{if condition="$zhekou gt 0"}
+				<li class="mui-table-view-cell mui-media">
+				折扣优惠<span class="mui-pull-right goods-price">- ￥{$zhekou}</span>
+				</li>
+				{/if}
+				{if condition="$yunfeitype gt 0"}
+				<li class="mui-table-view-cell mui-media">
+				运费<span class="mui-pull-right goods-price">+ ￥{$yunfei}</span>
+				</li>
+				{else/}
+				<li class="mui-table-view-cell mui-media">
+				运费<span class="mui-pull-right goods-price">运费到付</span>
+				</li>
+				{/if}
+			</ul>
+		</div>
+			<div style='height: 10px;'></div>
+		<!-- 底部 -->
+		<div style='height: 50px;'></div>
+		<nav class="mui-bar mui-bar-tab">
+		    <div class="mui-row">
+		        <div class="mui-media mui-col-xs-9 sum-money-box">
+						<div class='sum-money'>
+							合计：<span class="goods-price">￥<i>{$huiMoney}</i></span>
+						</div>
+				</div>
+		        <div class="mui-media mui-col-xs-3">
+		            <button class='go-buy-box' type="button">
+						提交订单
+					</button>
+				</div>
+		    </div>
+		</nav>
+		<!-- 底部结束 -->
+		<script src="/public/js/mui.js"></script>
+		<script src="/public/js/jquery.min.js"></script>
+		<script type="text/javascript">
+		$('document').ready(function(){
+			$('.tagselect').eq(0).find('.select').attr('src','/public/images/select_on.png');
+			$('.tagselect').eq(0).find('.select').addClass('select_on');
+
+			$('.tagselect').click(function(){
+
+				$('.select').attr('src','/public/images/select_off.png');
+				$(this).find('.select').attr('src','/public/images/select_on.png');
+				$('.select').removeClass('select_on');
+				$(this).find('.select').addClass('select_on');
+
+				{if condition="$huiMoney neq $cartMoney"}
+				$('#cartMoney').text($(this).attr("data_num"));
+				{/if}
+
+			});
+			$('#address').click(function(){
+				location.href = "{:url('cart/selectaddress')}";
+			})
+
+
+			$('.go-buy-box').click(function(){
+				
+			{eq name="$istc" value="0"}
+				if(!$('#address_id').val()){
+					mui.toast('请选择收货地址');
+					return false;
+				}
+			{/eq}
+				// var paytype = $('.select_on').attr('id');
+				var paytype = 'htpay';
+				var formData = {"repassword": $('#repassword').val(),"address_id": $('#address_id').val(),"paytype": paytype};
+
+			    $.ajax({
+			        url: "{:url('postOrder')}",
+			        type: 'POST',
+			        data: formData,  
+			        dataType: 'JSON',  
+			        cache: false,
+			    }).done(function(data){  
+			        if(data.code == '1'){
+			        	// mui.toast("购买成功");
+						location.href = "{:url('shoppay/index')}?order_no="+data.data.order_no;
+			        }else{
+			        	mui.toast(data.msg);
+			        }
+			    });  
+
+			});
+		});
+		</script>
+	</body>
+</html>

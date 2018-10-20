@@ -1,0 +1,59 @@
+<style type="text/css">
+[class^="icon-"], [class*=" icon-"]{background-image: none;}
+a:link{ text-decoration: none; }
+@media(max-width: 768px){
+	.navbar-fixed-top{ display: none }
+	.mui-bar-nav~.mui-content{ padding-top:50px; }
+	
+}
+
+</style>
+
+<!-- <nav class="mui-bar mui-bar-tab">
+		<a class="mui-tab-item2" href="{:url('index/user/inde2')}" id="inde2" >
+			<span class="mui-icon iconfont icon-home"></span>
+			<span class="mui-tab-label">首页</span>
+		</a>
+		<a class="mui-tab-item2" href="{:url('index/user/car_list')}" id="car_list" >
+			<span class="mui-icon iconfont icon-cart"></span>
+			<span class="mui-tab-label">购物车</span>
+		</a>
+
+
+	
+		<a class="mui-tab-item2" href="{:url('index/user/inde')}" id="inde" >
+			<span class="mui-icon iconfont icon-xinyuandan"></span>
+			<span class="mui-tab-label">任务专区</span>  
+		</a>
+
+		<a class="mui-tab-item2" href="{:url('index/vip/vip')}" id="vip">
+			<span class="mui-icon iconfont icon-wode"></span>
+			<span class="mui-tab-label">个人中心</span>
+		</a>
+	</nav> -->
+
+
+
+ <script type="text/javascript">
+
+var url = window.location.href;
+var map = url.split("/");
+var str = map[map.length-1];
+if(str == 'inde2.html'){
+	str = 'inde2';
+	$('body').css('padding-top','0')
+}
+if(str == 'car_list.html'){
+	str = 'car_list';
+}
+if(str == 'vip.html'){
+	str = 'vip';
+}
+if(str == 'inde.html'){
+	str = 'inde';
+}
+
+$('#' + str).addClass('mui-active')
+
+
+ </script>
